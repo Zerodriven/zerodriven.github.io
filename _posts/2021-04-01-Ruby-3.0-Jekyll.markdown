@@ -1,11 +1,10 @@
 ---
 layout: post
-title:  "How to get Jekyll to work with Ruby 3.0"
 date:   2021-04-01 14:21:00 +0100
 categories: jekyll update
 ---
 
-# Jekyll and Ruby 3.0
+# How to get Jekyll to work with Ruby 3.0
 Follow the instuctions on the [Jekyll Install page](https://jekyllrb.com/docs/installation/windows/) then run to the below command in your shell to 
 
 ```Powershell
