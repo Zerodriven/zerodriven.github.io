@@ -1,7 +1,7 @@
 ---
 layout: post
 date:   2021-04-01 14:21:00 +0100
-categories: jekyll update
+categories: jekyll
 ---
 
 # How to get install Jekyll on Windows 10 with Ruby DevKit 3.0
