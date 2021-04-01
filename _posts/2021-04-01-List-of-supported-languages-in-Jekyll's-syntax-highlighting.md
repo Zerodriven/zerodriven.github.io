@@ -356,8 +356,6 @@ smalltalk
 
 smarty
 
- ?parent= the parent language (default
-
 sml
 
 solidity
@@ -396,8 +394,6 @@ turtle
 
 twig
 
- ?parent= the parent language (default
-
 typescript
 
 vala
@@ -407,8 +403,6 @@ vb
 vcl
 
 velocity
-
- ?parent= the parent language (default
 
 verilog
 
