@@ -5,10 +5,10 @@ categories: jekyll update
 ---
 
 # How to get Jekyll to work with Ruby 3.0
-Follow the instuctions on the [Jekyll Install page](https://jekyllrb.com/docs/installation/windows/) then run to the below command in your shell to 
+Follow the instuctions on the [Jekyll Install page](https://jekyllrb.com/docs/installation/windows/) then run to the below command in your shell to get
 
 ```Powershell
-get jekyll serve --watch 
+jekyll serve --watch 
 ```
 
 to work
