@@ -18,4 +18,10 @@ Level 7: HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
 Level 8: cvX2JJa4CFALtqS87jk27qwqGhBM9plV
 Level 9: UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
 Level 10: IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+Level 11: 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+Level 12: 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+Level 13: ssh bandit14@localhost -i sshkey.private
+Level 14: BfMYroe26WYalil77FoDi9qh59eK5xNr
+Level 15: cluFn7wTiGryunymYOu4RcffSxQluehd
+Level 16: private key in 16-17 post. Stored in /tmp/zd16/pk.private
 ```

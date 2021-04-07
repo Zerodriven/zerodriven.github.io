@@ -3,13 +3,6 @@ layout: post
 date:   2021-04-07 19:21:00 +0100
 categories: OverTheWire Bandit
 ---
-#  On the last episode of Bandit..
-
-```bash
-ssh bandit6@bandit.labs.overthewire.org -p 2220
-#Accept the fingerprint ('yes') and enter the password.
-```
-
 # Level goal
 ```bash
 The password for the next level is stored **somewhere on the server** and has all of the following properties:

@@ -3,13 +3,6 @@ layout: post
 date:   2021-04-07 15:21:00 +0100
 categories: OverTheWire Bandit
 ---
-#  On the last episode of Bandit..
-
-```bash
-bandit1@bandit:~$ ssh bandit2@localhost
-#Accept the fingerprint ('yes') and enter the password.
-```
-
 # Level goal
 ```bash
 ## Level Goal
