@@ -1,5 +1,4 @@
 #  On the last episode of Bandit..
-### Connecting to another username on the same server.
 
 ```bash
 bandit1@bandit:~$ ssh bandit2@localhost

@@ -1,8 +1,7 @@
 #  On the last episode of Bandit..
-### Connecting to another username on the same server.
 
 ```bash
-bandit1@bandit:~$ ssh bandit4@localhost
+bandit3@bandit:~$ ssh bandit4@localhost
 #Accept the fingerprint ('yes') and enter the password.
 ```
 
