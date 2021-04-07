@@ -8,14 +8,12 @@ categories: jekyll update
 
 1. Open up your console and run the following command:
 
-```powershell
+```shell
 rougify list
 ```
 2. The following will be output (as of the date of creating this blog - I've taken out optional syntax)
 
 ```list
-      
-
 abap
 
 actionscript

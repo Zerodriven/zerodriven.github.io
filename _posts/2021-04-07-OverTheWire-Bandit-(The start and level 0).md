@@ -1,0 +1,51 @@
+# Connecting to the bandit servers:
+
+## Run the following command in shell:
+
+```bash
+# SSH is a required install. 
+ssh bandit0@bandit.labs.overthewire.org -p 2220
+```
+
+## Level Goal
+
+```bash
+## Level Goal
+
+The password for the next level is stored in a file called **readme** located in the home directory.
+
+Use this password to log into bandit1 using SSH. Whenever you find a password for a level, use SSH (on port 2220) to log into that level and continue the game.
+
+## Commands you may need to solve this level
+
+ls, cd, cat, file, du, find
+```
+
+## Step 1: List out files in the home directory (Where you start when SSHing in)
+
+```bash
+#List the folder directory using the 'ls' command
+bandit0@bandit:~$ ls
+readme
+```
+
+## Step 2: Reading the content of the file
+```bash
+#less can be used here, but the site says use cat
+
+bandit0@bandit:~$ cat readme
+boJ9jbbUNNfktd78OOpsqOltutMc3MY1
+bandit0@bandit:~$
+```
+
+## The password for level 1
+boJ9jbbUNNfktd78OOpsqOltutMc3MY1
+
+### Connecting to another username on the same server.
+
+```bash
+bandit0@bandit:~$ ssh bandit1@localhost
+#Accept the fingerprint ('yes') and enter the password.
+```
+
+On the next episode of Bandit...
