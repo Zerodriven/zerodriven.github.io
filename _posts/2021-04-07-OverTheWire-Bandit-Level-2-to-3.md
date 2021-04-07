@@ -1,6 +1,5 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
 date:   2021-04-07 15:21:00 +0100
 categories: OverTheWire Bandit
 ---
