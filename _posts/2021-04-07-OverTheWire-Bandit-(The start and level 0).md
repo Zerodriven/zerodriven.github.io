@@ -21,7 +21,7 @@ Use this password to log into bandit1 using SSH. Whenever you find a password fo
 ls, cd, cat, file, du, find
 ```
 
-## Step 1: List out files in the home directory (Where you start when SSHing in)
+## List out files in the home directory (Where you start when SSHing in)
 
 ```bash
 #List the folder directory using the 'ls' command
@@ -29,7 +29,7 @@ bandit0@bandit:~$ ls
 readme
 ```
 
-## Step 2: Reading the content of the file
+## Reading the content of the file
 ```bash
 #less can be used here, but the site says use cat
 
