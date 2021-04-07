@@ -1,5 +1,7 @@
 During a level of boredom I've not felt in a whille I rediscovered https://overthewire.org/wargames/bandit/ - A website for beginner wargames in Linux, so you know I thought I'd give it a shot. Anything in this series will go through my way of thinking and the way I do things.. But with extra comments. Not pretty but does the job.
 
+Through each of these I use google to find syntax, I also use "man [command]" if I'm being extra curious.
+
 # Connecting to the bandit servers:
 
 ## Run the following command in shell:
