@@ -45,7 +45,7 @@ CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
 
 ## Connect to level 2.
 ```bash
-bandit2@bandit:~$ ssh bandit1@localhost
+bandit1@bandit:~$ ssh bandit2@localhost
 #Accept the fingerprint ('yes') and enter the password.
 ```
 
