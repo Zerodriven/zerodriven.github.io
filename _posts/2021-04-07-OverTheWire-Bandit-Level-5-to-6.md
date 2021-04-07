@@ -1,3 +1,9 @@
+--
+layout: post
+date:   2021-04-07 18:21:00 +0100
+categories: OverTheWire Bandit
+---
+
 #  On the last episode of Bandit..
 
 ```bash
