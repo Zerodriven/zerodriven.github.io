@@ -24,4 +24,8 @@ Level 13: ssh bandit14@localhost -i sshkey.private
 Level 14: BfMYroe26WYalil77FoDi9qh59eK5xNr
 Level 15: cluFn7wTiGryunymYOu4RcffSxQluehd
 Level 16: private key in 16-17 post. Stored in /tmp/zd16/pk.private
+Level 17: w0Yfolrc5bwjS4qw5mq1nnQi6mF03bii
+Level 18: IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+Level 19: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+Level 20: gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
 ```

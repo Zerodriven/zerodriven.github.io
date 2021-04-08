@@ -138,13 +138,13 @@ bandit16@bandit:/tmp/zd16$ ssh bandit17@localhost -i /tmp/zd16/pk.private
 
 VICTORY.
 
-## The password for level 15:
+## The password for level 17:
 
 cluFn7wTiGryunymYOu4RcffSxQluehd
 
 On the next episode of Bandit...
 
 ```bash
-ssl bandit17@localhost
+ssh bandit17@localhost
 cluFn7wTiGryunymYOu4RcffSxQluehd
 ```

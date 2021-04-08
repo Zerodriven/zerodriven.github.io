@@ -56,13 +56,13 @@ cluFn7wTiGryunymYOu4RcffSxQluehd
 closed
 ```
 
-## The password for level 15:
+## The password for level 16:
 
 cluFn7wTiGryunymYOu4RcffSxQluehd
 
 On the next episode of Bandit...
 
 ```bash
-ssl bandit16@localhost
+ssh bandit16@localhost
 cluFn7wTiGryunymYOu4RcffSxQluehd
 ```
