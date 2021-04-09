@@ -30,5 +30,6 @@ Level 19: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
 Level 20: gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
 Level 21: Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
 Level 22: jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
-Level 23: 
+Level 23: UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+Level 24: uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
 ```
