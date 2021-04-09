@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "2021-04-07-OverTheWire-Bandit-Level-24-to-25.md",
+            "file": "2021-04-07-OverTheWire-Bandit-Level-32-to-33-The-End.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2021-04-07-OverTheWire-Bandit-Level-24-to-25.md",
+                "file": "2021-04-07-OverTheWire-Bandit-Level-32-to-33-The-End.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "d80caefc77a43e43",
   "lastOpenFiles": [
-    "2021-04-07-OverTheWire-Bandit-Level-24-to-25.md",
-    "2021-04-07-OverTheWire-Bandit-Passwords.md",
-    "2021-04-07-OverTheWire-Bandit-Level-23-to-24.md",
-    "2021-04-07-OverTheWire-Bandit-Level-21-to-22.md",
-    "2021-04-07-OverTheWire-Bandit-Level-22-to-23.md",
-    "2021-04-07-OverTheWire-Bandit-Level-23-to-24 1.md",
+    "2021-04-07-OverTheWire-Bandit-Level-32-to-33-The-End.md",
+    "2021-04-07-OverTheWire-Bandit-Level-31-to-32.md",
+    "2021-04-07-OverTheWire-Bandit-Level-30-to-31.md",
+    "2021-04-07-OverTheWire-Bandit-Level-29-to-30.md",
+    "2021-04-07-OverTheWire-Bandit-Level-28-to-29.md",
     "2021-04-07-OverTheWire-Bandit-Template.md",
-    "2021-04-07-OverTheWire-Bandit-Level-14-to-15.md",
-    "2021-04-07-OverTheWire-Bandit-Level-13-to-14.md",
-    "2021-04-07-OverTheWire-Bandit-Level-12-to-13.md"
+    "2021-04-07-OverTheWire-Bandit-Passwords.md",
+    "2021-04-07-OverTheWire-Bandit-Level-32-33.md",
+    "2021-04-07-OverTheWire-Bandit-Level-31-to-32 1.md",
+    "2021-04-07-OverTheWire-Bandit-Level-31-to-32 1 1.md"
   ]
 }
