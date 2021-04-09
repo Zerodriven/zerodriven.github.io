@@ -17,6 +17,7 @@ gem "github-pages", "~> 213", group: :jekyll_plugins
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem 'jekyll-seo-tag'
+  gem 'jekyll-paginate'
 
 end
 
