@@ -1,4 +1,4 @@
-ss---
+---
 layout: post
 date:   2021-04-09 10:21:00 +0100
 categories: OverTheWire Bandit
