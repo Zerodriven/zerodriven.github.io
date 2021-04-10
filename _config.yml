@@ -41,6 +41,10 @@ defaults:
       path: "images"
     values:
       image: true
+      
+assets:
+    sources:
+        - _posts\OverTheWire\Natas
 
 # Exclude from processing.
 # The following items will not be processed, by default.
