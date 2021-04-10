@@ -33,8 +33,9 @@ URL:      http://natas0.natas.labs.overthewire.org
 ```
 
 ## First step, look at the source
-dd
-![](Pasted%20image%2020210410200455.png)
+
+![](/assets/Pastedimage20210410134227.png)
+
 VICTORY.
 
 
