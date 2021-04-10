@@ -34,7 +34,7 @@ URL:      http://natas0.natas.labs.overthewire.org
 
 ## First step, look at the source
 
-!["rer"](Pastedimage20210410134054.png)
+![[Pasted image 20210410200256.png]]
 
 VICTORY.
 

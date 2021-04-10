@@ -1,0 +1,94 @@
+{
+  "main": {
+    "id": "c1f3185193e4da81",
+    "type": "split",
+    "children": [
+      {
+        "id": "f56ce38147e0bb9b",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "_posts/OverTheWire/Natas/2021-04-07-OverTheWire-Natas-Level-0-to-7.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "97acbeebb14db599",
+    "type": "split",
+    "children": [
+      {
+        "id": "b0bdf3854bfc3c2f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "94698b635cd9930f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "1dc8a104a7a81d83",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "fea241768a7915c8",
+    "type": "split",
+    "children": [
+      {
+        "id": "5b43cd7c8a3f546a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "27be06ed4fd0a0a6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "_posts/OverTheWire/Natas/2021-04-07-OverTheWire-Natas-Level-0-to-7.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "f56ce38147e0bb9b",
+  "lastOpenFiles": [
+    "_posts/OverTheWire/Natas/2021-04-07-OverTheWire-Natas-Level-0-to-7.md",
+    "_posts/OverTheWire/Natas/Pastedimage20210410134054.png"
+  ]
+}
