@@ -1,50 +1,32 @@
 {
   "main": {
-    "id": "7d11b7ba7e0f15e5",
+    "id": "c95fad91c525667a",
     "type": "split",
     "children": [
       {
-        "id": "d80caefc77a43e43",
-        "type": "leaf",
-        "state": {
-          "type": "empty",
-          "state": {}
-        },
-        "group": "adf42d0852a729aa"
-      },
-      {
-        "id": "936be5a84295f971",
+        "id": "0b6202bdc7c9093c",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "OverTheWire/Jekyllrb/2021-04-01-List-of-supported-languages-in-Jekyll's-syntax-highlighting.md",
+            "file": "OverTheWire/Natas/2021-04-07-OverTheWire-Natas-Level-0-to-7.md",
             "mode": "source"
           }
         }
-      },
-      {
-        "id": "4473c384e38061f7",
-        "type": "leaf",
-        "state": {
-          "type": "empty",
-          "state": {}
-        },
-        "group": "adf42d0852a729aa"
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "cd1833e6c0015030",
+    "id": "2c1139b8f84d7baf",
     "type": "split",
     "children": [
       {
-        "id": "97b74bde424b714c",
+        "id": "ad7e5c9742170bf5",
         "type": "tabs",
         "children": [
           {
-            "id": "1d0affbbc9b5d401",
+            "id": "5d1b2ff5af538115",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -52,7 +34,7 @@
             }
           },
           {
-            "id": "ebacfcb12ce01eeb",
+            "id": "4f43af2e9980023d",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -70,23 +52,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 632
+    "width": 530
   },
   "right": {
-    "id": "3ad60dffeb5395cc",
+    "id": "831e1efe699db06e",
     "type": "split",
     "children": [
       {
-        "id": "1359f8271141745c",
+        "id": "e514e0ac58606df5",
         "type": "tabs",
         "children": [
           {
-            "id": "a42b183ad815f5a8",
+            "id": "486f85ada167ba5a",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "OverTheWire/Jekyllrb/2021-04-01-List-of-supported-languages-in-Jekyll's-syntax-highlighting.md",
+                "file": "OverTheWire/Natas/2021-04-07-OverTheWire-Natas-Level-0-to-7.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,17 +86,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "936be5a84295f971",
+  "active": "0b6202bdc7c9093c",
   "lastOpenFiles": [
-    "2021-04-01-List-of-supported-languages-in-Jekyll's-syntax-highlighting.md",
-    "2021-04-07-OverTheWire-Bandit-Level-0-33-My-Opinions.md",
-    "2021-04-07-OverTheWire-Bandit-Level-32-to-33-(The End) 1.md",
-    "2021-04-07-OverTheWire-Bandit-Level-32-to-33-(The End).md",
-    "2021-04-07-OverTheWire-Bandit-Level-26-to-28-CHEATED.md",
-    "2021-04-07-OverTheWire-Bandit-Level-32-to-33-The-End.md",
-    "2021-04-07-OverTheWire-Bandit-Level-24-to-25.md",
-    "2021-04-07-OverTheWire-Bandit-Level-23-to-24.md",
-    "2021-04-07-OverTheWire-Bandit-Level-31-to-32.md",
-    "2021-04-07-OverTheWire-Bandit-Level-30-to-31.md"
+    "OverTheWire/Natas/2021-04-07-OverTheWire-Natas-Level-0-to-7.md",
+    "OverTheWire/Natas/2021-04-07-OverTheWire-Natas-Level-8-to-x.md",
+    "OverTheWire/Natas/2021-04-10-OverTheWire-Natas-Passwords.md",
+    "OverTheWire/Natas/images/Pastedimage20210410134054.png",
+    "Pasted image 20210410175119.png.md",
+    "Images/Pastedimage20210410174326.png",
+    "Images/Pasted image 20210410174326.png",
+    "OverTheWire/Jekyllrb/2021-04-01-List-of-supported-languages-in-Jekyll's-syntax-highlighting.md",
+    "OverTheWire/Natas/images/Pasted image 20210410134459.png",
+    "OverTheWire/Jekyllrb/2021-04-01-Install-Jekyll-on-Windows-10-with-Ruby-DevKit-3.0.md"
   ]
 }
