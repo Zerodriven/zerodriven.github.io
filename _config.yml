@@ -36,12 +36,6 @@ plugins:
 paginate: 10
 paginate_path: "/page:num/"
 
-defaults:
-  - scope:
-      path: "images"
-    values:
-      image: true
-      
 assets:
     sources:
         - _posts\OverTheWire\Natas
