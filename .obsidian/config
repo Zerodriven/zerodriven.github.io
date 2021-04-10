@@ -1,1 +1,1 @@
-{"pluginEnabledStatus":{"file-explorer":true,"global-search":true,"switcher":true,"graph":true,"backlink":true,"command-palette":true,"markdown-importer":true,"word-count":true,"open-with-default-app":true,"file-recovery":true},"attachmentFolderPath":"assets"}
+{"pluginEnabledStatus":{"file-explorer":true,"global-search":true,"switcher":true,"graph":true,"backlink":true,"command-palette":true,"markdown-importer":true,"word-count":true,"open-with-default-app":true,"file-recovery":true},"attachmentFolderPath":"assets","useMarkdownLinks":true,"alwaysUpdateLinks":true}
