@@ -34,6 +34,8 @@ URL:      http://natas0.natas.labs.overthewire.org
 
 ## First step, look at the source
 
+![](../../Pastedimage20210410134054.png)
+
 VICTORY.
 
 
