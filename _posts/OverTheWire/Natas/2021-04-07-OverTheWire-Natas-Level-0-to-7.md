@@ -23,7 +23,7 @@ Password: natas0
 URL:      http://natas0.natas.labs.overthewire.org
 ```
 
-## I'll be using FireFox and probably Burpsuite for these.
+### 'll be using FireFox and probably Burpsuite for these.
 
 # Level 0
 ```bash
@@ -32,7 +32,7 @@ Password: natas0
 URL:      http://natas0.natas.labs.overthewire.org
 ```
 
-## First step, look at the source
+### First step, look at the source
 
 ![](/assets/1.png)
 ![](/assets/2.png)
@@ -51,7 +51,7 @@ URL:      http://natas1.natas.labs.overthewire.org
 ```
 
 
-## As last time, developer tools
+### As last time, developer tools
 ![](/assets/3.png)
 
 VICTORY.
@@ -66,13 +66,13 @@ Username: natas2
 URL:      http://natas2.natas.labs.overthewire.org
 ```
 
-## Dev tools again.
+### Dev tools again.
 ![](/assets/4.png)
 
-## Files? Those sound good.
+### Files? Those sound good.
 ![](/assets/5.png)
 
-## Users sound even better.
+### Users sound even better.
 ![](/assets/6.png)
 
 VICTORY
@@ -87,17 +87,17 @@ Username: natas3
 URL:      http://natas3.natas.labs.overthewire.org
 ```
 
-## Ah robots, my old enemy.
+### Ah robots, my old enemy.
 ![](/assets/7.png)
 
-## Secrets? WHAT SECRETS
+### Secrets? WHAT SECRETS
 ![](/assets/8.png)
 
-## EVEN MORE SECRETS
+### EVEN MORE SECRETS
 
 ![](/assets/9.png)
 
-## Can I haz sekret now plz?
+### Can I haz sekret now plz?
 ![](/assets/10.png)
 
 VICTORY
@@ -113,11 +113,11 @@ URL:      http://natas4.natas.labs.overthewire.org
 
 ![](/assets/11.png)
 
-## Lets send that to the repeater...
+### Lets send that to the repeater...
 
 ![](/assets/12.png)
 
-## Lets add some referers..
+### Lets add some referers..
 
 ![](/assets/13.png)
 
@@ -141,7 +141,7 @@ URL:      http://natas5.natas.labs.overthewire.org
 
 ![](/assets/16.png)
 
-## What's this? Logged in boolean? Lets change and send.
+### What's this? Logged in boolean? Lets change and send.
 
 ![](/assets/17.png)
 
@@ -158,15 +158,15 @@ URL:      http://natas6.natas.labs.overthewire.org
 
 ![](/assets/18.png)
 
-## More secrets?!
+### More secrets?!
 
 ![](/assets/19.png)
 
-## Lets take a look 
+### Lets take a look 
 
 ![](/assets/20.png)
 
-## Cool, copy, paste, and submit#
+### Cool, copy, paste, and submit#
 
 ![](/assets/21.png)
 
@@ -185,15 +185,15 @@ URL:      http://natas7.natas.labs.overthewire.org
 
 ![](/assets/22.png)
 
-## Well, that's useful. Let's look at the links. Ooooh, url parameters.
+### Well, that's useful. Let's look at the links. Ooooh, url parameters.
 
 ![](/assets/23.png)
 ![](/assets/24.png)
 
-## Quick look at the source, just to make sure nothing odd is happening
+### Quick look at the source, just to make sure nothing odd is happening
 ![](/assets/25.png)
 
-## Luckily, I remember how to do this.. Sooo file traversal is a thing. Just adding a lot of dot dot slahes to make sure I hit root.
+### Luckily, I remember how to do this.. Sooo file traversal is a thing. Just adding a lot of dot dot slahes to make sure I hit root.
 
 ![](/assets/26.png)
 
