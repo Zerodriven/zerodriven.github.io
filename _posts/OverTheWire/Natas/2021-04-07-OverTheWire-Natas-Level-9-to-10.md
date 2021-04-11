@@ -4,7 +4,7 @@ date:   2021-04-11 10:40:00 +0100
 categories: OverTheWire Natas
 ---
 
-# Level 9
+# Level 10
 
 ```bash
 Username: natas10
