@@ -41,7 +41,7 @@ echo decodeSecret($encodedSecret);
 ?\>
 ```
  
- ### A WAMP install and PHP script later..
+### A WAMP install and PHP script later..
 
 ![](/assets/27.png)
 ![](/assets/30.png)

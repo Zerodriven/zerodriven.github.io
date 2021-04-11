@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "_posts/OverTheWire/Natas/2021-04-07-OverTheWire-Natas-Level-7-to-8.md",
+            "file": "_posts/OverTheWire/Natas/2021-04-07-OverTheWire-Natas-Level-8-to-9.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/OverTheWire/Natas/2021-04-07-OverTheWire-Natas-Level-7-to-8.md",
+                "file": "_posts/OverTheWire/Natas/2021-04-07-OverTheWire-Natas-Level-8-to-9.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "6415e05fe8b70e65",
   "lastOpenFiles": [
-    "_posts/OverTheWire/Natas/2021-04-07-OverTheWire-Natas-Level-8-to-x.md",
+    "_posts/OverTheWire/Natas/2021-04-07-OverTheWire-Natas-Level-8-to-9.md",
+    "_posts/OverTheWire/Natas/2021-04-07-OverTheWire-Natas-Level-7-to-8.md",
     "_posts/OverTheWire/Natas/2021-04-07-OverTheWire-Natas-Level-0-to-7.md",
-    "assets/28.png",
     "_posts/OverTheWire/Natas/2021-04-10-OverTheWire-Natas-Passwords.md",
+    "_posts/OverTheWire/Natas/2021-04-07-OverTheWire-Natas-Level-7-to-8 1.md",
+    "_posts/OverTheWire/Natas/2021-04-07-OverTheWire-Natas-Level-8-to-x.md",
+    "assets/28.png",
     "assets/20.png",
     "assets21.png.md",
-    "assets/Pasted image 20210410134054.png",
-    "assets/Pasted image 20210410141649.png",
-    "assets/Pastedimage20210410134227.png",
-    "_posts/OverTheWire/Natas/Pastedimage20210410134054.png"
+    "assets/Pasted image 20210410134054.png"
   ]
 }
