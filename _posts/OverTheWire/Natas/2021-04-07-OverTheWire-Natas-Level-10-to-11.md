@@ -9,7 +9,7 @@ categories: OverTheWire Natas
 ```bash
 Username: natas11
 Password: nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu
-URL:      http://natas10.natas.labs.overthewire.org
+URL:      http://natas11.natas.labs.overthewire.org
 ```
 
 ### As normal, lets look at various sources

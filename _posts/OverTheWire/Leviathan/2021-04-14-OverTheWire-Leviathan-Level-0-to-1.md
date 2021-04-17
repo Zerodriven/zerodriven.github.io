@@ -5,7 +5,7 @@ categories: OverTheWire Leviathan
 ---
 
 
-# Natas - What is it?
+# Leviathan - What is it?
 ```
 ### Dare you face the lord of the oceans?
 

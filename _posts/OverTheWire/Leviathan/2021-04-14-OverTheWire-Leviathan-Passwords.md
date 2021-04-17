@@ -6,5 +6,6 @@ categories: OverTheWire Leviathan
 
 ```bash
 Level 1: rioGegei8m
+Level 2: ougahZi8Ta
 
 ```
