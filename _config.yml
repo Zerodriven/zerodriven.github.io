@@ -32,10 +32,16 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-paginate
-  - jekyll-sitemap
+  - jekyll-sitemap  
   
 paginate: 10
 paginate_path: "/page:num/"
+
+# Google Analytics
+google_analytics: G-0BWVMXMF1H
+
+markdown: kramdown
+highlighter: rouge
 
 # Exclude from processing.
 # The following items will not be processed, by default.
