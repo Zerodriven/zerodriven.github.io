@@ -116,6 +116,8 @@ Ahdiemoo1j
 
 ## Can't explain it in human words. But I get it.
 
+Update: 18/4/2021 -- Go to Level 5-6 where I understand how the ln syntax works..
+
 VICTORY.
 
 ```

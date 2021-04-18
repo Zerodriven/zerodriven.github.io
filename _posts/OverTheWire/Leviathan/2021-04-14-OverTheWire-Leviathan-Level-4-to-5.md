@@ -5,7 +5,7 @@ categories: OverTheWire Leviathan
 ---
 
 
-# Leviathan 3
+# Leviathan 4
 ```
 
 Username: leviathan4
