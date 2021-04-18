@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-04-10T18:02:43+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><entry><title type="html">Overthewire Natas Level 8 To X</title><link href="http://localhost:4000/overthewire/natas/2021/04/10/OverTheWire-Natas-Level-8-to-x.html" rel="alternate" type="text/html" title="Overthewire Natas Level 8 To X" /><published>2021-04-10T10:20:00+01:00</published><updated>2021-04-10T10:20:00+01:00</updated><id>http://localhost:4000/overthewire/natas/2021/04/10/OverTheWire-Natas-Level-8-to-x</id><content type="html" xml:base="http://localhost:4000/overthewire/natas/2021/04/10/OverTheWire-Natas-Level-8-to-x.html">&lt;h1 id=&quot;level-8&quot;&gt;Level 8&lt;/h1&gt;
+
+&lt;h3 id=&quot;a-wamp-installation-later&quot;&gt;A WAMP installation later..&lt;/h3&gt;
+
+&lt;h2 id=&quot;mmmmkay-looks-like-its-time-to-revert-some-codes&quot;&gt;Mmmmkay, looks like it’s time to revert some codes!&lt;/h2&gt;
+
+&lt;p&gt;Coming soon! Need to sort out a place to write some PHP
+&lt;img src=&quot;images/Pasted%20image%2020210410134227.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Natas" /><summary type="html">Level 8</summary></entry><entry><title type="html">Overthewire Natas Level 0 To 7</title><link href="http://localhost:4000/overthewire/natas/2021/04/10/OverTheWire-Natas-Level-0-to-7.html" rel="alternate" type="text/html" title="Overthewire Natas Level 0 To 7" /><published>2021-04-10T10:10:00+01:00</published><updated>2021-04-10T10:10:00+01:00</updated><id>http://localhost:4000/overthewire/natas/2021/04/10/OverTheWire-Natas-Level-0-to-7</id><content type="html" xml:base="http://localhost:4000/overthewire/natas/2021/04/10/OverTheWire-Natas-Level-0-to-7.html">&lt;h1 id=&quot;natas---what-is-it&quot;&gt;Natas - What is it?&lt;/h1&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Natas
+
+Natas teaches the basics of serverside web-security.
+
+Each level of natas consists of its own website located at **http://natasX.natas.labs.overthewire.org**, where X is the level number. There is **no SSH login**. To access a level, enter the username for that level (e.g. natas0 for level 0) and its password.
+
+Each level has access to the password of the next level. Your job is to somehow obtain that next password and level up. **All passwords are also stored in /etc/natas\_webpass/**. E.g. the password for natas5 is stored in the file /etc/natas\_webpass/natas5 and only readable by natas4 and natas5.
+
+Start here:
+
+
+Username: natas0
+Password: natas0
+URL:      http://natas0.natas.labs.overthewire.org
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;ill-be-using-firefox-and-probably-burpsuite-for-these&quot;&gt;I’ll be using FireFox and probably Burpsuite for these.&lt;/h2&gt;
+
+&lt;h1 id=&quot;level-0&quot;&gt;Level 0&lt;/h1&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Username: natas0
+Password: natas0
+URL:      http://natas0.natas.labs.overthewire.org
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;first-step-look-at-the-source&quot;&gt;First step, look at the source&lt;/h2&gt;
+
+&lt;p&gt;VICTORY.&lt;/p&gt;
+
+&lt;p&gt;gtVrDuiDfck831PqWsLEZy5gyDz1clto&lt;/p&gt;
+
+&lt;h1 id=&quot;level-1&quot;&gt;Level 1&lt;/h1&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Username: natas1
+URL:      http://natas1.natas.labs.overthewire.org
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;as-last-time-developer-tools&quot;&gt;As last time, developer tools&lt;/h2&gt;
+
+&lt;p&gt;VICTORY.&lt;/p&gt;
+
+&lt;p&gt;ZluruAthQk7Q2MqmDeTiUij2ZvWy2mBi&lt;/p&gt;
+
+&lt;h1 id=&quot;level-2&quot;&gt;Level 2&lt;/h1&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Username: natas2
+URL:      http://natas2.natas.labs.overthewire.org
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;dev-tools-again&quot;&gt;Dev tools again.&lt;/h2&gt;
+
+&lt;h2 id=&quot;files-those-sound-good&quot;&gt;Files? Those sound good.&lt;/h2&gt;
+
+&lt;h2 id=&quot;users-sound-even-better&quot;&gt;Users sound even better.&lt;/h2&gt;
+
+&lt;p&gt;VICTORY&lt;/p&gt;
+
+&lt;p&gt;sJIJNW6ucpu6HPZ1ZAchaDtwd7oGrD14&lt;/p&gt;
+
+&lt;h1 id=&quot;level-3&quot;&gt;Level 3&lt;/h1&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Username: natas3
+URL:      http://natas3.natas.labs.overthewire.org
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;you-can-assume-ive-looked-at-the-webpage-straight-to-dev-tools&quot;&gt;You can assume I’ve looked at the webpage.. Straight to dev tools&lt;/h2&gt;
+
+&lt;h2 id=&quot;ah-robots-my-old-wordpress-enemy&quot;&gt;Ah robots, my old WordPress enemy.&lt;/h2&gt;
+
+&lt;p&gt;VICTORY&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;level-4&quot;&gt;Level 4&lt;/h1&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Username: natas4
+URL:      http://natas4.natas.labs.overthewire.org
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;lets-send-that-to-the-repeater-and-look-at-what-we-send&quot;&gt;Lets send that to the repeater and look at what we send&lt;/h2&gt;
+
+&lt;h2 id=&quot;lets-add-some-referers&quot;&gt;Lets add some referers..&lt;/h2&gt;
+
+&lt;p&gt;VICTORY&lt;/p&gt;
+
+&lt;p&gt;iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq&lt;/p&gt;
+
+&lt;h1 id=&quot;level-5&quot;&gt;Level 5&lt;/h1&gt;
+
+&lt;h2 id=&quot;not-logged-in-well-the-answer-is-yummy-sent-the-request-to-burps-repeater&quot;&gt;Not logged in? Well, the answer is yummy. Sent the request to Burp’s repeater..&lt;/h2&gt;
+
+&lt;h2 id=&quot;whats-this-logged-in-boolean-lets-change-and-send&quot;&gt;What’s this? Logged in boolean? Lets change and send.&lt;/h2&gt;
+
+&lt;p&gt;VICTORY&lt;/p&gt;
+
+&lt;p&gt;The password for natas6 is aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1&lt;/p&gt;
+
+&lt;h1 id=&quot;level-6&quot;&gt;Level 6&lt;/h1&gt;
+
+&lt;p&gt;VICTORY&lt;/p&gt;
+
+&lt;p&gt;Access granted. The password for natas7 is 7z3hEENjQtflzgnT29q7wAvMNfZdh0i9&lt;/p&gt;
+
+&lt;h1 id=&quot;level-7&quot;&gt;Level 7&lt;/h1&gt;
+
+&lt;h2 id=&quot;traversal-for-the-win-i-remember-things&quot;&gt;Traversal for the win! I remember things!&lt;/h2&gt;
+
+&lt;p&gt;VICTORY&lt;/p&gt;
+
+&lt;p&gt;DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe&lt;/p&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Natas" /><summary type="html">Natas - What is it? ``` Natas</summary></entry><entry><title type="html">Overthewire Natas Passwords</title><link href="http://localhost:4000/overthewire/natas/2021/04/10/OverTheWire-Natas-Passwords.html" rel="alternate" type="text/html" title="Overthewire Natas Passwords" /><published>2021-04-10T10:00:00+01:00</published><updated>2021-04-10T10:00:00+01:00</updated><id>http://localhost:4000/overthewire/natas/2021/04/10/OverTheWire-Natas-Passwords</id><content type="html" xml:base="http://localhost:4000/overthewire/natas/2021/04/10/OverTheWire-Natas-Passwords.html">&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Level 1: gtVrDuiDfck831PqWsLEZy5gyDz1clto
+Level 2: ZluruAthQk7Q2MqmDeTiUij2ZvWy2mBi 
+Level 3: sJIJNW6ucpu6HPZ1ZAchaDtwd7oGrD14
+Level 4: Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ
+Level 5: iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq
+Level 6: aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1
+Level 7: 7z3hEENjQtflzgnT29q7wAvMNfZdh0i9
+Level 8: DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Natas" /><summary type="html">Level 1: gtVrDuiDfck831PqWsLEZy5gyDz1clto Level 2: ZluruAthQk7Q2MqmDeTiUij2ZvWy2mBi Level 3: sJIJNW6ucpu6HPZ1ZAchaDtwd7oGrD14 Level 4: Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ Level 5: iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq Level 6: aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1 Level 7: 7z3hEENjQtflzgnT29q7wAvMNfZdh0i9 Level 8: DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe</summary></entry><entry><title type="html">Overthewire Bandit Level 32 To 33 (the end)</title><link href="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-32-to-33-(The-End).html" rel="alternate" type="text/html" title="Overthewire Bandit Level 32 To 33 (the end)" /><published>2021-04-09T11:26:00+01:00</published><updated>2021-04-09T11:26:00+01:00</updated><id>http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-32-to-33-(The%20End)</id><content type="html" xml:base="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-32-to-33-(The-End).html">&lt;h1 id=&quot;level-goal&quot;&gt;Level goal&lt;/h1&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;After all this &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;git&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; stuff its &lt;span class=&quot;nb&quot;&gt;time &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;another escape. Good luck!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;yeah-no-you-can-figure-out-how-to-do-this-one&quot;&gt;Yeah no, you can figure out how to do this one..&lt;/h2&gt;
+
+&lt;p&gt;VICTORY&lt;/p&gt;
+
+&lt;p&gt;Password: c9c3199ddf4121b10cf581a98d51caee&lt;/p&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Bandit" /><summary type="html">Level goal After all this `git` stuff its time for another escape. Good luck!</summary></entry><entry><title type="html">Overthewire Bandit Level 31 To 32</title><link href="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-31-to-32.html" rel="alternate" type="text/html" title="Overthewire Bandit Level 31 To 32" /><published>2021-04-09T11:25:00+01:00</published><updated>2021-04-09T11:25:00+01:00</updated><id>http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-31-to-32</id><content type="html" xml:base="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-31-to-32.html">&lt;h1 id=&quot;level-goal&quot;&gt;Level goal&lt;/h1&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;There is a git repository at &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;ssh://bandit31-git@localhost/home/bandit31-git/repo&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; The password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the user &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;bandit31-git&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; is the same as &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the user &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;bandit31&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+
+Clone the repository and find the password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the next level.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;another-another-git-one-same-process-temp-dir-clone-inspect&quot;&gt;Another… Another git one.. Same process… temp dir, clone, inspect.&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit31@bandit:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; /tmp/zd31
+bandit31@bandit:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /tmp/zd31
+bandit31@bandit:/tmp/zd31&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone ssh://bandit31-git@localhost/home/bandit31-git/repo
+Cloning into &lt;span class=&quot;s1&quot;&gt;&apos;repo&apos;&lt;/span&gt;...
+Could not create directory &lt;span class=&quot;s1&quot;&gt;&apos;/home/bandit31/.ssh&apos;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+The authenticity of host &lt;span class=&quot;s1&quot;&gt;&apos;localhost (127.0.0.1)&apos;&lt;/span&gt; can&lt;span class=&quot;s1&quot;&gt;&apos;t be established.
+ECDSA key fingerprint is SHA256:98UL0ZWr85496EtCRkKlo20X3OPnyPSB5tB5RPbhczc.
+Are you sure you want to continue connecting (yes/no)? yes
+Failed to add the host to the list of known hosts (/home/bandit31/.ssh/known_hosts).
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+
+bandit31-git@localhost&apos;&lt;/span&gt;s password:
+remote: Counting objects: 4, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+remote: Compressing objects: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3/3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+remote: Total 4 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;delta 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, reused 0 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;delta 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+Receiving objects: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;4/4&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+bandit31@bandit:/tmp/zd31&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
+&lt;/span&gt;repo
+bandit31@bandit:/tmp/zd31&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;repo/
+bandit31@bandit:/tmp/zd31/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
+&lt;/span&gt;README.md
+bandit31@bandit:/tmp/zd31/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;README.md
+This &lt;span class=&quot;nb&quot;&gt;time &lt;/span&gt;your task is to push a file to the remote repository.
+
+Details:
+    File name: key.txt
+    Content: &lt;span class=&quot;s1&quot;&gt;&apos;May I come in?&apos;&lt;/span&gt;
+    Branch: master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;so-i-pushed-the-txt-file-and-guess-what-nothing-happened-i-wonder&quot;&gt;So.. I pushed the .txt file and guess what? Nothing happened. I wonder..&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit31@bandit:/tmp/zd31/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;  ..  .git  .gitignore  key.txt  README.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;sneaky-removed-the-txt-from-gitignore&quot;&gt;Sneaky. Removed the txt from gitignore.&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit31@bandit:/tmp/zd31/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;  ..  .git  .gitignore  key.txt  README.md
+bandit31@bandit:/tmp/zd31/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+bandit31@bandit:/tmp/zd31/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Sneaky&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;master b792eac] Sneaky
+ 2 files changed, 2 insertions&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, 1 deletion&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;-&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+ create mode 100644 key.txt
+bandit31@bandit:/tmp/zd31/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push
+Could not create directory &lt;span class=&quot;s1&quot;&gt;&apos;/home/bandit31/.ssh&apos;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+The authenticity of host &lt;span class=&quot;s1&quot;&gt;&apos;localhost (127.0.0.1)&apos;&lt;/span&gt; can&lt;span class=&quot;s1&quot;&gt;&apos;t be established.
+ECDSA key fingerprint is SHA256:98UL0ZWr85496EtCRkKlo20X3OPnyPSB5tB5RPbhczc.
+Are you sure you want to continue connecting (yes/no)? yes
+Failed to add the host to the list of known hosts (/home/bandit31/.ssh/known_hosts).
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+
+bandit31-git@localhost&apos;&lt;/span&gt;s password:
+Counting objects: 4, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+Delta compression using up to 2 threads.
+Compressing objects: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2/2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+Writing objects: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;4/4&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, 330 bytes | 0 bytes/s, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+Total 4 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;delta 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, reused 0 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;delta 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+remote: &lt;span class=&quot;c&quot;&gt;### Attempting to validate files... ####&lt;/span&gt;
+remote:
+remote: .oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.
+remote:
+remote: Well &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; Here is the password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the next level:
+remote: 56a9bf19c63d650ce78e6ec0354ee45e
+remote:
+remote: .oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.
+remote:
+To ssh://localhost/home/bandit31-git/repo
+ &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;remote rejected] master -&amp;gt; master &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;pre-receive hook declined&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+error: failed to push some refs to &lt;span class=&quot;s1&quot;&gt;&apos;ssh://bandit31-git@localhost/home/bandit31-git/repo&apos;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;VICTORY and hey, didn’t even have to google a thing on this one. Heh.&lt;/p&gt;
+
+&lt;p&gt;Password is: 56a9bf19c63d650ce78e6ec0354ee45e&lt;/p&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Bandit" /><summary type="html">Level goal ```bash There is a git repository at ssh://bandit31-git@localhost/home/bandit31-git/repo. The password for the user bandit31-git is the same as for the user bandit31.</summary></entry><entry><title type="html">Overthewire Bandit Level 30 To 31</title><link href="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-30-to-31.html" rel="alternate" type="text/html" title="Overthewire Bandit Level 30 To 31" /><published>2021-04-09T11:24:00+01:00</published><updated>2021-04-09T11:24:00+01:00</updated><id>http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-30-to-31</id><content type="html" xml:base="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-30-to-31.html">&lt;h1 id=&quot;level-goal&quot;&gt;Level goal&lt;/h1&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;There is a git repository at &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;ssh://bandit30-git@localhost/home/bandit30-git/repo&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; The password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the user &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;bandit30-git&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; is the same as &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the user &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;bandit30&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+
+Clone the repository and find the password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the next level.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;another-git-one-same-process-temp-dir-clone-inspect&quot;&gt;Another git one.. Same process… temp dir, clone, inspect.&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit30@bandit:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; /tmp/zd30
+bandit30@bandit:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /tmp/zd30
+bandit30@bandit:/tmp/zd30&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone ssh://bandit30-git@localhost/home/bandit30-git/repo
+Cloning into &lt;span class=&quot;s1&quot;&gt;&apos;repo&apos;&lt;/span&gt;...
+Could not create directory &lt;span class=&quot;s1&quot;&gt;&apos;/home/bandit30/.ssh&apos;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+The authenticity of host &lt;span class=&quot;s1&quot;&gt;&apos;localhost (127.0.0.1)&apos;&lt;/span&gt; can&lt;span class=&quot;s1&quot;&gt;&apos;t be established.
+ECDSA key fingerprint is SHA256:98UL0ZWr85496EtCRkKlo20X3OPnyPSB5tB5RPbhczc.
+Are you sure you want to continue connecting (yes/no)? yes
+Failed to add the host to the list of known hosts (/home/bandit30/.ssh/known_hosts).
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+
+bandit30-git@localhost&apos;&lt;/span&gt;s password:
+remote: Counting objects: 4, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+Receiving objects: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;4/4&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, 297 bytes | 0 bytes/s, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+remote: Total 4 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;delta 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, reused 0 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;delta 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+bandit30@bandit:/tmp/zd30&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
+&lt;/span&gt;repo
+bandit30@bandit:/tmp/zd30&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;repo/
+bandit30@bandit:/tmp/zd30/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
+&lt;/span&gt;README.md
+bandit30@bandit:/tmp/zd30/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;README.md
+just an epmty file... muahaha
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;awh-thats-mean-will-look-at-branches-history-etc-now&quot;&gt;Awh, that’s mean. Will look at branches, history etc now.&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit30@bandit:/tmp/zd30/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git branch &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt;
+  origin/HEAD -&amp;gt; origin/master
+  origin/master
+bandit30@bandit:/tmp/zd30/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git log &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;
+commit 3aefa229469b7ba1cc08203e5d8fa299354c496b
+Author: Ben Dover &amp;lt;noone@overthewire.org&amp;gt;
+Date:   Thu May 7 20:14:54 2020 +0200
+
+    initial commit of README.md
+
+diff &lt;span class=&quot;nt&quot;&gt;--git&lt;/span&gt; a/README.md b/README.md
+new file mode 100644
+index 0000000..029ba42
+&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; /dev/null
++++ b/README.md
+@@ &lt;span class=&quot;nt&quot;&gt;-0&lt;/span&gt;,0 +1 @@
++just an epmty file... muahaha
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;the-branches-were-no-use-what-else-can-we-try-tags&quot;&gt;The branches were no use.. What else can we try. Tags?&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit30@bandit:/tmp/zd30/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git tag
+secret
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;okay-whats-inside-secret&quot;&gt;Okay, what’s inside secret?&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit30@bandit:/tmp/zd30/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git show secret
+47e603bb428404d265f59c42920d81e5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;VICTORY&lt;/p&gt;
+
+&lt;p&gt;Password is: 47e603bb428404d265f59c42920d81e5&lt;/p&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Bandit" /><summary type="html">Level goal ```bash There is a git repository at ssh://bandit30-git@localhost/home/bandit30-git/repo. The password for the user bandit30-git is the same as for the user bandit30.</summary></entry><entry><title type="html">Overthewire Bandit Level 29 To 30</title><link href="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-29-to-30.html" rel="alternate" type="text/html" title="Overthewire Bandit Level 29 To 30" /><published>2021-04-09T11:23:00+01:00</published><updated>2021-04-09T11:23:00+01:00</updated><id>http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-29-to-30</id><content type="html" xml:base="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-29-to-30.html">&lt;h1 id=&quot;level-goal&quot;&gt;Level goal&lt;/h1&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;There is a git repository at &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;ssh://bandit29-git@localhost/home/bandit29-git/repo&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; The password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the user &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;bandit29-git&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; is the same as &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the user &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;bandit29&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+
+Clone the repository and find the password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the next level.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;hey-the-last-one-said-to-do-this-too---firstly-lets-pull-the-repo-into-a-tmp-dir&quot;&gt;Hey, the last one said to do this too - Firstly, lets pull the repo into a tmp dir.&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit29@bandit:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; /tmp/zd29
+bandit29@bandit:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /tmp/zd29
+bandit29@bandit:/tmp/zd29&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone ssh://bandit29-git@localhost/home/bandit29-git/repo
+Cloning into &lt;span class=&quot;s1&quot;&gt;&apos;repo&apos;&lt;/span&gt;...
+Could not create directory &lt;span class=&quot;s1&quot;&gt;&apos;/home/bandit29/.ssh&apos;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+The authenticity of host &lt;span class=&quot;s1&quot;&gt;&apos;localhost (127.0.0.1)&apos;&lt;/span&gt; can&lt;span class=&quot;s1&quot;&gt;&apos;t be established.
+ECDSA key fingerprint is SHA256:98UL0ZWr85496EtCRkKlo20X3OPnyPSB5tB5RPbhczc.
+Are you sure you want to continue connecting (yes/no)? yes
+Failed to add the host to the list of known hosts (/home/bandit29/.ssh/known_hosts).
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+
+bandit29-git@localhost&apos;&lt;/span&gt;s password:
+remote: Counting objects: 16, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+remote: Compressing objects: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;11/11&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+remote: Total 16 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;delta 2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, reused 0 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;delta 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+Receiving objects: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;16/16&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+Resolving deltas: 100% &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2/2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;time-to-look-around&quot;&gt;Time to look around&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit29@bandit:/tmp/zd29/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
+&lt;/span&gt;README.md
+bandit29@bandit:/tmp/zd29/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;README.md
+&lt;span class=&quot;c&quot;&gt;# Bandit Notes&lt;/span&gt;
+Some notes &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;bandit30 of bandit.
+
+&lt;span class=&quot;c&quot;&gt;## credentials&lt;/span&gt;
+
+- username: bandit30
+- password: &amp;lt;no passwords &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;production!&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;hey-hey-hey-production&quot;&gt;Hey hey hey, production..&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit29@bandit:/tmp/zd29/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git branch &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt;
+  origin/HEAD -&amp;gt; origin/master
+  origin/dev
+  origin/master
+  origin/sploits-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;look-a-wild-dev-branch-appears-i-wonder-whats-inside&quot;&gt;Look, a wild dev branch appears! I wonder what’s inside..&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit29@bandit:/tmp/zd29/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout dev
+Branch dev &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;up to track remote branch dev from origin.
+Switched to a new branch &lt;span class=&quot;s1&quot;&gt;&apos;dev&apos;&lt;/span&gt;
+bandit29@bandit:/tmp/zd29/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
+&lt;/span&gt;code  README.md
+bandit29@bandit:/tmp/zd29/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;README.md
+&lt;span class=&quot;c&quot;&gt;# Bandit Notes&lt;/span&gt;
+Some notes &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;bandit30 of bandit.
+
+&lt;span class=&quot;c&quot;&gt;## credentials&lt;/span&gt;
+
+- username: bandit30
+- password: 5b90576bedb2cc04c86a9e924ce42faf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;VICTORY&lt;/p&gt;
+
+&lt;p&gt;Password is: 5b90576bedb2cc04c86a9e924ce42faf&lt;/p&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Bandit" /><summary type="html">Level goal ```bash There is a git repository at ssh://bandit29-git@localhost/home/bandit29-git/repo. The password for the user bandit29-git is the same as for the user bandit29.</summary></entry><entry><title type="html">Overthewire Bandit Level 28 To 29</title><link href="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-28-to-29.html" rel="alternate" type="text/html" title="Overthewire Bandit Level 28 To 29" /><published>2021-04-09T11:22:00+01:00</published><updated>2021-04-09T11:22:00+01:00</updated><id>http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-28-to-29</id><content type="html" xml:base="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-28-to-29.html">&lt;h1 id=&quot;level-goal&quot;&gt;Level goal&lt;/h1&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;There is a git repository at &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;ssh://bandit28-git@localhost/home/bandit28-git/repo&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; The password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the user &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;bandit28-git&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; is the same as &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the user &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;bandit28&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+
+Clone the repository and find the password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the next level.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;back-to-regularly-scheduled-linuxing---firstly-lets-pull-the-repo-into-a-tmp-dir&quot;&gt;Back to regularly scheduled linuxing - Firstly, lets pull the repo into a tmp dir.&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit28@bandit:/tmp/zd28/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; /tmp/zd28
+bandit28@bandit:/tmp/zd28/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /tmp/zd28
+bandit28@bandit:/tmp/zd28/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone ssh://bandit28-git@localhost/home/bandit28-git/repo
+bandit28@bandit:/tmp/zd28/repo2&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;repo
+bandit28@bandit:/tmp/zd28/repo2/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;README.md
+&lt;span class=&quot;c&quot;&gt;# Bandit Notes&lt;/span&gt;
+Some notes &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;level29 of bandit.
+
+&lt;span class=&quot;c&quot;&gt;## credentials&lt;/span&gt;
+
+- username: bandit29
+- password: xxxxxxxxxx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;mmmmkay-thats-helpful-anything-in-the-log&quot;&gt;Mmmmkay, that’s helpful. Anything in the log?&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bandit28@bandit:/tmp/zd28/repo2/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git log &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+commit edd935d60906b33f0619605abd1689808ccdd5ee
+Author: Morla Porla &amp;lt;morla@overthewire.org&amp;gt;
+Date:   Thu May 7 20:14:49 2020 +0200
+
+    fix info leak
+
+commit c086d11a00c0648d095d04c089786efef5e01264
+Author: Morla Porla &amp;lt;morla@overthewire.org&amp;gt;
+Date:   Thu May 7 20:14:49 2020 +0200
+
+    add missing data
+
+commit de2ebe2d5fd1598cd547f4d56247e053be3fdc38
+Author: Ben Dover &amp;lt;noone@overthewire.org&amp;gt;
+Date:   Thu May 7 20:14:49 2020 +0200
+
+    initial commit of README.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;oooo-we-can-look-at-the-file-history-ref-httpsgit-scmcombookenv2git-basics-viewing-the-commit-history&quot;&gt;Oooo we can look at the file history (ref: https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Date:   Thu May 7 20:14:49 2020 +0200
+
+    fix info leak
+
+diff &lt;span class=&quot;nt&quot;&gt;--git&lt;/span&gt; a/README.md b/README.md
+index 3f7cee8..5c6457b 100644
+&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; a/README.md
++++ b/README.md
+@@ &lt;span class=&quot;nt&quot;&gt;-4&lt;/span&gt;,5 +4,5 @@ Some notes &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;level29 of bandit.
+ &lt;span class=&quot;c&quot;&gt;## credentials&lt;/span&gt;
+
+ - username: bandit29
+&lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; password: bbc96594b4e001778eee9975372716b2
++- password: xxxxxxxxxx
+
+
+commit c086d11a00c0648d095d04c089786efef5e01264
+Author: Morla Porla &amp;lt;morla@overthewire.org&amp;gt;
+Date:   Thu May 7 20:14:49 2020 +0200
+
+    add missing data
+
+diff &lt;span class=&quot;nt&quot;&gt;--git&lt;/span&gt; a/README.md b/README.md
+bandit28@bandit:/tmp/zd28/repo2/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;clear
+bandit28@bandit:/tmp/zd28/repo2/repo&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git log &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;
+commit edd935d60906b33f0619605abd1689808ccdd5ee
+Author: Morla Porla &amp;lt;morla@overthewire.org&amp;gt;
+Date:   Thu May 7 20:14:49 2020 +0200
+
+    fix info leak
+
+diff &lt;span class=&quot;nt&quot;&gt;--git&lt;/span&gt; a/README.md b/README.md
+index 3f7cee8..5c6457b 100644
+&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; a/README.md
++++ b/README.md
+@@ &lt;span class=&quot;nt&quot;&gt;-4&lt;/span&gt;,5 +4,5 @@ Some notes &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;level29 of bandit.
+ &lt;span class=&quot;c&quot;&gt;## credentials&lt;/span&gt;
+
+ - username: bandit29
+&lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; password: bbc96594b4e001778eee9975372716b2
++- password: xxxxxxxxxx
+
+
+commit c086d11a00c0648d095d04c089786efef5e01264
+Author: Morla Porla &amp;lt;morla@overthewire.org&amp;gt;
+Date:   Thu May 7 20:14:49 2020 +0200
+
+    add missing data
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;VICTORY&lt;/p&gt;
+
+&lt;p&gt;Password is: bbc96594b4e001778eee9975372716b2&lt;/p&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Bandit" /><summary type="html">Level goal ```bash There is a git repository at ssh://bandit28-git@localhost/home/bandit28-git/repo. The password for the user bandit28-git is the same as for the user bandit28.</summary></entry><entry><title type="html">Overthewire Bandit Level 26 To 28 (cheated)</title><link href="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-26-to-28-(CHEATED).html" rel="alternate" type="text/html" title="Overthewire Bandit Level 26 To 28 (cheated)" /><published>2021-04-09T11:21:00+01:00</published><updated>2021-04-09T11:21:00+01:00</updated><id>http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-26-to-28-(CHEATED)</id><content type="html" xml:base="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-26-to-28-(CHEATED).html">&lt;h1 id=&quot;level-goal&quot;&gt;Level goal&lt;/h1&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Logging &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;to bandit26 from bandit25 should be fairly easy… The shell &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;user bandit26 is not &lt;span class=&quot;k&quot;&gt;**&lt;/span&gt;/bin/bash&lt;span class=&quot;k&quot;&gt;**&lt;/span&gt;, but something &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; Find out what it is, how it works and how to &lt;span class=&quot;nb&quot;&gt;break &lt;/span&gt;out of it.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Good job getting a shell! Now hurry and grab the password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;bandit27!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;i-had-to-google-it-because-i-had-no-idea-wtf-was-going-on&quot;&gt;I had to google it because I had no idea WTF was going on.&lt;/h2&gt;
+
+&lt;p&gt;Password to 27: 3ba3118a22e93127a4ed485be72ef5ea
+Password to 28: 0ef186ac70e04ea33b4c1853d2526fa2&lt;/p&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Bandit" /><summary type="html">Level goal Logging in to bandit26 from bandit25 should be fairly easy… The shell for user bandit26 is not **/bin/bash**, but something else. Find out what it is, how it works and how to break out of it.</summary></entry><entry><title type="html">Overthewire Bandit Level 25 To 26</title><link href="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-25-to-26.html" rel="alternate" type="text/html" title="Overthewire Bandit Level 25 To 26" /><published>2021-04-09T11:21:00+01:00</published><updated>2021-04-09T11:21:00+01:00</updated><id>http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-25-to-26</id><content type="html" xml:base="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-25-to-26.html">&lt;h1 id=&quot;level-goal&quot;&gt;Level goal&lt;/h1&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;A daemon is listening on port 30002 and will give you the password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;bandit25 &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;given the password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;bandit24 and a secret numeric 4-digit pincode. There is no way to retrieve the pincode except by going through all of the 10000 combinations, called brute-forcing.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;i-had-to-google-it-because-i-had-no-idea-wtf-was-going-on&quot;&gt;I had to google it because I had no idea WTF was going on.&lt;/h2&gt;
+
+&lt;p&gt;Password: 5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z&lt;/p&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Bandit" /><summary type="html">Level goal A daemon is listening on port 30002 and will give you the password for bandit25 if given the password for bandit24 and a secret numeric 4-digit pincode. There is no way to retrieve the pincode except by going through all of the 10000 combinations, called brute-forcing.</summary></entry></feed>

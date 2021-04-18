@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Overthewire Bandit Level 4 To 5 | The world of Jason Benedetti</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Overthewire Bandit Level 4 To 5" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Level goal ```bash Level Goal" />
+<meta property="og:description" content="Level goal ```bash Level Goal" />
+<link rel="canonical" href="http://localhost:4000/overthewire/bandit/2021/04/07/OverTheWire-Bandit-Level-4-to-5.html" />
+<meta property="og:url" content="http://localhost:4000/overthewire/bandit/2021/04/07/OverTheWire-Bandit-Level-4-to-5.html" />
+<meta property="og:site_name" content="The world of Jason Benedetti" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-04-07T17:21:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Overthewire Bandit Level 4 To 5" />
+<script type="application/ld+json">
+{"headline":"Overthewire Bandit Level 4 To 5","dateModified":"2021-04-07T17:21:00+01:00","datePublished":"2021-04-07T17:21:00+01:00","url":"http://localhost:4000/overthewire/bandit/2021/04/07/OverTheWire-Bandit-Level-4-to-5.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/overthewire/bandit/2021/04/07/OverTheWire-Bandit-Level-4-to-5.html"},"description":"Level goal ```bash Level Goal","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="The world of Jason Benedetti" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">The world of Jason Benedetti</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Overthewire Bandit Level 4 To 5</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-04-07T17:21:00+01:00" itemprop="datePublished">Apr 7, 2021
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="level-goal">Level goal</h1>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">## Level Goal</span>
+
+The password <span class="k">for </span>the next level is stored <span class="k">in </span>the only human-readable file <span class="k">in </span>the <span class="k">**</span>inhere<span class="k">**</span> directory. Tip: <span class="k">if </span>your terminal is messed up, try the “reset” command.
+
+<span class="c">## Commands you may need to solve this level</span>
+
+<span class="nb">ls</span>, <span class="nb">cd</span>, <span class="nb">cat</span>, file, <span class="nb">du</span>, find
+</code></pre></div></div>
+
+<h1 id="lets-list-all-the-files-here">Lets list all the files here..</h1>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bandit4@bandit:~/inhere<span class="nv">$ </span><span class="nb">ls</span>
+<span class="nt">-file00</span>  <span class="nt">-file01</span>  <span class="nt">-file02</span>  <span class="nt">-file03</span>  <span class="nt">-file04</span>  <span class="nt">-file05</span>  <span class="nt">-file06</span>  <span class="nt">-file07</span>  <span class="nt">-file08</span>  <span class="nt">-file09</span>
+</code></pre></div></div>
+
+<h1 id="lets-look-at-permissions-and-files-sizes">Lets look at permissions and files sizes..</h1>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bandit4@bandit:~/inhere<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-l</span>
+total 40
+<span class="nt">-rw-r-----</span> 1 bandit5 bandit4 33 May  7  2020 <span class="nt">-file00</span>
+<span class="nt">-rw-r-----</span> 1 bandit5 bandit4 33 May  7  2020 <span class="nt">-file01</span>
+<span class="nt">-rw-r-----</span> 1 bandit5 bandit4 33 May  7  2020 <span class="nt">-file02</span>
+<span class="nt">-rw-r-----</span> 1 bandit5 bandit4 33 May  7  2020 <span class="nt">-file03</span>
+<span class="nt">-rw-r-----</span> 1 bandit5 bandit4 33 May  7  2020 <span class="nt">-file04</span>
+<span class="nt">-rw-r-----</span> 1 bandit5 bandit4 33 May  7  2020 <span class="nt">-file05</span>
+<span class="nt">-rw-r-----</span> 1 bandit5 bandit4 33 May  7  2020 <span class="nt">-file06</span>
+<span class="nt">-rw-r-----</span> 1 bandit5 bandit4 33 May  7  2020 <span class="nt">-file07</span>
+<span class="nt">-rw-r-----</span> 1 bandit5 bandit4 33 May  7  2020 <span class="nt">-file08</span>
+<span class="nt">-rw-r-----</span> 1 bandit5 bandit4 33 May  7  2020 <span class="nt">-file09</span>
+<span class="c">#Well, that's no help.</span>
+</code></pre></div></div>
+
+<h1 id="lets-look-at-the-file-syntax-options">Lets look at the ‘file’ syntax options.</h1>
+<p>http://www.linfo.org/wildcard.html – Oooh, wildcards.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bandit4@bandit:~/inhere<span class="nv">$ </span>file <span class="k">*</span>
+file: Cannot open <span class="sb">`</span>ile00<span class="s1">' (No such file or directory).
+file: Cannot open `ile01'</span> <span class="o">(</span>No such file or directory<span class="o">)</span><span class="nb">.</span>
+file: Cannot open <span class="sb">`</span>ile02<span class="s1">' (No such file or directory).
+file: Cannot open `ile03'</span> <span class="o">(</span>No such file or directory<span class="o">)</span><span class="nb">.</span>
+file: Cannot open <span class="sb">`</span>ile04<span class="s1">' (No such file or directory).
+file: Cannot open `ile05'</span> <span class="o">(</span>No such file or directory<span class="o">)</span><span class="nb">.</span>
+file: Cannot open <span class="sb">`</span>ile06<span class="s1">' (No such file or directory).
+file: Cannot open `ile07'</span> <span class="o">(</span>No such file or directory<span class="o">)</span><span class="nb">.</span>
+file: Cannot open <span class="sb">`</span>ile08<span class="s1">' (No such file or directory).
+file: Cannot open `ile09'</span> <span class="o">(</span>No such file or directory<span class="o">)</span><span class="nb">.</span>
+<span class="c">#Well, that's annoying. Oh yeah the files are all obnoxious.</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Lets try that again..</span>
+bandit4@bandit:~/inhere<span class="nv">$ </span>file ./<span class="k">*</span>
+./-file00: data
+./-file01: data
+./-file02: data
+./-file03: data
+./-file04: data
+./-file05: data
+./-file06: data
+./-file07: ASCII text
+./-file08: data
+./-file09: data
+</code></pre></div></div>
+
+<h1 id="lets-look-at-the-only-ascii-file">Lets look at the only ASCII file..</h1>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bandit4@bandit:~/inhere<span class="nv">$ </span><span class="nb">cat</span> ./-file07
+koReBOKuIDDepwhWk7jZC0RTdopnAYKh
+</code></pre></div></div>
+
+<h2 id="the-password-for-level-5">The password for level 5:</h2>
+
+<p>koReBOKuIDDepwhWk7jZC0RTdopnAYKh</p>
+
+<h2 id="connect-to-level-5">Connect to level 5.</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bandit4@bandit:~<span class="nv">$ </span>ssh bandit5@localhost
+<span class="c">#Accept the fingerprint ('yes') and enter the password.</span>
+</code></pre></div></div>
+
+<p>On the next episode of Bandit…</p>
+
+  </div><a class="u-url" href="/overthewire/bandit/2021/04/07/OverTheWire-Bandit-Level-4-to-5.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">The world of Jason Benedetti</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">The world of Jason Benedetti</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/Zerodriven"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">Zerodriven</span></a></li><li><a href="https://www.twitter.com/JasonBenedetti"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">JasonBenedetti</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Tech stuff</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

