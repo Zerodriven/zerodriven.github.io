@@ -9,7 +9,7 @@ categories: OverTheWire Leviathan
 ```
 
 Username: leviathan2
-Password: ougahZi8Ta
+Password: redacted
 
 Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
 ```
@@ -121,5 +121,5 @@ Update: 18/4/2021 -- Go to Level 5-6 where I understand how the ln syntax works.
 VICTORY.
 
 ```
-Ahdiemoo1j 
+redacted 
 ```

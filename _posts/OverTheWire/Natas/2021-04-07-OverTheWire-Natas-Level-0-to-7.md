@@ -40,7 +40,7 @@ URL:      http://natas0.natas.labs.overthewire.org
 VICTORY.
 
 ```
-gtVrDuiDfck831PqWsLEZy5gyDz1clto 
+redacted 
 ```
 
 # Level 1
@@ -56,7 +56,7 @@ URL:      http://natas1.natas.labs.overthewire.org
 
 VICTORY.
 ```
-ZluruAthQk7Q2MqmDeTiUij2ZvWy2mBi 
+redacted 
 ```
 
 # Level 2
@@ -78,7 +78,7 @@ URL:      http://natas2.natas.labs.overthewire.org
 VICTORY
 
 ```
-sJIJNW6ucpu6HPZ1ZAchaDtwd7oGrD14
+redacted
 ```
 
 # Level 3
@@ -102,7 +102,7 @@ URL:      http://natas3.natas.labs.overthewire.org
 
 VICTORY
 ```
-	Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ
+	redacted
 ```
 
 # Level 4
@@ -126,7 +126,7 @@ URL:      http://natas4.natas.labs.overthewire.org
 VICTORY
 
 ```
-iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq
+redacted
 ```
 
 # Level 5
@@ -147,7 +147,7 @@ URL:      http://natas5.natas.labs.overthewire.org
 
 VICTORY
 ```
-aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1
+redacted
 ```
 
 # Level 6
@@ -173,7 +173,7 @@ URL:      http://natas6.natas.labs.overthewire.org
 VICTORY
 
 ```
- 7z3hEENjQtflzgnT29q7wAvMNfZdh0i9
+ redacted
 ```
 
 # Level 7
@@ -200,5 +200,5 @@ URL:      http://natas7.natas.labs.overthewire.org
 VICTORY
 
 ```
-DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe
+redacted
 ```

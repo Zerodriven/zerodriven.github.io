@@ -9,7 +9,7 @@ categories: OverTheWire Leviathan
 ```
 
 Username: leviathan5
-Password: Tith4cokei
+Password: redacted
 
 Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
 ```
@@ -57,11 +57,11 @@ unlink("/tmp/file.log")                                                   = 0
 ```bash
 leviathan5@leviathan:~$ ln -s /etc/leviathan_pass/leviathan6 /tmp/file.log
 leviathan5@leviathan:~$ ./leviathan5
-UgaoFee4li
+redacted
 ```
 
 VICTORY.
 
 ```
-UgaoFee4li 
+redacted 
 ```

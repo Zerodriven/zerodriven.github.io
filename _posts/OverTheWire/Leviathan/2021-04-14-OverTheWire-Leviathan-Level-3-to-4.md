@@ -9,7 +9,7 @@ categories: OverTheWire Leviathan
 ```
 
 Username: leviathan3
-Password: Ahdiemoo1j
+Password: redacted
 
 Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
 ```
@@ -65,11 +65,11 @@ Enter the password> snlprintf
 $ whoami
 leviathan4
 $ cat /etc/leviathan_pass/leviathan4
-vuH0coox6m
+redacted
 ```
 
 VICTORY.
 
 ```
-vuH0coox6m 
+redacted 
 ```

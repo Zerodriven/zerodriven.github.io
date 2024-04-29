@@ -9,7 +9,7 @@ categories: OverTheWire Leviathan
 ```
 
 Username: leviathan6
-Password: UgaoFee4li
+Password: redacted
 
 Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
 ```
@@ -19,7 +19,7 @@ Data for the levels can be found in **the homedirectories**. You can look at **/
 
 ```bash
 leviathan6@leviathan:~$ ls
-leviathan6
+redacted
 ```
 
 ## ltrace it, seems the norm now
@@ -70,13 +70,13 @@ leviathan6@leviathan:/tmp/zdl6$ ./beep.sh
 $ whoami
 leviathan7
 $ cat /etc/leviathan_pass/leviathan7
-ahy7MaeBo9
+redacted
 ```
 
 VICTORY.
 
 ```
-ahy7MaeBo9 
+redacted 
 ```
 
 

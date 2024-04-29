@@ -9,7 +9,7 @@ categories: OverTheWire Leviathan
 ```
 
 Username: leviathan7
-Password: ahy7MaeBo9
+Password: redacted
 
 Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
 ```

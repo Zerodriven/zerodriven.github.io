@@ -9,7 +9,7 @@ categories: OverTheWire Leviathan
 ```
 
 Username: leviathan4
-Password: vuH0coox6m
+Password: redacted
 
 Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
 ```
@@ -48,11 +48,11 @@ leviathan4@leviathan:~/.trash$ ./bin
 
 ```bash
 01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010
-Tith4cokei
+redacted
 ```
 
 VICTORY.
 
 ```
-Tith4cokei 
+redacted 
 ```

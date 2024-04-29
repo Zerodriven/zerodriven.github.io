@@ -8,7 +8,7 @@ categories: OverTheWire Natas
 
 ```bash
 Username: natas10
-Password: nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu
+Password: redacted
 URL:      http://natas10.natas.labs.overthewire.org
 ```
 
@@ -71,5 +71,5 @@ if($key != "") {
 VICTORY.
 
 ```
- U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK
+ redacted
 ```

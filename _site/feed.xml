@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zerodriven.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://zerodriven.github.io/" rel="alternate" type="text/html" /><updated>2024-04-29T11:49:54+01:00</updated><id>https://zerodriven.github.io/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><entry><title type="html">Update</title><link href="https://zerodriven.github.io/testing/2024/04/29/Update.html" rel="alternate" type="text/html" title="Update" /><published>2024-04-29T10:00:00+01:00</published><updated>2024-04-29T10:00:00+01:00</updated><id>https://zerodriven.github.io/testing/2024/04/29/Update</id><content type="html" xml:base="https://zerodriven.github.io/testing/2024/04/29/Update.html">&lt;p&gt;This should be fun as it has most certainly been a while.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zerodriven.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://zerodriven.github.io/" rel="alternate" type="text/html" /><updated>2024-04-29T11:54:11+01:00</updated><id>https://zerodriven.github.io/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><entry><title type="html">Update</title><link href="https://zerodriven.github.io/testing/2024/04/29/Update.html" rel="alternate" type="text/html" title="Update" /><published>2024-04-29T10:00:00+01:00</published><updated>2024-04-29T10:00:00+01:00</updated><id>https://zerodriven.github.io/testing/2024/04/29/Update</id><content type="html" xml:base="https://zerodriven.github.io/testing/2024/04/29/Update.html">&lt;p&gt;This should be fun as it has most certainly been a while.&lt;/p&gt;
 
 &lt;p&gt;Lets see where I got up to and hopefully clear this site up.&lt;/p&gt;
 
 &lt;p&gt;Am likely going to be purging everything due to not reading the ToS of the sites I learnt against, shouldn’t store passwords it seems..&lt;/p&gt;</content><author><name></name></author><category term="Testing" /><summary type="html">This should be fun as it has most certainly been a while.</summary></entry><entry><title type="html">Overthewire Leviathan Level 7 To The End</title><link href="https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-7-to-The-End.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 7 To The End" /><published>2021-04-18T09:20:00+01:00</published><updated>2021-04-18T09:20:00+01:00</updated><id>https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-7-to-The-End</id><content type="html" xml:base="https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-7-to-The-End.html">&lt;h1 id=&quot;leviathan-7&quot;&gt;Leviathan 7&lt;/h1&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 Username: leviathan7
-Password: ahy7MaeBo9
+Password: redacted
 
 Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -21,7 +21,7 @@ Well Done, you seem to have used a &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html">Leviathan 7 ```</summary></entry><entry><title type="html">Overthewire Leviathan Level 6 To 7</title><link href="https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-6-to-7.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 6 To 7" /><published>2021-04-18T09:10:00+01:00</published><updated>2021-04-18T09:10:00+01:00</updated><id>https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-6-to-7</id><content type="html" xml:base="https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-6-to-7.html">&lt;h1 id=&quot;leviathan-6&quot;&gt;Leviathan 6&lt;/h1&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 Username: leviathan6
-Password: UgaoFee4li
+Password: redacted
 
 Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -29,7 +29,7 @@ Data for the levels can be found in **the homedirectories**. You can look at **/
 &lt;h2 id=&quot;lets-take-a-look&quot;&gt;Lets take a look.&lt;/h2&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;leviathan6@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
-&lt;/span&gt;leviathan6
+&lt;/span&gt;redacted
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;ltrace-it-seems-the-norm-now&quot;&gt;ltrace it, seems the norm now&lt;/h2&gt;
@@ -76,16 +76,16 @@ leviathan6@leviathan:/tmp/zdl6&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;na
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;whoami
 &lt;/span&gt;leviathan7
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /etc/leviathan_pass/leviathan7
-ahy7MaeBo9
+redacted
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;VICTORY.&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ahy7MaeBo9 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;redacted 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html">Leviathan 6 ```</summary></entry><entry><title type="html">Overthewire Leviathan Level 5 To 6</title><link href="https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-5-to-6.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 5 To 6" /><published>2021-04-18T09:00:00+01:00</published><updated>2021-04-18T09:00:00+01:00</updated><id>https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-5-to-6</id><content type="html" xml:base="https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-5-to-6.html">&lt;h1 id=&quot;leviathan-5&quot;&gt;Leviathan 5&lt;/h1&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 Username: leviathan5
-Password: Tith4cokei
+Password: redacted
 
 Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -128,16 +128,16 @@ setuid&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;12005&lt;span class=&quot;o&
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;leviathan5@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ln&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /etc/leviathan_pass/leviathan6 /tmp/file.log
 leviathan5@leviathan:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./leviathan5
-UgaoFee4li
+redacted
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;VICTORY.&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;UgaoFee4li 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;redacted 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html">Leviathan 5 ```</summary></entry><entry><title type="html">Overthewire Leviathan Level 4 To 5</title><link href="https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-4-to-5.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 4 To 5" /><published>2021-04-17T10:52:00+01:00</published><updated>2021-04-17T10:52:00+01:00</updated><id>https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-4-to-5</id><content type="html" xml:base="https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-4-to-5.html">&lt;h1 id=&quot;leviathan-4&quot;&gt;Leviathan 4&lt;/h1&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 Username: leviathan4
-Password: vuH0coox6m
+Password: redacted
 
 Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -174,16 +174,16 @@ leviathan4@leviathan:~/.trash$ ./bin
 &lt;/ol&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010
-Tith4cokei
+redacted
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;VICTORY.&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Tith4cokei 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;redacted 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html">Leviathan 4 ```</summary></entry><entry><title type="html">Overthewire Leviathan Level 3 To 4</title><link href="https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-3-to-4.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 3 To 4" /><published>2021-04-17T10:51:00+01:00</published><updated>2021-04-17T10:51:00+01:00</updated><id>https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-3-to-4</id><content type="html" xml:base="https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-3-to-4.html">&lt;h1 id=&quot;leviathan-3&quot;&gt;Leviathan 3&lt;/h1&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 Username: leviathan3
-Password: Ahdiemoo1j
+Password: redacted
 
 Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -235,16 +235,16 @@ Enter the password&amp;gt; snlprintf
 $ whoami
 leviathan4
 $ cat /etc/leviathan_pass/leviathan4
-vuH0coox6m
+redacted
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;VICTORY.&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vuH0coox6m 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;redacted 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html">Leviathan 3 ```</summary></entry><entry><title type="html">Overthewire Leviathan Level 2 To 3</title><link href="https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-2-to-3.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 2 To 3" /><published>2021-04-17T10:50:00+01:00</published><updated>2021-04-17T10:50:00+01:00</updated><id>https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-2-to-3</id><content type="html" xml:base="https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-2-to-3.html">&lt;h1 id=&quot;leviathan-2&quot;&gt;Leviathan 2&lt;/h1&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 Username: leviathan2
-Password: ougahZi8Ta
+Password: redacted
 
 Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -346,11 +346,11 @@ Ahdiemoo1j
 
 &lt;p&gt;VICTORY.&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Ahdiemoo1j 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;redacted 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html">Leviathan 2 ```</summary></entry><entry><title type="html">Overthewire Leviathan Level 1 To 2</title><link href="https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-1-to-2.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 1 To 2" /><published>2021-04-17T10:40:00+01:00</published><updated>2021-04-17T10:40:00+01:00</updated><id>https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-1-to-2</id><content type="html" xml:base="https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-1-to-2.html">&lt;h1 id=&quot;leviathan-1&quot;&gt;Leviathan 1&lt;/h1&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 Username: leviathan1
-Password: rioGegei8m
+Password: redacted
 
 Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -492,12 +492,12 @@ puts&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&
 password: sex
 &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; ../../etc/leviathan_pass/leviathan2
-ougahZi8Ta
+redacted
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;VICTORY.&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ougahZi8Ta 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;redacted 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html">Leviathan 1 ```</summary></entry><entry><title type="html">Overthewire Leviathan Level 0 To 1</title><link href="https://zerodriven.github.io/overthewire/leviathan/2021/04/15/OverTheWire-Leviathan-Level-0-to-1.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 0 To 1" /><published>2021-04-15T10:20:00+01:00</published><updated>2021-04-15T10:20:00+01:00</updated><id>https://zerodriven.github.io/overthewire/leviathan/2021/04/15/OverTheWire-Leviathan-Level-0-to-1</id><content type="html" xml:base="https://zerodriven.github.io/overthewire/leviathan/2021/04/15/OverTheWire-Leviathan-Level-0-to-1.html">&lt;h1 id=&quot;leviathan---what-is-it&quot;&gt;Leviathan - What is it?&lt;/h1&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;### Dare you face the lord of the oceans?
 
@@ -558,13 +558,13 @@ leviathan0@leviathan:~/.backup&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&l
 
 &lt;p&gt;VICTORY.&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rioGegei8m 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html">Leviathan - What is it? ``` Dare you face the lord of the oceans?</summary></entry><entry><title type="html">Overthewire Leviathan Passwords</title><link href="https://zerodriven.github.io/overthewire/leviathan/2021/04/15/OverTheWire-Leviathan-Passwords.html" rel="alternate" type="text/html" title="Overthewire Leviathan Passwords" /><published>2021-04-15T10:00:00+01:00</published><updated>2021-04-15T10:00:00+01:00</updated><id>https://zerodriven.github.io/overthewire/leviathan/2021/04/15/OverTheWire-Leviathan-Passwords</id><content type="html" xml:base="https://zerodriven.github.io/overthewire/leviathan/2021/04/15/OverTheWire-Leviathan-Passwords.html">&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Level 1: rioGegei8m
-Level 2: ougahZi8Ta
-Level 3: Ahdiemoo1j
-Level 4: vuH0coox6m
-Level 5: Tith4cokei
-Level 6: UgaoFee4li
-Level 7: ahy7MaeBo9
-Level 8: CONGRATULATIONS
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html">Level 1: rioGegei8m Level 2: ougahZi8Ta Level 3: Ahdiemoo1j Level 4: vuH0coox6m Level 5: Tith4cokei Level 6: UgaoFee4li Level 7: ahy7MaeBo9 Level 8: CONGRATULATIONS</summary></entry></feed>
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;redacted 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html">Leviathan - What is it? ``` Dare you face the lord of the oceans?</summary></entry><entry><title type="html">Overthewire Leviathan Passwords</title><link href="https://zerodriven.github.io/overthewire/leviathan/2021/04/15/OverTheWire-Leviathan-Passwords.html" rel="alternate" type="text/html" title="Overthewire Leviathan Passwords" /><published>2021-04-15T10:00:00+01:00</published><updated>2021-04-15T10:00:00+01:00</updated><id>https://zerodriven.github.io/overthewire/leviathan/2021/04/15/OverTheWire-Leviathan-Passwords</id><content type="html" xml:base="https://zerodriven.github.io/overthewire/leviathan/2021/04/15/OverTheWire-Leviathan-Passwords.html">&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Level 1: redacted
+Level 2: redacted
+Level 3: redacted
+Level 4: redacted
+Level 5: redacted
+Level 6: redacted
+Level 7: redacted
+Level 8: redacted
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html">Level 1: redacted Level 2: redacted Level 3: redacted Level 4: redacted Level 5: redacted Level 6: redacted Level 7: redacted Level 8: redacted</summary></entry></feed>

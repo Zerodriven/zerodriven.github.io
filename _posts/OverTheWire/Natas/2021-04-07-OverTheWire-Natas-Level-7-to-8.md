@@ -8,7 +8,7 @@ categories: OverTheWire Natas
 
 ```bash
 Username: natas8
-Password: DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe
+Password: redacted
 URL:      http://natas0.natas.labs.overthewire.org
 ```
 
@@ -51,5 +51,5 @@ echo decodeSecret($encodedSecret);
 VICTORY.
 
 ```
-W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl 
+redacted 
 ```

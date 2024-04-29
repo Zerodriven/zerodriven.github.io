@@ -8,7 +8,7 @@ categories: OverTheWire Natas
 
 ```bash
 Username: natas11
-Password: nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu
+Password: redacted
 URL:      http://natas11.natas.labs.overthewire.org
 ```
 

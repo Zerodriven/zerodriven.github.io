@@ -8,7 +8,7 @@ categories: OverTheWire Natas
 
 ```bash
 Username: natas9
-Password: W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl
+Password: redacted
 URL:      http://natas9.natas.labs.overthewire.org
 ```
 
@@ -44,5 +44,5 @@ test; ls ../../../../
 VICTORY.
 
 ```
-nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu 
+redacted 
 ```

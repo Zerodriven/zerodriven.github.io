@@ -5,12 +5,12 @@ categories: OverTheWire Leviathan
 ---
 
 ```bash
-Level 1: rioGegei8m
-Level 2: ougahZi8Ta
-Level 3: Ahdiemoo1j
-Level 4: vuH0coox6m
-Level 5: Tith4cokei
-Level 6: UgaoFee4li
-Level 7: ahy7MaeBo9
-Level 8: CONGRATULATIONS
+Level 1: redacted
+Level 2: redacted
+Level 3: redacted
+Level 4: redacted
+Level 5: redacted
+Level 6: redacted
+Level 7: redacted
+Level 8: redacted
 ```
