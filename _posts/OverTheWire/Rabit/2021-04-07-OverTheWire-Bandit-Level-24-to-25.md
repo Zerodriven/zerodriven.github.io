@@ -41,7 +41,7 @@ list.txt  script.sh
 bandit24@bandit:/tmp/zd24$ cat list.txt | nc localhost 30002
 ...snip....
 Correct!
-The password of user bandit25 is uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
+The password of user bandit25 is redacted
 
 Exiting.
 ```
@@ -50,11 +50,11 @@ Exiting.
 VICTORY.
 
 ## The password for level 21: 	
-uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
+redacted
 
 On the next episode of Bandit...
 
 ```bash
 ssh bandit25@localhost
-uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
+redacted
 ```

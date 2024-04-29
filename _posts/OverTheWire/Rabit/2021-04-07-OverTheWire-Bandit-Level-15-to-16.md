@@ -51,18 +51,18 @@ Certificate chain
 ...snip...
 BfMYroe26WYalil77FoDi9qh59eK5xNr
 Correct!
-cluFn7wTiGryunymYOu4RcffSxQluehd
+redacted
 
 closed
 ```
 
 ## The password for level 16:
 
-cluFn7wTiGryunymYOu4RcffSxQluehd
+redacted
 
 On the next episode of Bandit...
 
 ```bash
 ssh bandit16@localhost
-cluFn7wTiGryunymYOu4RcffSxQluehd
+redacted
 ```

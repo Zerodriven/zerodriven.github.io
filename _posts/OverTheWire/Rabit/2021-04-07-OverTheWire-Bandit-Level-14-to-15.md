@@ -16,7 +16,7 @@ ssh, telnet, nc, openssl, s\_client, nmap
 ## Following the instructions of the previous challenge..
 ```bash
 bandit14@bandit:~$ cat /etc/bandit_pass/bandit14
-4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+redacted
 ```
 
 
@@ -29,11 +29,11 @@ Connected to localhost.
 Escape character is '^]'.
 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
 Correct!
-BfMYroe26WYalil77FoDi9qh59eK5xNr
+redacted
 ```
 
 ## The password for level 15:
 
-BfMYroe26WYalil77FoDi9qh59eK5xNr
+redacted
 
 On the next episode of Bandit...

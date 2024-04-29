@@ -35,12 +35,12 @@ cat: filename: No such file or directory
 
 ```bash
 bandit2@bandit:~$ cat "spaces in this filename"
-UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
+redacted
 ```
 
 ## The password for level 3:
 
-UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
+redacted
 
 ## Connect to level 3.
 ```bash

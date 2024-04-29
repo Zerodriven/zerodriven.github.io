@@ -93,7 +93,7 @@ index 3f7cee8..5c6457b 100644
  ## credentials
 
  - username: bandit29
--- password: bbc96594b4e001778eee9975372716b2
+-- password: redacted
 +- password: xxxxxxxxxx
 
 
@@ -106,4 +106,4 @@ Date:   Thu May 7 20:14:49 2020 +0200
 
 VICTORY
 
-Password is: bbc96594b4e001778eee9975372716b2
+Password is: redacted

@@ -58,7 +58,7 @@ fVHi
 Y<_M
 88)%
 Emlld
-&========== truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
+&========== redacted
 _Gmz
 \Uli,
 A5RK
@@ -75,12 +75,12 @@ bandit9@bandit:~$ strings data.txt | grep "==="
 ========== the*2i"4
 ========== password
 Z)========== is
-&========== truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
+&========== redacted
 ```
 
 ## The password for level 10:
 
-truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
+redacted
 
 
 ## Connect to level 10.

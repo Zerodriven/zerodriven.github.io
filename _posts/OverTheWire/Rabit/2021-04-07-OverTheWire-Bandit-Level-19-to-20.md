@@ -34,18 +34,18 @@ uid=11019(bandit19) gid=11019(bandit19) euid=11020(bandit20) groups=11019(bandit
 bandit19@bandit:~$ ./bandit20-do ls /etc/bandit_pass/bandit20
 /etc/bandit_pass/bandit20
 bandit19@bandit:~$ ./bandit20-do cat /etc/bandit_pass/bandit20
-GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+redacted
 ```
 
 VICTORY.
 
 ## The password for level 20: 	
 
-GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+redacted
 
 On the next episode of Bandit...
 
 ```bash
 ssh bandit20@localhost
-GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+redacted
 ```

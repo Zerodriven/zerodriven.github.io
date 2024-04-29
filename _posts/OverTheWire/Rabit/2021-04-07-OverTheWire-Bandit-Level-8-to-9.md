@@ -127,7 +127,7 @@ bandit8@bandit:~$ sort data.txt | uniq --count
      10 UASW6CQwD6MRzftu6FAfyXBK0cVvnBLP
      10 UJiCNvDNfgb3fcCj8PjjnAXHqUM63Uyj
      10 UjsVbcqKeJqdCZQCDMkzv6A9X7hLbNE4
-      1 UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+      1 redacted
      10 UVnZvhiVQECraz5jl8U14sMVZQhjuXia
      10 V2d9umHiuPLYLIDsuHj0frOEmreCZMaA
      10 v9zaxkVAOdIOlITZY2uoCtB1fX2gmly9
@@ -147,12 +147,12 @@ bandit8@bandit:~$ sort data.txt | uniq --count
 ## Lets try a cleaner way, a bit of trial and error later
 ```bash
 bandit8@bandit:~$ sort data.txt | sort | uniq -u
-UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+redacted
 ```
 
 ## The password for level 9:
 
-UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+redacted
 
 
 ## Connect to level 9.

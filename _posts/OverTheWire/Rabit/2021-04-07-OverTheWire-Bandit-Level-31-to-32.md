@@ -80,7 +80,7 @@ remote:
 remote: .oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.
 remote:
 remote: Well done! Here is the password for the next level:
-remote: 56a9bf19c63d650ce78e6ec0354ee45e
+remote: redacted
 remote:
 remote: .oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.
 remote:
@@ -91,4 +91,4 @@ error: failed to push some refs to 'ssh://bandit31-git@localhost/home/bandit31-g
 
 VICTORY and hey, didn't even have to google a thing on this one. Heh.
 
-Password is: 56a9bf19c63d650ce78e6ec0354ee45e
+Password is: redacted

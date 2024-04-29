@@ -28,12 +28,12 @@ Gur cnffjbeq vf 5Gr8L4qetPEsPk8htqjhRK8XSP6x2RHh
 ## So, I can't install tools on the box so lets go to a rot13 decryptor.. https://rot13.com/ and decrypt the rotated key from above..
 
 ```text
-The password is 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+The password is redacted
 ```
 
 ## The password for level 12:
 
-5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+redacted
 
 ## Connect to level 12.
 ```bash

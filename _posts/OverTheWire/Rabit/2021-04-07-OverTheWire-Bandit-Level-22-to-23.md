@@ -79,17 +79,17 @@ bandit22@bandit:/usr/bin$ echo I am user bandit23 | md5sum | cut -d ' ' -f 1
 
 ```bash
 bandit22@bandit:/usr/bin$ cat /tmp/8ca319486bfbbc3663ea0fbe81326349
-jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+redacted
 ```
 VICTORY.
 
 ## The password for level 23: 	
 
-jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+redacted
 
 On the next episode of Bandit...
 
 ```bash
 ssh bandit23@localhost
-jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+redacted
 ```

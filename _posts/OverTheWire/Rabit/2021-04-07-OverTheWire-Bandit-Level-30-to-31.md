@@ -71,10 +71,10 @@ secret
 
 ```bash
 bandit30@bandit:/tmp/zd30/repo$ git show secret
-47e603bb428404d265f59c42920d81e5
+redacted
 ```
 
 
 VICTORY
 
-Password is: 47e603bb428404d265f59c42920d81e5
+Password is: redacted

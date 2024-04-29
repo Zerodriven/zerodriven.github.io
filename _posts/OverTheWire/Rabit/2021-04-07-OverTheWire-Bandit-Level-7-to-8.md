@@ -23,13 +23,13 @@ data.txt
 
 ```bash
 bandit7@bandit:~$ grep millionth data.txt
-millionth       cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+millionth       redacted
 
 ```
 
 ## The password for level 8:
 
-cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+redacted
 
 
 ## Connect to level 8.

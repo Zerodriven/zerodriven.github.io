@@ -96,12 +96,12 @@ data2: gzip compressed data, was "data.bin", last modified: Thu May  7 18:14:30 
 bandit12@bandit:/tmp/zd$ file data
 data: ASCII text
 bandit12@bandit:/tmp/zd$ cat data
-The password is 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+The password is redacted
 ```
 
 ## The password for level 13:
 
-8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+redacted
 
 ## Connect to level 13.
 ```bash

@@ -15,5 +15,5 @@ Good job getting a shell! Now hurry and grab the password for bandit27!
 
 ## I had to google it because I had no idea WTF was going on.
 
-Password to 27: 3ba3118a22e93127a4ed485be72ef5ea
-Password to 28: 0ef186ac70e04ea33b4c1853d2526fa2
+Password to 27: redacted
+Password to 28: redacted

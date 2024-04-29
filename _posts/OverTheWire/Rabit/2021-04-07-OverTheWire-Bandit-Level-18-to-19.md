@@ -27,7 +27,7 @@ It is required that your private key files are NOT accessible by others.
 This private key will be ignored.
 Load key "/home/bandit17/.ssh/id_rsa": bad permissions
 bandit18@localhost's password:
-IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+redacted
 Connection to localhost closed.
 ```
 
@@ -42,11 +42,11 @@ VICTORY.
 
 ## The password for level 18: 	
 
-kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+redacted
 
 On the next episode of Bandit...
 
 ```bash
 ssh bandit18@localhost
-kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+redacted
 ```

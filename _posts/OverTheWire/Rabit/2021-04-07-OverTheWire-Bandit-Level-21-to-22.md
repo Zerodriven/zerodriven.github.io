@@ -37,18 +37,18 @@ chmod: changing permissions of '/tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv': Operatio
 ## Lets look in there..
 ```bash
 bandit21@bandit:/usr/bin$ cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
-Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+redacted
 ```
 
 VICTORY.
 
 ## The password for level 22: 	
 
-Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+redacted
 
 On the next episode of Bandit...
 
 ```bash
 ssh bandit21@localhost
-Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+redacted
 ```

@@ -33,12 +33,12 @@ bandit1@bandit:~$ cat -
 ```bash
 # A **dot slash** is a **dot** followed immediately by a forward **slash** ( ./ ). It is used in **Linux** and Unix to execute a compiled program in the current directory
 bandit1@bandit:~$ cat ./-
-CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9 
+redacted 
 ```
 
 ## The password for level 2:
 
-CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
+redacted
 
 ## Connect to level 2.
 ```bash

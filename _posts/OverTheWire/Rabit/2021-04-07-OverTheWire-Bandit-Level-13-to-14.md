@@ -30,7 +30,7 @@ MIIEpAIBAAKCAQEAxkkOE83W2cOT7IWhFc9aPaaQmQDdgzuXCv+ppZHa++buSkN+
 
 ## Connect to level 14.
 ```bash
-bandit13@bandit:~$ ssh bandit14@localhost -i sshkey.private
+bandit13@bandit:~$ ssh bandit14@localhost -i redacted
 ```
 
 On the next episode of Bandit...

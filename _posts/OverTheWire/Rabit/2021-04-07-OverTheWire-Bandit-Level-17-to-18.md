@@ -17,7 +17,7 @@ bandit17@bandit:~$ diff passwords.new passwords.old
 42c42
 < kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
 ---
-> w0Yfolrc5bwjS4qw5mq1nnQi6mF03bii
+> redacted
 ```
 
 ## Lets try to connect!
@@ -34,11 +34,11 @@ VICTORY.
 
 ## The password for level 18: 	
 
-w0Yfolrc5bwjS4qw5mq1nnQi6mF03bii
+redacted
 
 On the next episode of Bandit...
 
 ```bash
 ssh bandit18@localhost
-w0Yfolrc5bwjS4qw5mq1nnQi6mF03bii
+redacted
 ```

@@ -43,12 +43,12 @@ bandit3@bandit:~/inhere$ ls -a
 ## Lets look in the hidden file
 ```bash
 bandit3@bandit:~/inhere$ cat .hidden
-pIwrPrtPN36QITSp3EQaw936yaFoFgAB
+redacted
 ```
 
 ## The password for level 4:
 
-pIwrPrtPN36QITSp3EQaw936yaFoFgAB
+redacted
 
 ## Connect to level 4.
 ```bash

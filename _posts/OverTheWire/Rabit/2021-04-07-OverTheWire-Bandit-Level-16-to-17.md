@@ -140,11 +140,11 @@ VICTORY.
 
 ## The password for level 17:
 
-cluFn7wTiGryunymYOu4RcffSxQluehd
+redacted
 
 On the next episode of Bandit...
 
 ```bash
 ssh bandit17@localhost
-cluFn7wTiGryunymYOu4RcffSxQluehd
+redacted
 ```

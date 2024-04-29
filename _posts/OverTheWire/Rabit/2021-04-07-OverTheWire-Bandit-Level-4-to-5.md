@@ -73,12 +73,12 @@ bandit4@bandit:~/inhere$ file ./*
 # Lets look at the only ASCII file..
 ```bash
 bandit4@bandit:~/inhere$ cat ./-file07
-koReBOKuIDDepwhWk7jZC0RTdopnAYKh
+redacted
 ```
 
 ## The password for level 5:
 
-koReBOKuIDDepwhWk7jZC0RTdopnAYKh
+redacted
 
 ## Connect to level 5.
 ```bash

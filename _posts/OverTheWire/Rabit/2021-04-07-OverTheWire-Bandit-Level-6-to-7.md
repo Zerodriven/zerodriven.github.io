@@ -55,13 +55,13 @@ bandit6@bandit:~$ find / -group bandit6 -user bandit7 -size 33c
 ## What next?
 ```
 bandit6@bandit:~$ cat /var/lib/dpkg/info/bandit7.password
-HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
+redacted
 ```
 
 
 ## The password for level 7:
 
-HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
+redacted
 
 
 ## Connect to level 7.

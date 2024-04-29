@@ -83,7 +83,7 @@ bandit23@bandit:/tmp/zd23$ cp script.sh /var/spool/bandit24
 bandit23@bandit:/tmp/zd23$ ls
 beep  script.sh
 bandit23@bandit:/tmp/zd23$ cat beep
-UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+redacted
 ```
 
 ## Okay - So nothing actually happened for ages, had to do some googling. Had to actually give the /tmp/zd23 folder permissions to be written to.. It then worked (777 all the things)
@@ -92,11 +92,11 @@ VICTORY.
 
 ## The password for level 24: 	
 
-UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+redacted
 
 On the next episode of Bandit...
 
 ```bash
 ssh bandit24@localhost
-UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+redacted
 ```

@@ -11,4 +11,4 @@ A daemon is listening on port 30002 and will give you the password for bandit25 
 
 ## I had to google it because I had no idea WTF was going on.
 
-Password: 5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z
+Password: redacted

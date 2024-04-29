@@ -44,12 +44,12 @@ readme
 #less can be used here, but the site says use cat
 
 bandit0@bandit:~$ cat readme
-boJ9jbbUNNfktd78OOpsqOltutMc3MY1
+redacted
 bandit0@bandit:~$
 ```
 
 ## The password for level 1
-boJ9jbbUNNfktd78OOpsqOltutMc3MY1
+redacted
 
 ### Connecting to another username on the same server.
 

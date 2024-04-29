@@ -13,4 +13,4 @@ After all this `git` stuff its time for another escape. Good luck!
 
 VICTORY
 
-Password: c9c3199ddf4121b10cf581a98d51caee
+Password: redacted

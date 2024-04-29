@@ -33,7 +33,7 @@ gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
 
 ```bash
 bandit20@bandit:~$ ./suconnect 8080
-Read: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+Read: redacted
 Password matches, sending next password
 ```
 
@@ -42,11 +42,10 @@ VICTORY.
 
 ## The password for level 21: 	
 
-gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
-
+redacted
 On the next episode of Bandit...
 
 ```bash
 ssh bandit21@localhost
-gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
+redacted
 ```

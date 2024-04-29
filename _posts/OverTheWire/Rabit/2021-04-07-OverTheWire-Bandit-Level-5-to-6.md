@@ -81,7 +81,7 @@ bandit5@bandit:~/inhere$ find -size 1033c
 
 ```bash
 bandit5@bandit:~/inhere$ cat ./maybehere07/.file2
-DXjZPULLxYr17uwoI01bNLQbtFemEgo7
+redacted
 
 
 
@@ -97,7 +97,7 @@ DXjZPULLxYr17uwoI01bNLQbtFemEgo7
 
 ## The password for level 6:
 
-DXjZPULLxYr17uwoI01bNLQbtFemEgo7
+redacted
 
 ## Connect to level 6.
 ```bash
