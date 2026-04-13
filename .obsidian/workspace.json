@@ -16,7 +16,9 @@
                 "file": "_posts/OverTheWire/Jekyllrb/2021-04-01-List-of-supported-languages-in-Jekyll's-syntax-highlighting.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "2021-04-01-List-of-supported-languages-in-Jekyll's-syntax-highlighting"
             }
           }
         ]
@@ -38,8 +40,11 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
-              }
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -54,7 +59,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -62,7 +69,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
@@ -93,7 +102,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 2021-04-01-List-of-supported-languages-in-Jekyll's-syntax-highlighting"
             }
           },
           {
@@ -105,7 +116,9 @@
                 "file": "_posts/OverTheWire/Jekyllrb/2021-04-01-List-of-supported-languages-in-Jekyll's-syntax-highlighting.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 2021-04-01-List-of-supported-languages-in-Jekyll's-syntax-highlighting"
             }
           },
           {
@@ -115,8 +128,12 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
-              }
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -125,8 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/OverTheWire/Jekyllrb/2021-04-01-List-of-supported-languages-in-Jekyll's-syntax-highlighting.md"
-              }
+                "file": "_posts/OverTheWire/Jekyllrb/2021-04-01-List-of-supported-languages-in-Jekyll's-syntax-highlighting.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 2021-04-01-List-of-supported-languages-in-Jekyll's-syntax-highlighting"
             }
           }
         ]
@@ -138,6 +160,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -146,8 +169,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e257f35659efc464",
+  "active": "81401f755ac2073c",
   "lastOpenFiles": [
+    "_site/jekyll/2026/04/13/Update.html",
+    "_site/jekyll/2026/04/13",
+    "_site/jekyll/2026/04",
+    "_site/jekyll/2026",
+    "_posts/Updates/2026-04-13-Update.md",
+    "_posts/Updates",
     "_posts/OverTheWire/Jekyllrb/2021-04-01-Install-Jekyll-on-Windows-10-with-Ruby-DevKit-3.0.md",
     "_posts/OverTheWire/Rabit/2021-04-07-OverTheWire-Bandit-Level-1-to-2.md",
     "_posts/OverTheWire/Natas/2021-04-07-OverTheWire-Natas-Level-0-to-7.md",
@@ -172,18 +201,12 @@
     "_posts/OverTheWire/Rabit/2021-04-07-OverTheWire-Bandit-Passwords.md",
     "_posts/OverTheWire/Rabit/2021-04-07-OverTheWire-Bandit-(The start and level 0 to 1).md",
     "_posts/OverTheWire/Rabit/2021-04-07-OverTheWire-Bandit-Level-2-to-3.md",
-    "_posts/OverTheWire/Rabit/2021-04-07-OverTheWire-Bandit-Level-3-to-4.md",
-    "_posts/OverTheWire/Rabit/2021-04-07-OverTheWire-Bandit-Level-4-to-5.md",
     "_site/testing/2024/04/29/Update.html",
     "_site/testing/2024/04/29/Demo-Update.html",
     "_site/testing/2024/04/29",
     "_site/testing/2024/04",
     "_site/testing/2024",
     "_site/testing",
-    "_site/page11/index.html",
-    "_site/page11",
-    "_site/overthewire/natas/2021/04/11/OverTheWire-Natas-Level-9-to-10.html",
-    "_site/overthewire/natas/2021/04/11/OverTheWire-Natas-Level-8-to-9.html",
     "_site/assets/minima-social-icons.svg",
     "_site/assets/9.png",
     "_site/assets/8.png",
