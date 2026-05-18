@@ -29,12 +29,13 @@ future: true
 minimal_mistakes_skin: default
 
 # Build settings
-theme: minimal-mistakes-jekyll
+remote_theme: mmistakes/minimal-mistakes@4.28.0
 plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-sitemap  
   - jekyll-include-cache
+  - jekyll-remote-theme
 
   
 paginate: 5
