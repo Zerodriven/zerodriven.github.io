@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 date:   2021-04-01 14:21:00 +0100
 categories: jekyll
 ---

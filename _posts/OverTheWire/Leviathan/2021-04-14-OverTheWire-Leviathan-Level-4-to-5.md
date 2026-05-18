@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 date:   2021-04-17 10:52:00 +0100
 categories: OverTheWire Leviathan
 ---

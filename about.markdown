@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: single
 title: About
 permalink: /about/
 ---
 
-Hello - Testing
+#Who Am I?
+Hi! I'm Jason

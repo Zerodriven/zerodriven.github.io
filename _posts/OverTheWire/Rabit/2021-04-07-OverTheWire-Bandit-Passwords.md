@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 date:   2021-04-07 09:21:00 +0100
 categories: OverTheWire Bandit
 ---
