@@ -1,4 +1,202 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://zerodriven.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://zerodriven.github.io/" rel="alternate" type="text/html" /><updated>2026-05-18T10:45:58+01:00</updated><id>https://zerodriven.github.io/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><author><name>Jason Benedetti</name></author><entry><title type="html">Update</title><link href="https://zerodriven.github.io/jekyll/2026/05/18/Update.html" rel="alternate" type="text/html" title="Update" /><published>2026-05-18T09:00:00+01:00</published><updated>2026-05-18T09:00:00+01:00</updated><id>https://zerodriven.github.io/jekyll/2026/05/18/Update</id><content type="html" xml:base="https://zerodriven.github.io/jekyll/2026/05/18/Update.html"><![CDATA[<p>2026 update!</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://zerodriven.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://zerodriven.github.io/" rel="alternate" type="text/html" /><updated>2026-05-21T08:10:48+01:00</updated><id>https://zerodriven.github.io/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><author><name>Jason Benedetti</name></author><entry><title type="html">Power Automate Parse Html Tables From Email Via Code</title><link href="https://zerodriven.github.io/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html" rel="alternate" type="text/html" title="Power Automate Parse Html Tables From Email Via Code" /><published>2026-05-21T00:00:00+01:00</published><updated>2026-05-21T00:00:00+01:00</updated><id>https://zerodriven.github.io/powerautomate/2026/05/21/power-automate---parse-html-tables-from-email-via-code</id><content type="html" xml:base="https://zerodriven.github.io/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html"><![CDATA[<p>Scenario:</p>
+
+<p>Frequently get an email with an embedded HTML table which requires parsing, however the email body technically contains two tables. One being a security banner (Which I didn’t realise was a table) and one being the actual table we want to parse.</p>
+
+<p>Now, there are a few good references already out there:</p>
+
+<ol>
+  <li><a href="https://community.powerplatform.com/blogs/post/?postid=f6cc84fe-dcee-4b31-a576-4b6b11527791">Extract data from html table in email body</a></li>
+  <li><a href="https://medium.com/@jake.mannion/parsing-html-tables-from-incoming-email-via-power-automate-ce9daddcacaa">Power Automate: Parse HTML Tables in Emails</a></li>
+  <li><a href="https://www.powerplatformtip.com/article/powerplatform/2022/11/10/extract-html-table-email-power-automate/">Extract HTML Table from Email in Power Automate – Advanced XML Process</a></li>
+  <li><a href="https://www.encodian.com/blog/get-data-from-html-tables-in-power-automate/">Get data from HTML tables in Power Automate — Encodian</a></li>
+  <li><a href="https://manish-solanki.com/extract-data-from-html-table-from-email-body-in-power-automate/">Extract data from html table from email body in Power Automate - Microsoft Power Platform</a></li>
+</ol>
+
+<p>However all of these require a lot more faffing around with formulas than I like, so what is my solution? Well, it’s more pro-code and complex, but is re-usable. I’ve not tested it beyond two tables, especially if two tables both contain the same key, but this meets my initial need and is drastically faster than using 5x compose blocks within Power Automate.</p>
+
+<ol>
+  <li>Setup an Azure Function (parse-html) which is triggered via a HTTP request</li>
+  <li>Create a Power Automate flow which calls the API via a HTTP connector (POST)</li>
+</ol>
+
+<p>Example data payload (Body of an Outlook email) - Values changed for privacy.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">        </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;html&gt;&lt;head&gt;</span><span class="se">\r\n</span><span class="s2">&lt;meta http-equiv=</span><span class="se">\"</span><span class="s2">Content-Type</span><span class="se">\"</span><span class="s2"> content=</span><span class="se">\"</span><span class="s2">text/html; charset=utf-8</span><span class="se">\"</span><span class="s2">&gt;&lt;style type=</span><span class="se">\"</span><span class="s2">text/css</span><span class="se">\"</span><span class="s2"> style=</span><span class="se">\"</span><span class="s2">display:none</span><span class="se">\"</span><span class="s2">&gt;</span><span class="se">\r\n</span><span class="s2">&lt;!--</span><span class="se">\r\n</span><span class="s2">p</span><span class="se">\r\n\t</span><span class="s2">{margin-top:0;</span><span class="se">\r\n\t</span><span class="s2">margin-bottom:0}</span><span class="se">\r\n</span><span class="s2">--&gt;</span><span class="se">\r\n</span><span class="s2">&lt;/style&gt;&lt;/head&gt;&lt;body dir=</span><span class="se">\"</span><span class="s2">ltr</span><span class="se">\"</span><span class="s2">&gt;&lt;table border=</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2"> style=</span><span class="se">\"</span><span class="s2">direction:ltr; background-color:rgb(239,245,158); width:100%; box-sizing:border-box; border-collapse:collapse; border-spacing:0px</span><span class="se">\"</span><span class="s2">&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr; width:100%</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;&lt;b&gt;EXTERNAL&lt;/b&gt;: This email originates from outside of Jason Benedetti Network network. Be cautious with attachments and links!&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/div&gt;&lt;table cellspacing=</span><span class="se">\"</span><span class="s2">0</span><span class="se">\"</span><span class="s2"> style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;&lt;div id=</span><span class="se">\"</span><span class="s2">x_x_o:go~r:reportResult</span><span class="se">\"</span><span class="s2">&gt;&lt;div id=</span><span class="se">\"</span><span class="s2">x_x_o:go~r:report~v:compoundView!1ViewContainer</span><span class="se">\"</span><span class="s2">&gt;&lt;table cellspacing=</span><span class="se">\"</span><span class="s2">0</span><span class="se">\"</span><span class="s2"> style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td align=</span><span class="se">\"</span><span class="s2">center</span><span class="se">\"</span><span class="s2"> style=</span><span class="se">\"</span><span class="s2">direction:ltr; vertical-align:top</span><span class="se">\"</span><span class="s2">&gt;&lt;table cellspacing=</span><span class="se">\"</span><span class="s2">0</span><span class="se">\"</span><span class="s2"> style=</span><span class="se">\"</span><span class="s2">direction:ltr; width:100%</span><span class="se">\"</span><span class="s2">&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td align=</span><span class="se">\"</span><span class="s2">center</span><span class="se">\"</span><span class="s2"> style=</span><span class="se">\"</span><span class="s2">direction:ltr; vertical-align:top</span><span class="se">\"</span><span class="s2">&gt;&lt;div id=</span><span class="se">\"</span><span class="s2">x_x_saw_240738_1_3</span><span class="se">\"</span><span class="s2">&gt;&lt;table cellspacing=</span><span class="se">\"</span><span class="s2">0</span><span class="se">\"</span><span class="s2"> style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;&lt;table id=</span><span class="se">\"</span><span class="s2">x_x_saw_240738_1_5</span><span class="se">\"</span><span class="s2"> cellspacing=</span><span class="se">\"</span><span class="s2">0</span><span class="se">\"</span><span class="s2"> style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;Person Number&lt;/div&gt;&lt;/td&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;Name&lt;/div&gt;&lt;/td&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;Process Date-Time&lt;/div&gt;&lt;/td&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;Termination Date&lt;/div&gt;&lt;/td&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;Assignment Type&lt;/div&gt;&lt;/td&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;Legal Entity&lt;/div&gt;&lt;/td&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;Position Code&lt;/div&gt;&lt;/td&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;Level 05 Organization Name&lt;/div&gt;&lt;/td&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;Position Name&lt;/div&gt;&lt;/td&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr</span><span class="se">\"</span><span class="s2">&gt;Job Name&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr; text-align:left; vertical-align:top</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr; text-align:left</span><span class="se">\"</span><span class="s2">&gt;123456&lt;/div&gt;&lt;/td&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr; text-align:left; vertical-align:top</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr; text-align:left</span><span class="se">\"</span><span class="s2">&gt;Benedetti, Jason&lt;/div&gt;&lt;/td&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr; text-align:left; vertical-align:top</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr; text-align:left</span><span class="se">\"</span><span class="s2">&gt;06/05/2026 1:58 PM&lt;/div&gt;&lt;/td&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr; text-align:left; vertical-align:top</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr; text-align:left</span><span class="se">\"</span><span class="s2">&gt;12/05/2026&lt;/div&gt;&lt;/td&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr; text-align:left; vertical-align:top</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr; text-align:left</span><span class="se">\"</span><span class="s2">&gt;Employee&lt;/div&gt;&lt;/td&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr; text-align:left; vertical-align:top</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr; text-align:left</span><span class="se">\"</span><span class="s2">&gt;Jason Benedetti Network&lt;/div&gt;&lt;/td&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr; text-align:left; vertical-align:top</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr; text-align:left</span><span class="se">\"</span><span class="s2">&gt;123456&lt;/div&gt;&lt;/td&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr; text-align:left; vertical-align:top</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr; text-align:left</span><span class="se">\"</span><span class="s2">&gt;Engineering&lt;/div&gt;&lt;/td&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr; text-align:left; vertical-align:top</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr; text-align:left</span><span class="se">\"</span><span class="s2">&gt;CTO&lt;/div&gt;&lt;/td&gt;&lt;td style=</span><span class="se">\"</span><span class="s2">direction:ltr; text-align:left; vertical-align:top</span><span class="se">\"</span><span class="s2">&gt;&lt;div style=</span><span class="se">\"</span><span class="s2">direction:ltr; text-align:left</span><span class="se">\"</span><span class="s2">&gt;Marketing Head&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;div id=</span><span class="se">\"</span><span class="s2">x_x_idStatePathDiv</span><span class="se">\"</span><span class="s2">&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;"</span><span class="err">,</span><span class="w">
+</span><span class="err">,</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Now, the fun bit here is also the name. Because the source system doesn’t normalise, it’s backwards (Benedetti, Jason) - So we also normalise that.</p>
+
+<p>Payload:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"html"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@{triggerOutputs()?['body/body']}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"keyword"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person Number"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Azure function code:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">azure.functions</span> <span class="k">as</span> <span class="n">func</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">func</span><span class="p">.</span><span class="n">FunctionApp</span><span class="p">()</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="n">route</span><span class="o">=</span><span class="s">"parse-html"</span><span class="p">,</span> <span class="n">auth_level</span><span class="o">=</span><span class="n">func</span><span class="p">.</span><span class="n">AuthLevel</span><span class="p">.</span><span class="n">FUNCTION</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">parse_html</span><span class="p">(</span><span class="n">req</span><span class="p">:</span> <span class="n">func</span><span class="p">.</span><span class="n">HttpRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">func</span><span class="p">.</span><span class="n">HttpResponse</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="n">req</span><span class="p">.</span><span class="n">get_json</span><span class="p">()</span>
+        <span class="n">html</span> <span class="o">=</span> <span class="n">body</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"html"</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+        <span class="n">target_keyword</span> <span class="o">=</span> <span class="n">body</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"keyword"</span><span class="p">,</span> <span class="s">"Person Number"</span><span class="p">).</span><span class="n">lower</span><span class="p">()</span>
+
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">"html.parser"</span><span class="p">)</span>
+        <span class="n">tables</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">"table"</span><span class="p">)</span>
+
+        <span class="n">target_rows</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">tables</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">target_keyword</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">table</span><span class="p">.</span><span class="n">get_text</span><span class="p">().</span><span class="n">lower</span><span class="p">():</span>
+                <span class="k">continue</span>
+
+            <span class="n">rows</span> <span class="o">=</span> <span class="n">table</span><span class="p">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">"tr"</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">rows</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="n">th</span><span class="p">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">th</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">find_all</span><span class="p">([</span><span class="s">"td"</span><span class="p">,</span> <span class="s">"th"</span><span class="p">])]</span>
+
+            <span class="k">for</span> <span class="n">tr</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+                <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">td</span><span class="p">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">td</span> <span class="ow">in</span> <span class="n">tr</span><span class="p">.</span><span class="n">find_all</span><span class="p">([</span><span class="s">"td"</span><span class="p">,</span> <span class="s">"th"</span><span class="p">])]</span>
+                <span class="k">if</span> <span class="n">cols</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">headers</span><span class="p">):</span>
+                    <span class="n">row_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">headers</span><span class="p">,</span> <span class="n">cols</span><span class="p">))</span>
+
+                    <span class="c1"># --- Name Normalization Logic ---
+</span>                    <span class="n">name_key</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">row_dict</span> <span class="k">if</span> <span class="s">"name"</span> <span class="ow">in</span> <span class="n">k</span><span class="p">.</span><span class="n">lower</span><span class="p">()),</span> <span class="bp">None</span><span class="p">)</span>
+
+                    <span class="k">if</span> <span class="n">name_key</span> <span class="ow">and</span> <span class="s">","</span> <span class="ow">in</span> <span class="n">row_dict</span><span class="p">[</span><span class="n">name_key</span><span class="p">]:</span>
+                        <span class="n">parts</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">row_dict</span><span class="p">[</span><span class="n">name_key</span><span class="p">].</span><span class="n">split</span><span class="p">(</span><span class="s">","</span><span class="p">)]</span>
+                        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                            <span class="n">row_dict</span><span class="p">[</span><span class="s">"Normalized Full Name"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s"> </span><span class="si">{</span><span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s">"</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">row_dict</span><span class="p">[</span><span class="s">"Normalized Full Name"</span><span class="p">]</span> <span class="o">=</span> <span class="n">row_dict</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">name_key</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+                    <span class="c1"># --------------------------------
+</span>
+                    <span class="n">target_rows</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">row_dict</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">target_rows</span><span class="p">:</span>
+                <span class="k">break</span>
+
+        <span class="k">return</span> <span class="n">func</span><span class="p">.</span><span class="n">HttpResponse</span><span class="p">(</span>
+            <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">"success"</span><span class="p">:</span> <span class="nb">bool</span><span class="p">(</span><span class="n">target_rows</span><span class="p">),</span> <span class="s">"records"</span><span class="p">:</span> <span class="n">target_rows</span><span class="p">}),</span>
+            <span class="n">mimetype</span><span class="o">=</span><span class="s">"application/json"</span><span class="p">,</span>
+            <span class="n">status_code</span><span class="o">=</span><span class="mi">200</span>
+        <span class="p">)</span>
+
+    <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">.</span><span class="n">HttpResponse</span><span class="p">(</span>
+            <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">"error"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)}),</span>
+            <span class="n">mimetype</span><span class="o">=</span><span class="s">"application/json"</span><span class="p">,</span>
+            <span class="n">status_code</span><span class="o">=</span><span class="mi">500</span>
+        <span class="p">)</span>
+</code></pre></div></div>
+
+<p>How this works:</p>
+
+<ol>
+  <li>You pass the keyword you want to search on (Against the headers)
+    <ol>
+      <li>If the keyword doesn’t exist, it skips the table</li>
+      <li>If it exists, it parses the columns and the values</li>
+    </ol>
+  </li>
+</ol>
+
+<p>Response payload if the keyword matches:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"records"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Person Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Benedetti, Jason"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Process Date-Time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06/05/2026 1:58 PM"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Termination Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/05/2026"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Assignment Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Employee"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Legal Entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jason Benedetti Network"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Position Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Level 05 Organization Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jason Benedetti Network"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Position Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Engineering"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Job Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTO"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Normalized Full Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jason Benedetti"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Then you continue to do stuff with it!</p>]]></content><author><name>Jason Benedetti</name></author><category term="PowerAutomate" /><summary type="html"><![CDATA[Scenario:]]></summary></entry><entry><title type="html">Git Remove Accidental File From Pr</title><link href="https://zerodriven.github.io/git/2026/05/19/Git-Remove-Accidental-File-From-PR.html" rel="alternate" type="text/html" title="Git Remove Accidental File From Pr" /><published>2026-05-19T08:34:00+01:00</published><updated>2026-05-19T08:34:00+01:00</updated><id>https://zerodriven.github.io/git/2026/05/19/Git-Remove-Accidental-File-From-PR</id><content type="html" xml:base="https://zerodriven.github.io/git/2026/05/19/Git-Remove-Accidental-File-From-PR.html"><![CDATA[<p>Scenario: Wrote code, did a PR, got comments and fixed them. Accidentally started work on a different piece of work but committed change to the same codebase as the previous PR</p>
+
+<p>Fix:</p>
+
+<ol>
+  <li>Open cmd</li>
+  <li>Go to project directory</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cd</span><span class="w"> </span><span class="nx">path\to\project</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">git</span><span class="w"> </span><span class="nx">checkout</span><span class="w"> </span><span class="nx">HEAD~1</span><span class="w"> </span><span class="nx">\Path\To\File\File.cs</span><span class="w">
+</span></code></pre></div></div>
+
+<p>This reverts the file back to the last known copy before your changes were published.</p>]]></content><author><name>Jason Benedetti</name></author><category term="git" /><summary type="html"><![CDATA[Scenario: Wrote code, did a PR, got comments and fixed them. Accidentally started work on a different piece of work but committed change to the same codebase as the previous PR]]></summary></entry><entry><title type="html">Professional Experience</title><link href="https://zerodriven.github.io/cv/" rel="alternate" type="text/html" title="Professional Experience" /><published>2026-05-19T00:00:00+01:00</published><updated>2026-05-19T00:00:00+01:00</updated><id>https://zerodriven.github.io/CV</id><content type="html" xml:base="https://zerodriven.github.io/cv/"><![CDATA[<h2 id="executive-summary">Executive Summary</h2>
+
+<h2 id="core-expertise">Core Expertise</h2>
+
+<h2 id="professional-chronology-summary">Professional Chronology (Summary)</h2>
+
+<p><strong>Head of Development</strong> | <em>Save The Children UK</em> | 2022 — Present</p>
+<ul>
+  <li></li>
+  <li></li>
+</ul>
+
+<p><strong>Software Architect &amp; Development Lead</strong> | <em>Save The Children UK</em> | 2019 - 2022</p>
+<ul>
+  <li></li>
+  <li></li>
+</ul>
+
+<p><strong>Lead Architect and Development Manager</strong> | <em>Central YMCA</em> | 2018 - 2019</p>
+<ul>
+  <li></li>
+  <li></li>
+</ul>
+
+<p><strong>IT Solutions Architect</strong> | <em>Central YMCA</em> | 2017 - 2018</p>
+<ul>
+  <li></li>
+  <li></li>
+</ul>
+
+<p><strong>Applications and Database Analyst</strong> | <em>Nandos</em> | 2014 - 2016</p>
+<ul>
+  <li></li>
+  <li></li>
+</ul>
+
+<p><strong>CRM System Analyst</strong> | <em>National Car Parks</em> | 2013 - 2014</p>
+<ul>
+  <li></li>
+  <li></li>
+</ul>
+
+<p><strong>Business Productivity Junior Consultant</strong> | <em>Risual Limited (Node 24)</em> | 2010 - 2013</p>
+<ul>
+  <li></li>
+  <li></li>
+</ul>]]></content><author><name>Jason Benedetti</name></author><summary type="html"><![CDATA[Executive Summary]]></summary></entry><entry><title type="html">Update</title><link href="https://zerodriven.github.io/jekyll/2026/05/18/Update.html" rel="alternate" type="text/html" title="Update" /><published>2026-05-18T09:00:00+01:00</published><updated>2026-05-18T09:00:00+01:00</updated><id>https://zerodriven.github.io/jekyll/2026/05/18/Update</id><content type="html" xml:base="https://zerodriven.github.io/jekyll/2026/05/18/Update.html"><![CDATA[<p>2026 update!</p>
 
 <ol>
   <li>New theme</li>
@@ -248,322 +446,4 @@ redacted
 <p>VICTORY.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>redacted 
-</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html"><![CDATA[Leviathan 3 ```]]></summary></entry><entry><title type="html">Overthewire Leviathan Level 2 To 3</title><link href="https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-2-to-3.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 2 To 3" /><published>2021-04-17T10:50:00+01:00</published><updated>2021-04-17T10:50:00+01:00</updated><id>https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-2-to-3</id><content type="html" xml:base="https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-2-to-3.html"><![CDATA[<h1 id="leviathan-2">Leviathan 2</h1>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-Username: leviathan2
-Password: redacted
-
-Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
-</code></pre></div></div>
-
-<h2 id="lets-take-a-look">Lets take a look</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan2@leviathan:~<span class="nv">$ </span><span class="nb">ls
-</span>printfile
-leviathan2@leviathan:~<span class="nv">$ </span>./printfile
-<span class="k">***</span> File Printer <span class="k">***</span>
-Usage: ./printfile filename
-leviathan2@leviathan:~<span class="nv">$ </span>./printfile hello
-You cant have that file...
-</code></pre></div></div>
-
-<h2 id="lets-see-if-we-can-escape">Lets see if we can escape..</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan2@leviathan:~<span class="nv">$ </span>./printfile hello<span class="p">;</span> <span class="nb">ls</span> <span class="nt">-la</span>
-You cant have that file...
-total 28
-drwxr-xr-x  2 root       root       4096 Aug 26  2019 <span class="nb">.</span>
-drwxr-xr-x 10 root       root       4096 Aug 26  2019 ..
-<span class="nt">-rw-r--r--</span>  1 root       root        220 May 15  2017 .bash_logout
-<span class="nt">-rw-r--r--</span>  1 root       root       3526 May 15  2017 .bashrc
-<span class="nt">-r-sr-x---</span>  1 leviathan3 leviathan2 7436 Aug 26  2019 printfile
-<span class="nt">-rw-r--r--</span>  1 root       root        675 May 15  2017 .profile
-</code></pre></div></div>
-
-<h2 id="did-stuff-cant-access-file-lets-trace-again">DId stuff, can’t access file. Lets trace again.</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan2@leviathan:~<span class="nv">$ </span>ltrace ./printfile ../../etc/leviathan_pass/leviathan2
-__libc_start_main<span class="o">(</span>0x804852b, 2, 0xffffd754, 0x8048610 &lt;unfinished ...&gt;
-access<span class="o">(</span><span class="s2">"../../etc/leviathan_pass/leviath"</span>..., 4<span class="o">)</span>                          <span class="o">=</span> 0
-snprintf<span class="o">(</span><span class="s2">"/bin/cat ../../etc/leviathan_pas"</span>..., 511, <span class="s2">"/bin/cat %s"</span>, <span class="s2">"../../etc/leviathan_pass/leviath"</span>...<span class="o">)</span> <span class="o">=</span> 44
-geteuid<span class="o">()</span>                                                                 <span class="o">=</span> 12002
-geteuid<span class="o">()</span>                                                                 <span class="o">=</span> 12002
-setreuid<span class="o">(</span>12002, 12002<span class="o">)</span>                                                    <span class="o">=</span> 0
-system<span class="o">(</span><span class="s2">"/bin/cat ../../etc/leviathan_pas"</span>...ougahZi8Ta
- &lt;no <span class="k">return</span> ...&gt;
-<span class="nt">---</span> SIGCHLD <span class="o">(</span>Child exited<span class="o">)</span> <span class="nt">---</span>
-&lt;... system resumed&gt; <span class="o">)</span>                                                    <span class="o">=</span> 0
-+++ exited <span class="o">(</span>status 0<span class="o">)</span> +++
-</code></pre></div></div>
-
-<h2 id="mmmm-okay-lets-try-something">Mmmm, okay. Lets try something.</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan2@leviathan:~<span class="nv">$ </span><span class="nb">mkdir</span> /tmp/zd3l
-leviathan2@leviathan:~<span class="nv">$ </span><span class="nb">cd</span> /tmp/zd3l
-leviathan2@leviathan:/tmp/zd3l<span class="nv">$ </span><span class="nb">touch</span> <span class="s2">"password plz.txt"</span>
-leviathan2@leviathan:/tmp/zd3l<span class="nv">$ </span><span class="nb">touch </span>password.txt
-leviathan2@leviathan:/tmp/zd3l<span class="nv">$ </span><span class="nb">cd</span> /home/leviathan2
-
-</code></pre></div></div>
-
-<h2 id="lets-trace-passwordtxt">Lets trace password.txt</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan2@leviathan:~<span class="nv">$ </span>ltrace ./printfile <span class="s2">"/tmp/zd3l/password.txt"</span>
-__libc_start_main<span class="o">(</span>0x804852b, 2, 0xffffd764, 0x8048610 &lt;unfinished ...&gt;
-access<span class="o">(</span><span class="s2">"/tmp/zd3l/password.txt"</span>, 4<span class="o">)</span>                                       <span class="o">=</span> 0
-snprintf<span class="o">(</span><span class="s2">"/bin/cat /tmp/zd3l/password.txt"</span>, 511, <span class="s2">"/bin/cat %s"</span>, <span class="s2">"/tmp/zd3l/password.txt"</span><span class="o">)</span> <span class="o">=</span> 31
-geteuid<span class="o">()</span>                                                                 <span class="o">=</span> 12002
-geteuid<span class="o">()</span>                                                                 <span class="o">=</span> 12002
-setreuid<span class="o">(</span>12002, 12002<span class="o">)</span>                                                    <span class="o">=</span> 0
-system<span class="o">(</span><span class="s2">"/bin/cat /tmp/zd3l/password.txt"</span> &lt;no <span class="k">return</span> ...&gt;
-<span class="nt">---</span> SIGCHLD <span class="o">(</span>Child exited<span class="o">)</span> <span class="nt">---</span>
-&lt;... system resumed&gt; <span class="o">)</span>                                                    <span class="o">=</span> 0
-+++ exited <span class="o">(</span>status 0<span class="o">)</span> +++
-</code></pre></div></div>
-
-<h2 id="what-happens-if-we-do-a-spaced-file-name">What happens if we do a spaced file name?</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan2@leviathan:~<span class="nv">$ </span>ltrace ./printfile <span class="s2">"/tmp/zd3l/password plz.txt"</span>
-__libc_start_main<span class="o">(</span>0x804852b, 2, 0xffffd754, 0x8048610 &lt;unfinished ...&gt;
-access<span class="o">(</span><span class="s2">"/tmp/zd3l/password plz.txt"</span>, 4<span class="o">)</span>                                   <span class="o">=</span> 0
-snprintf<span class="o">(</span><span class="s2">"/bin/cat /tmp/zd3l/password plz."</span>..., 511, <span class="s2">"/bin/cat %s"</span>, <span class="s2">"/tmp/zd3l/password plz.txt"</span><span class="o">)</span> <span class="o">=</span> 35
-geteuid<span class="o">()</span>                                                                 <span class="o">=</span> 12002
-geteuid<span class="o">()</span>                                                                 <span class="o">=</span> 12002
-setreuid<span class="o">(</span>12002, 12002<span class="o">)</span>                                                    <span class="o">=</span> 0
-system<span class="o">(</span><span class="s2">"/bin/cat /tmp/zd3l/password plz."</span>.../bin/cat: /tmp/zd3l/password: No such file or directory
-/bin/cat: plz.txt: No such file or directory
- &lt;no <span class="k">return</span> ...&gt;
-<span class="nt">---</span> SIGCHLD <span class="o">(</span>Child exited<span class="o">)</span> <span class="nt">---</span>
-&lt;... system resumed&gt; <span class="o">)</span>                                                    <span class="o">=</span> 256
-+++ exited <span class="o">(</span>status 0<span class="o">)</span> +++
-</code></pre></div></div>
-
-<h2 id="mkay-so-its-only-accepting-the-first-word-out-of-the-two--some-googling-later--httpsman7orglinuxman-pagesman1ln1html">Mkay, so it’s only accepting the first word out of the two. -Some googling later- (https://man7.org/linux/man-pages/man1/ln.1.html)</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan2@leviathan:~<span class="nv">$ </span><span class="nb">cd</span> /tmp/zd3l
-leviathan2@leviathan:/tmp/zd3l<span class="nv">$ </span><span class="nb">touch </span>pass<span class="se">\ </span>word.txt
-leviathan2@leviathan:/tmp/zd3l<span class="nv">$ </span><span class="nb">ln</span> <span class="nt">-s</span> /etc/leviathan_pass/leviathan3 /tmp/zd3l/pass
-leviathan2@leviathan:/tmp/zd3l<span class="nv">$ </span>~/printfile <span class="s2">"pass word.txt"</span>
-Ahdiemoo1j
-</code></pre></div></div>
-
-<h2 id="cant-explain-it-in-human-words-but-i-get-it">Can’t explain it in human words. But I get it.</h2>
-
-<p>Update: 18/4/2021 – Go to Level 5-6 where I understand how the ln syntax works..</p>
-
-<p>VICTORY.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>redacted 
-</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html"><![CDATA[Leviathan 2 ```]]></summary></entry><entry><title type="html">Overthewire Leviathan Level 1 To 2</title><link href="https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-1-to-2.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 1 To 2" /><published>2021-04-17T10:40:00+01:00</published><updated>2021-04-17T10:40:00+01:00</updated><id>https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-1-to-2</id><content type="html" xml:base="https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-1-to-2.html"><![CDATA[<h1 id="leviathan-1">Leviathan 1</h1>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-Username: leviathan1
-Password: redacted
-
-Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
-</code></pre></div></div>
-
-<h2 id="lets-take-a-look">Lets take a look</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan1@leviathan:~<span class="nv">$ </span><span class="nb">ls
-</span>check
-leviathan1@leviathan:~<span class="nv">$ </span>file ./check
-./check: setuid ELF 32-bit LSB executable, Intel 80386, version 1 <span class="o">(</span>SYSV<span class="o">)</span>, dynamically linked, interpreter /lib/ld-linux.so.2, <span class="k">for </span>GNU/Linux 2.6.32, BuildID[sha1]<span class="o">=</span>c735f6f3a3a94adcad8407cc0fda40496fd765dd, not stripped
-</code></pre></div></div>
-
-<h2 id="okay-lets-run-this">Okay, lets run this..</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan1@leviathan:~<span class="nv">$ </span>./check
-password: hello
-Wrong password, Good Bye ...
-</code></pre></div></div>
-
-<h2 id="okay-what-did-we-learn-from-rabit-lets-check-some-strings">Okay, what did we learn from Rabit? Lets check some strings</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan1@leviathan:~<span class="nv">$ </span>strings ./check
-/lib/ld-linux.so.2
-libc.so.6
-_IO_stdin_used
-puts
-setreuid
-<span class="nb">printf
-</span>getchar
-system
-geteuid
-strcmp
-__libc_start_main
-__gmon_start__
-GLIBC_2.0
-PTRhp
-QVh<span class="p">;</span>
-secrf
-love
-UWVS
-t<span class="nv">$,</span>U
-<span class="o">[</span>^_]
-password:
-/bin/sh
-Wrong password, Good Bye ...
-<span class="p">;</span><span class="k">*</span>2<span class="s2">$"
-GCC: (Debian 6.3.0-18+deb9u1) 6.3.0 20170516
-crtstuff.c
-__JCR_LIST__
-deregister_tm_clones
-__do_global_dtors_aux
-completed.6587
-__do_global_dtors_aux_fini_array_entry
-frame_dummy
-__frame_dummy_init_array_entry
-check.c
-__FRAME_END__
-__JCR_END__
-__init_array_end
-_DYNAMIC
-__init_array_start
-__GNU_EH_FRAME_HDR
-_GLOBAL_OFFSET_TABLE_
-__libc_csu_fini
-strcmp@@GLIBC_2.0
-__x86.get_pc_thunk.bx
-printf@@GLIBC_2.0
-getchar@@GLIBC_2.0
-_edata
-geteuid@@GLIBC_2.0
-__data_start
-puts@@GLIBC_2.0
-system@@GLIBC_2.0
-__gmon_start__
-__dso_handle
-_IO_stdin_used
-setreuid@@GLIBC_2.0
-__libc_start_main@@GLIBC_2.0
-__libc_csu_init
-_fp_hw
-__bss_start
-main
-__TMC_END__
-.symtab
-.strtab
-.shstrtab
-.interp
-.note.ABI-tag
-.note.gnu.build-id
-.gnu.hash
-.dynsym
-.dynstr
-.gnu.version
-.gnu.version_r
-.rel.dyn
-.rel.plt
-.init
-.plt.got
-.text
-.fini
-.rodata
-.eh_frame_hdr
-.eh_frame
-.init_array
-.fini_array
-.jcr
-.dynamic
-.got.plt
-.data
-.bss
-.comment
-</span></code></pre></div></div>
-
-<h2 id="love-what-does-love-do">Love? What does love do?</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan1@leviathan:~<span class="nv">$ </span>./check
-password: love
-Wrong password, Good Bye ...
-</code></pre></div></div>
-
-<h2 id="nothing--an-eternity-later--i-discoverd-ltrace">Nothing. -An eternity later- I discoverd ltrace.</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan1@leviathan:~<span class="nv">$ </span>ltrace ./check
-__libc_start_main<span class="o">(</span>0x804853b, 1, 0xffffd794, 0x8048610 &lt;unfinished ...&gt;
-<span class="nb">printf</span><span class="o">(</span><span class="s2">"password: "</span><span class="o">)</span>                                                      <span class="o">=</span> 10
-getchar<span class="o">(</span>1, 0, 0x65766f6c, 0x646f6700password: hello
-<span class="o">)</span>                                     <span class="o">=</span> 104
-getchar<span class="o">(</span>1, 0, 0x65766f6c, 0x646f6700<span class="o">)</span>                                     <span class="o">=</span> 101
-getchar<span class="o">(</span>1, 0, 0x65766f6c, 0x646f6700<span class="o">)</span>                                     <span class="o">=</span> 108
-strcmp<span class="o">(</span><span class="s2">"hel"</span>, <span class="s2">"sex"</span><span class="o">)</span>                                                      <span class="o">=</span> <span class="nt">-1</span>
-puts<span class="o">(</span><span class="s2">"Wrong password, Good Bye ..."</span>Wrong password, Good Bye ...
-<span class="o">)</span>                                      <span class="o">=</span> 29
-+++ exited <span class="o">(</span>status 0<span class="o">)</span> +++
-</code></pre></div></div>
-
-<h2 id="so-sex-love-secret-and-sex-did-hackers-teach-me-nothing">So.. Sex. Love, Secret and Sex. Did Hackers teach me nothing?</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan1@leviathan:~<span class="nv">$ </span>./check
-password: sex
-<span class="err">$</span>
-<span class="nv">$ </span><span class="nb">cat</span> ../../etc/leviathan_pass/leviathan2
-redacted
-</code></pre></div></div>
-
-<p>VICTORY.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>redacted 
-</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html"><![CDATA[Leviathan 1 ```]]></summary></entry><entry><title type="html">Overthewire Leviathan Level 0 To 1</title><link href="https://zerodriven.github.io/overthewire/leviathan/2021/04/15/OverTheWire-Leviathan-Level-0-to-1.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 0 To 1" /><published>2021-04-15T10:20:00+01:00</published><updated>2021-04-15T10:20:00+01:00</updated><id>https://zerodriven.github.io/overthewire/leviathan/2021/04/15/OverTheWire-Leviathan-Level-0-to-1</id><content type="html" xml:base="https://zerodriven.github.io/overthewire/leviathan/2021/04/15/OverTheWire-Leviathan-Level-0-to-1.html"><![CDATA[<h1 id="leviathan---what-is-it">Leviathan - What is it?</h1>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>### Dare you face the lord of the oceans?
-
-Leviathan is a wargame that has been rescued from the demise of **intruded.net**, previously hosted on leviathan.intruded.net. **Big thanks to adc, morla and reth** for their help in resurrecting this game!
-
-What follows below is the original description of leviathan, copied from intruded.net:
-
-
-Summary:
-Difficulty:     1/10
-Levels:         8
-Platform:   Linux/x86
-
-Author:
-Anders Tonfeldt
-
-Special Thanks:
-We would like to thank AstroMonk for coming up with a replacement idea for the last level,
-deadfood for finding a leveljump and Coi for finding a non-planned vulnerability.
-
-Description:
-This wargame doesn't require any knowledge about programming - just a bit of common
-sense and some knowledge about basic *nix commands. We had no idea that it'd be this
-hard to make an interesting wargame that wouldn't require programming abilities from 
-the players. Hopefully we made an interesting challenge for the new ones.
-
-
-Leviathan’s levels are called **leviathan0, leviathan1, … etc.** and can be accessed on **leviathan.labs.overthewire.org** through SSH on port 2223.
-
-To login to the first level use:
-
-
-Username: leviathan0
-Password: leviathan0
-
-
-Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
-</code></pre></div></div>
-
-<h1 id="level-0">Level 0</h1>
-
-<h2 id="greppy-time">Greppy time.</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan0@leviathan:~<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-la</span>
-total 24
-drwxr-xr-x  3 root       root       4096 Aug 26  2019 <span class="nb">.</span>
-drwxr-xr-x 10 root       root       4096 Aug 26  2019 ..
-drwxr-x---  2 leviathan1 leviathan0 4096 Aug 26  2019 .backup
-<span class="nt">-rw-r--r--</span>  1 root       root        220 May 15  2017 .bash_logout
-<span class="nt">-rw-r--r--</span>  1 root       root       3526 May 15  2017 .bashrc
-<span class="nt">-rw-r--r--</span>  1 root       root        675 May 15  2017 .profile
-leviathan0@leviathan:~<span class="nv">$ </span><span class="nb">cd</span> .backup
-leviathan0@leviathan:~/.backup<span class="nv">$ </span><span class="nb">ls
-</span>bookmarks.html
-leviathan0@leviathan:~/.backup<span class="nv">$ </span><span class="nb">cat </span>bookmarks.html | <span class="nb">grep </span>leviathan1
-&lt;DT&gt;&lt;A <span class="nv">HREF</span><span class="o">=</span><span class="s2">"http://leviathan.labs.overthewire.org/passwordus.html | This will be fixed later, the password for leviathan1 is rioGegei8m"</span> <span class="nv">ADD_DATE</span><span class="o">=</span><span class="s2">"1155384634"</span> <span class="nv">LAST_CHARSET</span><span class="o">=</span><span class="s2">"ISO-8859-1"</span> <span class="nv">ID</span><span class="o">=</span><span class="s2">"rdf:#</span><span class="nv">$2wIU71</span><span class="s2">"</span><span class="o">&gt;</span>password to leviathan1&lt;/A&gt;
-</code></pre></div></div>
-
-<p>VICTORY.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>redacted 
-</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html"><![CDATA[Leviathan - What is it? ``` Dare you face the lord of the oceans?]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html"><![CDATA[Leviathan 3 ```]]></summary></entry></feed>

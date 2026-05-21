@@ -4,53 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "6021359dc98c49aa",
+        "id": "ef9e423ccc84e00c",
         "type": "tabs",
         "children": [
           {
-            "id": "d21f850a9fa7fd75",
+            "id": "cbc0c895473f4759",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/Dynamics/2015-12-10-dynamics-crm-2013-sql-system-jobs-monitoring.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "2015-12-10-dynamics-crm-2013-sql-system-jobs-monitoring"
-            }
-          },
-          {
-            "id": "2964aebb89d3eeaf",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/Dynamics/2016-01-16-Dynamics-CRM-2013-cannot-open-sql-encryption-symmetric-key-because-symmetric-key-password-does-not-exist-in-config-db.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "2016-01-16-Dynamics-CRM-2013-cannot-open-sql-encryption-symmetric-key-because-symmetric-key-password-does-not-exist-in-config-db"
-            }
-          },
-          {
-            "id": "5c6e9e4ab179d358",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/Dynamics/2016-01-16-Dynamics-CRM-2013-cannot-open-sql-encryption-symmetric-key-because-symmetric-key-password-does-not-exist-in-config-db.md",
+                "file": "_posts/2026-05-21-power-automate---parse-html-tables-from-email-via-code.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2016-01-16-Dynamics-CRM-2013-cannot-open-sql-encryption-symmetric-key-because-symmetric-key-password-does-not-exist-in-config-db"
+              "title": "2026-05-21-power-automate---parse-html-tables-from-email-via-code"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -123,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/Dynamics/2016-01-16-Dynamics-CRM-2013-cannot-open-sql-encryption-symmetric-key-because-symmetric-key-password-does-not-exist-in-config-db.md",
+                "file": "_posts/2026-05-21-power-automate---parse-html-tables-from-email-via-code.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 2016-01-16-Dynamics-CRM-2013-cannot-open-sql-encryption-symmetric-key-because-symmetric-key-password-does-not-exist-in-config-db"
+              "title": "Backlinks for 2026-05-21-power-automate---parse-html-tables-from-email-via-code"
             }
           },
           {
@@ -171,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/TryHackMe/Untitled.md",
+                "file": "_posts/2026-05-21-power-automate---parse-html-tables-from-email-via-code.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Untitled"
+              "title": "Outline of 2026-05-21-power-automate---parse-html-tables-from-email-via-code"
             }
           }
         ]
@@ -194,47 +165,49 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "templater-obsidian:Templater": false
     }
   },
-  "active": "5c6e9e4ab179d358",
+  "active": "cbc0c895473f4759",
   "lastOpenFiles": [
-    "_posts/Dynamics/2016-01-16-Dynamics-CRM-2013-cannot-open-sql-encryption-symmetric-key-because-symmetric-key-password-does-not-exist-in-config-db 1.md",
+    "Templates/Template.md",
+    "_site/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html",
+    "_site/powerautomate/2026/05/21",
+    "_site/powerautomate/2026/05",
+    "_site/powerautomate/2026",
+    "_site/powerautomate",
+    "_site/git/2026/05/19/Git-Remove-Accidental-File-From-PR.html",
+    "_posts/2026-05-21-power-automate---parse-html-tables-from-email-via-code.md",
+    "_posts/2026-05-19-Git-Remove-Accidental-File-From-PR.md",
+    "_posts/2026-05-19-test.md",
+    "_posts/2026-05-19-testr.md",
+    "_site/Templates/Template.html",
+    "_site/Templates",
+    "Templates/2026-05-19-testing-this-new-thing.md",
+    "_site/Templates/2026-05-19-testing-this-new-thing.html",
+    "_posts/2026-05-19-untitled.md",
+    "_site/2026/05/19/new-thing.html",
+    "_posts/2026-05-19-new-thing.md",
+    "_posts/2026-05-19-Hello.md",
+    "Hello.md",
+    "_posts/New Thing.md",
+    "_posts/OverTheWire/Jekyllrb/2021-04-01-Install-Jekyll-on-Windows-10-with-Ruby-DevKit-3.0.md",
+    "_posts/OverTheWire/Jekyllrb/2021-04-01-List-of-supported-languages-in-Jekyll's-syntax-highlighting.md",
+    "Git - Revert accidental pushed file from PR.md",
     "_posts/Dynamics/2016-01-16-Dynamics-CRM-2013-cannot-open-sql-encryption-symmetric-key-because-symmetric-key-password-does-not-exist-in-config-db.md",
+    "readme.md",
+    "Untitled.canvas",
+    "_posts/Me/2026-05-19-CV.md",
+    "_site/Untitled.canvas",
+    "_posts/Dynamics/2016-01-16-Dynamics-CRM-2013-cannot-open-sql-encryption-symmetric-key-because-symmetric-key-password-does-not-exist-in-config-db 1.md",
     "_posts/Dynamics/2011-11-11-sql-server-change-table-ownership.md",
     "2026-05-18.md",
-    "_site/dynamics/crm/2013/06/28/sql-server-change-table-ownership.html",
     "_posts/Dynamics/2013-11-19-sql-server-setup-has-encountered-the-following-error-invoke-or-begininvoke-cannot-be-called-on-a-control-until-the-window-handle-has-been-created.md",
     "_posts/Dynamics/2011-11-11sql-server-change-table-ownership 1.md",
-    "_site/2016/01/16/Dynamics-CRM-2013-cannot-open-sql-encryption-symmetric-key-because-symmetric-key-password-does-not-exist-in-config-db-1.html",
-    "_site/2016/01/16",
-    "_site/2016/01",
-    "_site/2016",
-    "_site/Untitled.base",
     "_posts/Dynamics/2013-06-28-dynamics-crm-2011-delete-waiting-system-jobs.md",
     "_posts/Dynamics/2014-07-01-error-registering-plugins-andor-workflows-plug-in-assembly-does-not-contain-the-required-types-or-assembly-content-cannot-be-updated.md",
     "_posts/Dynamics/2014-10-22-dynamics-crm-2013-disablesslcheckforencryption.md",
-    "_posts/Dynamics/2015-12-10-dynamics-crm-2013-sql-system-jobs-monitoring.md",
-    "_site/2016-01-16-Dynamics-CRM-2013-cannot-open-sql-encryption-symmetric-key-because-symmetric-key-password-does-not-exist-in-config-db.md",
-    "_site/2011-11-11sql-server-change-table-ownership.md",
-    "_site/2011-11-11sql-server-change-table-ownership.html",
-    "_site/Untitled 1.html",
-    "_site/dynamics/crm/2013/06/28/Dynamics-CRM-2013-cannot-open-sql-encryption-symmetric-key-because-symmetric-key-password-does-not-exist-in-config-db.html",
-    "_site/2016-01-16-Dynamics-CRM-2013-cannot-open-sql-encryption-symmetric-key-because-symmetric-key-password-does-not-exist-in-config-db.html",
-    "_site/2016-01-cannot-open-sql-encryption-symmetric-key-because-symmetric-key-password-does-not-exist-in-config-db.md",
-    "_site/Untitled.md",
-    "Untitled.md",
-    "_site/2026-05-18.md",
-    "_site/Untitled.canvas",
-    "Untitled.canvas",
-    "_posts/Updates/2026-04-13-Update.md",
-    "_posts/Dynamics/2013-10-10-dynamics-crm-2011-delete-waiting-system-jobs.md",
-    "_posts/Test/2024-04-29-Update.md",
-    "assets21.png.md",
-    "readme.md",
-    "_posts/HackTheBox/Tutorial.md",
-    "_posts/OverTheWire/Natas/2021-04-10-OverTheWire-Natas-Passwords.md",
-    "_posts/OverTheWire/Jekyllrb/2021-04-01-List-of-supported-languages-in-Jekyll's-syntax-highlighting.md",
     "_site/assets/minima-social-icons.svg",
     "_site/assets/9.png",
     "_site/assets/8.png",
