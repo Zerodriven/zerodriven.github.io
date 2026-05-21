@@ -1,4 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://zerodriven.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://zerodriven.github.io/" rel="alternate" type="text/html" /><updated>2026-05-21T09:15:52+01:00</updated><id>https://zerodriven.github.io/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><author><name>Jason Benedetti</name></author><entry><title type="html">Power Automate Parse Html Tables From Email Via Code</title><link href="https://zerodriven.github.io/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html" rel="alternate" type="text/html" title="Power Automate Parse Html Tables From Email Via Code" /><published>2026-05-21T00:00:00+01:00</published><updated>2026-05-21T00:00:00+01:00</updated><id>https://zerodriven.github.io/powerautomate/2026/05/21/power-automate---parse-html-tables-from-email-via-code</id><content type="html" xml:base="https://zerodriven.github.io/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html"><![CDATA[<p>Scenario:</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://zerodriven.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://zerodriven.github.io/" rel="alternate" type="text/html" /><updated>2026-05-21T11:16:17+01:00</updated><id>https://zerodriven.github.io/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><author><name>Jason Benedetti</name></author><entry><title type="html">Azure Guest Account Purging</title><link href="https://zerodriven.github.io/azure,/dotnet/2026/05/21/azure-guest-account-purging.html" rel="alternate" type="text/html" title="Azure Guest Account Purging" /><published>2026-05-21T00:00:00+01:00</published><updated>2026-05-21T00:00:00+01:00</updated><id>https://zerodriven.github.io/azure,/dotnet/2026/05/21/azure-guest-account-purging</id><content type="html" xml:base="https://zerodriven.github.io/azure,/dotnet/2026/05/21/azure-guest-account-purging.html"><![CDATA[<p>Scenario: Got several hundred unmanaged guest accounts in Azure and I hate PowerShell. This is not production ready, but it can be converted quite easily to an Azure Function and moved into Azure Automation. Graph permissions are needed.</p>
+
+<p>Script can be run as part of a solution (Make sure to download the relevant NuGet packages for the relevant imports) and with dotnet run.</p>
+
+<p>The script should run weekly.</p>
+
+<ol>
+  <li>Run the script: It marks all guest accounts as disabled if they’ve not logged in within 6 months</li>
+  <li>Run it again, it deletes them.</li>
+</ol>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">Azure.Identity</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Microsoft.Graph</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Microsoft.Graph.Models</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Microsoft.Graph.Models.ODataErrors</span><span class="p">;</span>
+
+<span class="kt">var</span> <span class="n">tenantId</span> <span class="p">=</span> <span class="s">""</span><span class="p">;</span>
+<span class="kt">var</span> <span class="n">clientId</span> <span class="p">=</span> <span class="s">""</span><span class="p">;</span>
+<span class="kt">var</span> <span class="n">clientSecret</span> <span class="p">=</span> <span class="s">""</span><span class="p">;</span>
+
+<span class="kt">var</span> <span class="n">credential</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ClientSecretCredential</span><span class="p">(</span><span class="n">tenantId</span><span class="p">,</span> <span class="n">clientId</span><span class="p">,</span> <span class="n">clientSecret</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">graphClient</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GraphServiceClient</span><span class="p">(</span><span class="n">credential</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">sixMonthsAgo</span> <span class="p">=</span> <span class="n">DateTimeOffset</span><span class="p">.</span><span class="n">UtcNow</span><span class="p">.</span><span class="nf">AddMonths</span><span class="p">(-</span><span class="m">6</span><span class="p">);</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Starting user scorched earth..."</span><span class="p">);</span>
+
+<span class="c1">// 1. Initial Request (The SDK will only fetch the first page, usually 100 users)</span>
+<span class="kt">var</span> <span class="n">usersResponse</span> <span class="p">=</span> <span class="k">await</span> <span class="n">graphClient</span><span class="p">.</span><span class="n">Users</span><span class="p">.</span><span class="nf">GetAsync</span><span class="p">(</span><span class="n">config</span> <span class="p">=&gt;</span>
+<span class="p">{</span>
+    <span class="n">config</span><span class="p">.</span><span class="n">QueryParameters</span><span class="p">.</span><span class="n">Filter</span> <span class="p">=</span> <span class="s">"userType eq 'Guest'"</span><span class="p">;</span>
+    <span class="n">config</span><span class="p">.</span><span class="n">QueryParameters</span><span class="p">.</span><span class="n">Select</span> <span class="p">=</span> <span class="p">[</span><span class="s">"id"</span><span class="p">,</span> <span class="s">"displayName"</span><span class="p">,</span> <span class="s">"accountEnabled"</span><span class="p">,</span> <span class="s">"signInActivity"</span><span class="p">,</span> <span class="s">"createdDateTime"</span><span class="p">];</span>
+<span class="p">});</span>
+
+<span class="c1">// 2. Use PageIterator to handle all users</span>
+<span class="kt">var</span> <span class="n">pageIterator</span> <span class="p">=</span> <span class="n">PageIterator</span><span class="p">&lt;</span><span class="n">User</span><span class="p">,</span> <span class="n">UserCollectionResponse</span><span class="p">&gt;.</span><span class="nf">CreatePageIterator</span><span class="p">(</span>
+    <span class="n">graphClient</span><span class="p">,</span>
+    <span class="n">usersResponse</span><span class="p">,</span>
+    <span class="k">async</span> <span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="p">=&gt;</span>
+    <span class="p">{</span>
+        <span class="k">try</span>
+        <span class="p">{</span>
+            <span class="c1">// ACTION A: PURGE DISABLED</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">AccountEnabled</span> <span class="p">==</span> <span class="k">false</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">await</span> <span class="n">graphClient</span><span class="p">.</span><span class="n">Users</span><span class="p">[</span><span class="n">user</span><span class="p">.</span><span class="n">Id</span><span class="p">].</span><span class="nf">DeleteAsync</span><span class="p">();</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"[PURGED] </span><span class="p">{</span><span class="n">user</span><span class="p">.</span><span class="n">DisplayName</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+                <span class="k">return</span> <span class="k">true</span><span class="p">;</span> <span class="c1">// Continue to next user</span>
+            <span class="p">}</span>
+
+            <span class="c1">// ACTION B: DISABLE INACTIVE</span>
+            <span class="kt">var</span> <span class="n">lastSignIn</span> <span class="p">=</span> <span class="n">user</span><span class="p">.</span><span class="n">SignInActivity</span><span class="p">?.</span><span class="n">LastSignInDateTime</span><span class="p">;</span>
+            <span class="kt">var</span> <span class="n">createdDate</span> <span class="p">=</span> <span class="n">user</span><span class="p">.</span><span class="n">CreatedDateTime</span><span class="p">;</span>
+
+            <span class="kt">bool</span> <span class="n">isInactive</span> <span class="p">=</span> <span class="p">(</span><span class="n">lastSignIn</span><span class="p">.</span><span class="n">HasValue</span> <span class="p">&amp;&amp;</span> <span class="n">lastSignIn</span> <span class="p">&lt;</span> <span class="n">sixMonthsAgo</span><span class="p">)</span> <span class="p">||</span> 
+                              <span class="p">(!</span><span class="n">lastSignIn</span><span class="p">.</span><span class="n">HasValue</span> <span class="p">&amp;&amp;</span> <span class="n">createdDate</span> <span class="p">&lt;</span> <span class="n">sixMonthsAgo</span><span class="p">);</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">isInactive</span> <span class="p">&amp;&amp;</span> <span class="n">user</span><span class="p">.</span><span class="n">AccountEnabled</span> <span class="p">==</span> <span class="k">true</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">await</span> <span class="n">graphClient</span><span class="p">.</span><span class="n">Users</span><span class="p">[</span><span class="n">user</span><span class="p">.</span><span class="n">Id</span><span class="p">].</span><span class="nf">PatchAsync</span><span class="p">(</span><span class="k">new</span> <span class="n">User</span> <span class="p">{</span> <span class="n">AccountEnabled</span> <span class="p">=</span> <span class="k">false</span> <span class="p">});</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"[DISABLED] </span><span class="p">{</span><span class="n">user</span><span class="p">.</span><span class="n">DisplayName</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">catch</span> <span class="p">(</span><span class="n">ODataError</span> <span class="n">ex</span><span class="p">)</span> <span class="p">{</span> <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Error on </span><span class="p">{</span><span class="n">user</span><span class="p">.</span><span class="n">DisplayName</span><span class="p">}</span><span class="s">: </span><span class="p">{</span><span class="n">ex</span><span class="p">.</span><span class="n">Error</span><span class="p">?.</span><span class="n">Message</span><span class="p">}</span><span class="s">"</span><span class="p">);</span> <span class="p">}</span>
+        
+        <span class="k">return</span> <span class="k">true</span><span class="p">;</span> <span class="c1">// Always return true to keep the iterator moving</span>
+    <span class="p">});</span>
+
+<span class="k">await</span> <span class="n">pageIterator</span><span class="p">.</span><span class="nf">IterateAsync</span><span class="p">();</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Done."</span><span class="p">);</span>
+</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="Azure," /><category term="DotNet" /><summary type="html"><![CDATA[Scenario: Got several hundred unmanaged guest accounts in Azure and I hate PowerShell. This is not production ready, but it can be converted quite easily to an Azure Function and moved into Azure Automation. Graph permissions are needed.]]></summary></entry><entry><title type="html">Power Automate Parse Html Tables From Email Via Code</title><link href="https://zerodriven.github.io/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html" rel="alternate" type="text/html" title="Power Automate Parse Html Tables From Email Via Code" /><published>2026-05-21T00:00:00+01:00</published><updated>2026-05-21T00:00:00+01:00</updated><id>https://zerodriven.github.io/powerautomate/2026/05/21/power-automate---parse-html-tables-from-email-via-code</id><content type="html" xml:base="https://zerodriven.github.io/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html"><![CDATA[<p>Scenario:</p>
 
 <p>Frequently get an email with an embedded HTML table which requires parsing, however the email body technically contains two tables. One being a security banner (Which I didn’t realise was a table) and one being the actual table we want to parse.</p>
 
@@ -452,65 +523,4 @@ redacted
 <p>VICTORY.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>redacted 
-</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html"><![CDATA[Leviathan 4 ```]]></summary></entry><entry><title type="html">Overthewire Leviathan Level 3 To 4</title><link href="https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-3-to-4.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 3 To 4" /><published>2021-04-17T10:51:00+01:00</published><updated>2021-04-17T10:51:00+01:00</updated><id>https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-3-to-4</id><content type="html" xml:base="https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-3-to-4.html"><![CDATA[<h1 id="leviathan-3">Leviathan 3</h1>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-Username: leviathan3
-Password: redacted
-
-Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
-</code></pre></div></div>
-
-<h2 id="lets-take-a-look">Lets take a look.</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan3@leviathan:~<span class="nv">$ </span><span class="nb">ls
-</span>level3
-leviathan3@leviathan:~<span class="nv">$ </span>./level3
-Enter the password&gt; qwerty
-bzzzzzzzzap. WRONG
-leviathan3@leviathan:~<span class="nv">$ </span>ltrace ./level3
-__libc_start_main<span class="o">(</span>0x8048618, 1, 0xffffd794, 0x80486d0 &lt;unfinished ...&gt;
-strcmp<span class="o">(</span><span class="s2">"h0no33"</span>, <span class="s2">"kakaka"</span><span class="o">)</span>                                                <span class="o">=</span> <span class="nt">-1</span>
-<span class="nb">printf</span><span class="o">(</span><span class="s2">"Enter the password&gt; "</span><span class="o">)</span>                                            <span class="o">=</span> 20
-fgets<span class="o">(</span>Enter the password&gt; kakaka
-<span class="s2">"kakaka</span><span class="se">\n</span><span class="s2">"</span>, 256, 0xf7fc55a0<span class="o">)</span>                                        <span class="o">=</span> 0xffffd5a0
-strcmp<span class="o">(</span><span class="s2">"kakaka</span><span class="se">\n</span><span class="s2">"</span>, <span class="s2">"snlprintf</span><span class="se">\n</span><span class="s2">"</span><span class="o">)</span>                                         <span class="o">=</span> <span class="nt">-1</span>
-puts<span class="o">(</span><span class="s2">"bzzzzzzzzap. WRONG"</span>bzzzzzzzzap. WRONG
-<span class="o">)</span>                                                <span class="o">=</span> 19
-+++ exited <span class="o">(</span>status 0<span class="o">)</span> +++
-</code></pre></div></div>
-
-<h2 id="sweet-free-password-round-2">Sweet. Free password. Round 2</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan3@leviathan:~<span class="nv">$ </span>ltrace ./level3
-__libc_start_main<span class="o">(</span>0x8048618, 1, 0xffffd794, 0x80486d0 &lt;unfinished ...&gt;
-strcmp<span class="o">(</span><span class="s2">"h0no33"</span>, <span class="s2">"kakaka"</span><span class="o">)</span>                                                     <span class="o">=</span> <span class="nt">-1</span>
-<span class="nb">printf</span><span class="o">(</span><span class="s2">"Enter the password&gt; "</span><span class="o">)</span>                                                 <span class="o">=</span> 20
-fgets<span class="o">(</span>Enter the password&gt; snlprintf
-<span class="s2">"snlprintf</span><span class="se">\n</span><span class="s2">"</span>, 256, 0xf7fc55a0<span class="o">)</span>                                          <span class="o">=</span> 0xffffd5a0
-strcmp<span class="o">(</span><span class="s2">"snlprintf</span><span class="se">\n</span><span class="s2">"</span>, <span class="s2">"snlprintf</span><span class="se">\n</span><span class="s2">"</span><span class="o">)</span>                                           <span class="o">=</span> 0
-puts<span class="o">(</span><span class="s2">"[You've got shell]!"</span><span class="o">[</span>You<span class="s1">'ve got shell]!
-)                                                    = 20
-geteuid()                                                                      = 12003
-geteuid()                                                                      = 12003
-setreuid(12003, 12003)                                                         = 0
-system("/bin/sh"$
-</span></code></pre></div></div>
-
-<h2 id="much-easier-than-3---but-lets-clear-it-up">Much easier than #3 - But lets clear it up.</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan3@leviathan:~<span class="nv">$ </span>./level3
-Enter the password&gt; kakaka
-bzzzzzzzzap. WRONG
-leviathan3@leviathan:~<span class="nv">$ </span>./level3
-Enter the password&gt; snlprintf
-<span class="o">[</span>You<span class="s1">'ve got shell]!
-$ whoami
-leviathan4
-$ cat /etc/leviathan_pass/leviathan4
-redacted
-</span></code></pre></div></div>
-
-<p>VICTORY.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>redacted 
-</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html"><![CDATA[Leviathan 3 ```]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html"><![CDATA[Leviathan 4 ```]]></summary></entry></feed>
