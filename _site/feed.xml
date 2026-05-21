@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://zerodriven.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://zerodriven.github.io/" rel="alternate" type="text/html" /><updated>2026-05-21T08:20:30+01:00</updated><id>https://zerodriven.github.io/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><author><name>Jason Benedetti</name></author><entry><title type="html">Power Automate Parse Html Tables From Email Via Code</title><link href="https://zerodriven.github.io/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html" rel="alternate" type="text/html" title="Power Automate Parse Html Tables From Email Via Code" /><published>2026-05-21T00:00:00+01:00</published><updated>2026-05-21T00:00:00+01:00</updated><id>https://zerodriven.github.io/powerautomate/2026/05/21/power-automate---parse-html-tables-from-email-via-code</id><content type="html" xml:base="https://zerodriven.github.io/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html"><![CDATA[<p>Scenario:</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://zerodriven.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://zerodriven.github.io/" rel="alternate" type="text/html" /><updated>2026-05-21T09:14:42+01:00</updated><id>https://zerodriven.github.io/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><author><name>Jason Benedetti</name></author><entry><title type="html">Power Automate Parse Html Tables From Email Via Code</title><link href="https://zerodriven.github.io/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html" rel="alternate" type="text/html" title="Power Automate Parse Html Tables From Email Via Code" /><published>2026-05-21T00:00:00+01:00</published><updated>2026-05-21T00:00:00+01:00</updated><id>https://zerodriven.github.io/powerautomate/2026/05/21/power-automate---parse-html-tables-from-email-via-code</id><content type="html" xml:base="https://zerodriven.github.io/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html"><![CDATA[<p>Scenario:</p>
 
 <p>Frequently get an email with an embedded HTML table which requires parsing, however the email body technically contains two tables. One being a security banner (Which I didn’t realise was a table) and one being the actual table we want to parse.</p>
 
@@ -153,50 +153,116 @@
 
 <p>This reverts the file back to the last known copy before your changes were published.</p>]]></content><author><name>Jason Benedetti</name></author><category term="git" /><summary type="html"><![CDATA[Scenario: Wrote code, did a PR, got comments and fixed them. Accidentally started work on a different piece of work but committed change to the same codebase as the previous PR]]></summary></entry><entry><title type="html">Professional Experience</title><link href="https://zerodriven.github.io/cv/" rel="alternate" type="text/html" title="Professional Experience" /><published>2026-05-19T00:00:00+01:00</published><updated>2026-05-19T00:00:00+01:00</updated><id>https://zerodriven.github.io/CV</id><content type="html" xml:base="https://zerodriven.github.io/cv/"><![CDATA[<h2 id="executive-summary">Executive Summary</h2>
 
+<p>I’m a senior engineering and technology leader with over 12 years of experience designing, delivering, and scaling digital platforms, business systems, and engineering teams across the charity, leisure, retail, and consultancy sectors. My background spans hands-on architecture, software engineering, cloud platforms, systems integration, and technical leadership, with a strong track record of modernising legacy estates, improving delivery performance, and aligning technology strategy with organisational goals.</p>
+
+<p>Currently, as <strong>Head of Development at Save the Children UK</strong>, I lead multi-disciplinary engineering teams across software, QA, DevOps, and data, with responsibility for platform strategy, engineering delivery, governance, and technical direction across income-generating and operational systems. Across my career, I have consistently combined technical depth with leadership — from architecting APIs and cloud-hosted platforms, to leading CRM estates, defining engineering processes, mentoring teams, and driving long-term platform roadmaps.</p>
 <h2 id="core-expertise">Core Expertise</h2>
 
 <h2 id="professional-chronology-summary">Professional Chronology (Summary)</h2>
 
 <p><strong>Head of Development</strong> | <em>Save The Children UK</em> | 2022 — Present</p>
 <ul>
-  <li></li>
-  <li></li>
+  <li>Lead engineering delivery and platform strategy across public digital and internal data platforms supporting <strong>£5m+ annual income</strong> and organisation-wide decision-making.</li>
+  <li>Manage and grow a <strong>multi-disciplinary engineering function of 17 engineers</strong> across software, QA, DevOps, and data.</li>
+  <li>Act as senior technical partner to stakeholders across fundraising, marketing, finance, legal, operations, and executive leadership.</li>
+  <li>Introduced modern engineering governance, CI/CD practices, and delivery standards to improve speed, consistency, and predictability.</li>
+  <li>Led major platform and tooling transformations, improving delivery visibility, auditability, and operational control across the organisation.</li>
+  <li>Provide hands-on technical leadership across architecture, cloud platforms, engineering standards, and critical delivery challenges.</li>
 </ul>
 
 <p><strong>Software Architect &amp; Development Lead</strong> | <em>Save The Children UK</em> | 2019 - 2022</p>
 <ul>
-  <li></li>
-  <li></li>
+  <li>Led architecture and development delivery for internal platforms across CRM, digital, and data domains.</li>
+  <li>Directed the end-to-end delivery of the <strong>Families Connect</strong> platform, digitising legacy welfare processes into a secure <strong>Dynamics 365 / Power Platform</strong> solution.</li>
+  <li>Owned solution architecture for Microsoft-based platforms supporting fundraising, operations, and internal teams.</li>
+  <li>Defined development standards, tooling, and engineering practices to modernise legacy systems and improve delivery maturity.</li>
+  <li>Introduced Agile delivery approaches, CI/CD, and improved Dev/QA environments to increase team throughput and delivery reliability.</li>
+  <li>Maintained architectural oversight across <strong>.NET, Dynamics 365, integrations, and data platforms</strong>.</li>
 </ul>
 
 <p><strong>Lead Architect and Development Manager</strong> | <em>Central YMCA</em> | 2018 - 2019</p>
 <ul>
-  <li></li>
-  <li></li>
+  <li>Managed, designed, and architected multiple <strong>Dynamics CRM 2011 and CRM 2016/365</strong> instances supporting YMCA services.</li>
+  <li>Oversaw underlying applications serving <strong>10,000 students and tutors</strong>.</li>
+  <li>Managed a team of <strong>three developers</strong> across backend development, reporting, and DevOps.</li>
+  <li>Designed the architecture and processes for a <strong>YMCA API</strong>, enabling secure third-party access to YMCA services and data using <strong>MongoDB, SQL Server, and .NET Core (C#)</strong>.</li>
+  <li>Led planning and implementation oversight for engineering tooling including <strong>Grafana, InfluxDB, MySQL, ElasticSearch, Jira, and Jenkins</strong> for monitoring, metrics, and alerting.</li>
+  <li>Directed migration from <strong>TortoiseHG to GitHub</strong> via Visual Studio Team Services.</li>
+  <li>Led the migration of legacy Windows applications into web applications and service-oriented platforms using the YMCA API.</li>
+  <li>Explored and shaped future hosting approaches using <strong>Docker, Kubernetes, SQL Server, and MongoDB</strong> for modern internal and public-facing applications.</li>
+  <li>Contributed to long-term software roadmap planning, IT process design, architectural reviews, and technology proof-of-concepts focused on optimisation and cost savings.</li>
 </ul>
 
 <p><strong>IT Solutions Architect</strong> | <em>Central YMCA</em> | 2017 - 2018</p>
 <ul>
-  <li></li>
-  <li></li>
+  <li>Managed a <strong>350+ seat Dynamics CRM 2011/2016 environment</strong> supporting organisation-wide operations.</li>
+  <li>Supported <strong>500+ users</strong> with escalated software and systems issues.</li>
+  <li>Led solution design, scoping, and proof-of-concept work for internal IT development projects.</li>
+  <li>Delivered <strong>ASP.NET / C#</strong> development for internal portals and extended Dynamics CRM functionality.</li>
+  <li>Managed multiple <strong>SharePoint 2010 / 365</strong> environments.</li>
+  <li>Supported organisation-wide process analysis and optimisation initiatives.</li>
+  <li>Managed internal SQL Server environments, including clustered and non-clustered setups.</li>
+  <li>Oversaw IIS configuration and supporting application infrastructure.</li>
 </ul>
 
 <p><strong>Applications and Database Analyst</strong> | <em>Nandos</em> | 2014 - 2016</p>
 <ul>
-  <li></li>
-  <li></li>
+  <li>Managed <strong>Dynamics CRM 2015</strong> environments for marketing and commercial inventory operations.</li>
+  <li>Supported marketing technology platforms including <strong>WaveExtend, CoreMotives, and IBM Marketing Cloud (Engage)</strong>.</li>
+  <li>Worked closely with marketing stakeholders on customer segmentation, campaign processes, and technical delivery requirements.</li>
+  <li>Supported Dynamics CRM commercial inventory processes including products, suppliers, distribution, and vendor management.</li>
+  <li>Performed CRM customisation, solution management, upgrades, testing, deployment planning, and end-user training.</li>
+  <li>Delivered bespoke web applications and COTS implementations to support business operations.</li>
+  <li>Used SQL extensively to maintain and improve internal business systems and reporting.</li>
+  <li>Provided 3rd line support for financial and workflow platforms including <strong>iTrent, Business Objects, CODA, and K2</strong>.</li>
+  <li>Created <strong>SSRS reports</strong> and basic <strong>ASP.NET (C#)</strong> applications for commercial teams.</li>
 </ul>
 
 <p><strong>CRM System Analyst</strong> | <em>National Car Parks</em> | 2013 - 2014</p>
 <ul>
-  <li></li>
-  <li></li>
+  <li>Scoped, planned, and developed an in-house <strong>ITIL-based ticketing, problem, and change management system</strong>.</li>
+  <li>Maintained and customised <strong>SharePoint 2013</strong> for document management and intranet use.</li>
+  <li>Supported the planning, testing, and maintenance of an organisation-wide private cloud <strong>XRM solution</strong>.</li>
+  <li>Worked with business analysts and department heads to define processes, requirements, and training approaches.</li>
+  <li>Supported KPI, SLA, and OLA reporting requirements for operational leadership teams.</li>
+  <li>Acted as a primary technical contact for support issues across <strong>Dynamics CRM 2011, SharePoint 2013, website, and mobile app services</strong>.</li>
 </ul>
 
 <p><strong>Business Productivity Junior Consultant</strong> | <em>Risual Limited (Node 24)</em> | 2010 - 2013</p>
 <ul>
-  <li></li>
-  <li></li>
+  <li>Designed and implemented <strong>Microsoft Dynamics CRM 2011</strong> solutions across public and private sector clients.</li>
+  <li>Delivered workshops, planning sessions, and user training for both customers and internal teams.</li>
+  <li>Managed data migrations between CRM platforms, including <strong>CRM 4 to CRM 2011</strong> and on-premise to online migrations.</li>
+  <li>Supported and developed internal <strong>Dynamics CRM 2011</strong> and <strong>SharePoint 2010</strong> environments.</li>
+  <li>Produced custom reporting solutions using <strong>FetchXML</strong> and <strong>SQL</strong>.</li>
+  <li>Acted as an internal point of contact for SharePoint upgrade and development work.</li>
+  <li>Worked with stakeholders at all levels — from support teams to directors — to gather requirements and deliver CRM-based solutions.</li>
+</ul>
+
+<h1 id="-technical-specialities">## Technical Specialities</h1>
+
+<ul>
+  <li>Microsoft Dynamics CRM / Dynamics 365</li>
+  <li>Microsoft SQL Server</li>
+  <li>Solution Architecture and Process Design</li>
+  <li>.NET / C#</li>
+  <li>SharePoint</li>
+  <li>API Design and Systems Integration</li>
+  <li>Cloud and Platform Modernisation</li>
+  <li>Engineering Leadership and Delivery Governance</li>
+  <li>Azure</li>
+  <li>Standard web stack (HTML/CSS) - 5/10</li>
+  <li>Angular</li>
+</ul>
+
+<h1 id="-professional-certifications">## Professional Certifications</h1>
+
+<ul>
+  <li>MB2-666 Microsoft Dynamics CRM 2011 Customisation and Configuration</li>
+  <li>MB2-667 Microsoft Dynamics CRM 2011 Installation and Deployment</li>
+  <li>MB2-668 Microsoft Dynamics CRM 2011 Applications</li>
+  <li>MB2-858 Managing Microsoft Dynamics Implementations</li>
+  <li>70-667 TS: Microsoft SharePoint 2010, Configuration</li>
 </ul>]]></content><author><name>Jason Benedetti</name></author><summary type="html"><![CDATA[Executive Summary]]></summary></entry><entry><title type="html">Update</title><link href="https://zerodriven.github.io/jekyll/2026/05/18/Update.html" rel="alternate" type="text/html" title="Update" /><published>2026-05-18T09:00:00+01:00</published><updated>2026-05-18T09:00:00+01:00</updated><id>https://zerodriven.github.io/jekyll/2026/05/18/Update</id><content type="html" xml:base="https://zerodriven.github.io/jekyll/2026/05/18/Update.html"><![CDATA[<p>2026 update!</p>
 
 <ol>
