@@ -37,6 +37,8 @@ plugins:
   - jekyll-include-cache
   - jekyll-remote-theme
 
+# Incremental build settings -- Only update new or changed things
+incremental: true
   
 paginate: 5
 paginate_path: "/page:num/"
