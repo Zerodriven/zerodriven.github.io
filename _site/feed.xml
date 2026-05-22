@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://zerodriven.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://zerodriven.github.io/" rel="alternate" type="text/html" /><updated>2026-05-22T08:33:38+01:00</updated><id>https://zerodriven.github.io/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><author><name>Jason Benedetti</name></author><entry><title type="html">Power Platform A Practical Governance Framework Part One</title><link href="https://zerodriven.github.io/engineering,/automation,/powerautomate/2026/05/23/power-platform-a-practical-governance-framework-part-one.html" rel="alternate" type="text/html" title="Power Platform A Practical Governance Framework Part One" /><published>2026-05-23T00:00:00+01:00</published><updated>2026-05-23T00:00:00+01:00</updated><id>https://zerodriven.github.io/engineering,/automation,/powerautomate/2026/05/23/power-platform---a-practical-governance-framework-part-one</id><content type="html" xml:base="https://zerodriven.github.io/engineering,/automation,/powerautomate/2026/05/23/power-platform-a-practical-governance-framework-part-one.html"><![CDATA[<p>Power Automate is fantastic at one thing: making it incredibly easy to build automation quickly.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-05-22T08:38:37+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><author><name>Jason Benedetti</name></author><entry><title type="html">Power Platform A Practical Governance Framework Part One</title><link href="http://localhost:4000/engineering,/automation,/powerautomate/2026/05/23/power-platform-a-practical-governance-framework-part-one.html" rel="alternate" type="text/html" title="Power Platform A Practical Governance Framework Part One" /><published>2026-05-23T00:00:00+01:00</published><updated>2026-05-23T00:00:00+01:00</updated><id>http://localhost:4000/engineering,/automation,/powerautomate/2026/05/23/power-platform---a-practical-governance-framework-part-one</id><content type="html" xml:base="http://localhost:4000/engineering,/automation,/powerautomate/2026/05/23/power-platform-a-practical-governance-framework-part-one.html"><![CDATA[<p>Power Automate is fantastic at one thing: making it incredibly easy to build automation quickly.</p>
 
 <p>It’s also fantastic at something else:  creating a mess of inconsistent, fragile, unmaintainable flows at scale. If you’ve been using Power Automate for a while, you’ve probably seen it:</p>
 
@@ -13,9 +13,6 @@
 <p>This isn’t a tooling problem.  It’s a governance problem.</p>
 
 <p>It doesn’t help that Microsoft doesn’t make this easy and it doesn’t help that there’s no native default template for the product, so you have to do this every time, for every flow, for every environment and that drives me utterly insane.</p>
-
-<hr />
-
 <h1 id="the-goal-what-good-looks-like">The Goal (What “Good” Looks Like)</h1>
 
 <p>A well-governed automation platform should produce flows that are:</p>
@@ -30,13 +27,9 @@
 
 <p>If your flows don’t meet those criteria, you’re building future operational debt.</p>
 
-<hr />
-
 <h1 id="the-single-most-important-rule">The Single Most Important Rule</h1>
 
 <p>Every flow should follow the same structure. Without that, nothing else matters.</p>
-
-<hr />
 
 <h1 id="1-standard-flow-architecture">1. Standard Flow Architecture</h1>
 
@@ -62,8 +55,6 @@
 
 <p>This structure solves all of that.</p>
 
-<hr />
-
 <h2 id="what-each-part-does">What each part does</h2>
 
 <h3 id="initialisation">Initialisation</h3>
@@ -71,12 +62,7 @@
 <p>Set everything up centrally:</p>
 
 <ul>
-  <li>
-    <p>Correlation ID:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>guid()
-</code></pre></div>    </div>
-  </li>
+  <li>Correlation ID</li>
   <li>Flow metadata</li>
   <li>Configuration references</li>
 </ul>
@@ -90,9 +76,6 @@
       </span><span class="nl">"environmentName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflow().tags.environmentName OR as a dedicated variable"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<hr />
-
 <h3 id="main-logic-try">Main Logic (Try)</h3>
 
 <p>This is your actual business logic:</p>
@@ -108,12 +91,8 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Scope - Main Logic
     Scope - Data Retrieval
     Scope - Processing
-    Scope - Output
+    Scope - Output ### Error Handling (Catch)
 </code></pre></div></div>
-
-<hr />
-
-<h3 id="error-handling-catch">Error Handling (Catch)</h3>
 
 <p>Runs when anything fails. Capture useful context:</p>
 
@@ -133,8 +112,6 @@
 
 <p>No more silent failures.</p>
 
-<hr />
-
 <h3 id="finalisation-finally">Finalisation (Finally)</h3>
 
 <p>Always runs regardless of success or failure.</p>
@@ -144,12 +121,8 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
   "status": "@{workflow().status}",
   "endTime": "@{utcNow()}"
-}
+} # 2. Drop Hardcoding (Configuration Discipline)
 </code></pre></div></div>
-
-<hr />
-
-<h1 id="2-drop-hardcoding-configuration-discipline">2. Drop Hardcoding (Configuration Discipline)</h1>
 
 <p>Hardcoding is one of the biggest causes of pain. Instead:</p>
 
@@ -188,8 +161,6 @@
   <p>If you need to change it in more than one place, it should not be hardcoded.</p>
 </blockquote>
 
-<hr />
-
 <h1 id="3-naming-conventions">3. Naming Conventions</h1>
 
 <p>Naming isn’t just aesthetics. it’s operational clarity.</p>
@@ -226,15 +197,11 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Scope - &lt;Purpose&gt;
 </code></pre></div></div>
 
-<hr />
-
 <h1 id="4-error-handling-is-not-optional">4. Error Handling is Not Optional</h1>
 
 <p>If your flow can fail (and it will), you need to handle it. At a minimum, every single flow must have a Try/Catch structure that captures the error message, timestamp, and Correlation ID, before notifying the team.</p>
 
 <p>Think of it as an execution mindset shift. Instead of a user telling you, <em>“It failed once last week,”</em> your system tells you, <em>“Flow X failed at 14:32 with error X, correlation ID Y, environment name Z.”</em></p>
-
-<hr />
 
 <h1 id="5-logging--observability">5. Logging = Observability</h1>
 
@@ -276,8 +243,6 @@
   <li>Application Insights</li>
 </ul>
 
-<hr />
-
 <h1 id="6-build-for-reuse">6. Build for Reuse</h1>
 
 <p>Most teams rebuild the same logic repeatedly. Instead:</p>
@@ -300,8 +265,6 @@
   <li>Keeps flows clean</li>
   <li>Avoids duplication</li>
 </ul>
-
-<hr />
 
 <h1 id="7-templates-make-this-stick">7. Templates Make This Stick</h1>
 
@@ -329,8 +292,6 @@
 
 <p>Make the right way the easiest way.</p>
 
-<hr />
-
 <h1 id="8-lightweight-governance">8. Lightweight Governance</h1>
 
 <p>You don’t need heavy process.</p>
@@ -347,8 +308,6 @@
 
 <p>That’s enough to massively improve quality.</p>
 
-<hr />
-
 <h1 id="whats-the-point">What’s the point?</h1>
 
 <p>When applied correctly, you get:</p>
@@ -363,13 +322,11 @@
 
 <p>Most importantly: Your flows stop being scripts and become systems.</p>
 
-<hr />
-
 <h1 id="final-thought">Final Thought</h1>
 
 <p>Power Automate is powerful but without structure, it becomes chaos. Governance isn’t about slowing things down. It’s about ensuring what you build today is still understandable, fixable, and maintainable tomorrow. Also, why would we just not do this? Why does Microsoft not just make this the default for all user defined flows?</p>
 
-<p>At the top I said you have to do this for every flow for every environment, always. One of my next blogs will show you how to get around that. Not perfectly, but something is better than nothing</p>]]></content><author><name>Jason Benedetti</name></author><category term="Engineering," /><category term="Automation," /><category term="PowerAutomate" /><summary type="html"><![CDATA[Power Automate is fantastic at one thing: making it incredibly easy to build automation quickly.]]></summary></entry><entry><title type="html">Azure Guest Account Purging</title><link href="https://zerodriven.github.io/azure,/dotnet/2026/05/22/azure-guest-account-purging.html" rel="alternate" type="text/html" title="Azure Guest Account Purging" /><published>2026-05-22T00:00:00+01:00</published><updated>2026-05-22T00:00:00+01:00</updated><id>https://zerodriven.github.io/azure,/dotnet/2026/05/22/azure-guest-account-purging</id><content type="html" xml:base="https://zerodriven.github.io/azure,/dotnet/2026/05/22/azure-guest-account-purging.html"><![CDATA[<p>Scenario: Got several hundred unmanaged guest accounts in Azure and I hate PowerShell. This is not production ready, but it can be converted quite easily to an Azure Function and moved into Azure Automation. Graph permissions are needed.</p>
+<p>At the top I said you have to do this for every flow for every environment, always. One of my next blogs will show you how to get around that. Not perfectly, but something is better than nothing</p>]]></content><author><name>Jason Benedetti</name></author><category term="Engineering," /><category term="Automation," /><category term="PowerAutomate" /><summary type="html"><![CDATA[Power Automate is fantastic at one thing: making it incredibly easy to build automation quickly.]]></summary></entry><entry><title type="html">Azure Guest Account Purging</title><link href="http://localhost:4000/azure,/dotnet/2026/05/22/azure-guest-account-purging.html" rel="alternate" type="text/html" title="Azure Guest Account Purging" /><published>2026-05-22T00:00:00+01:00</published><updated>2026-05-22T00:00:00+01:00</updated><id>http://localhost:4000/azure,/dotnet/2026/05/22/azure-guest-account-purging</id><content type="html" xml:base="http://localhost:4000/azure,/dotnet/2026/05/22/azure-guest-account-purging.html"><![CDATA[<p>Scenario: Got several hundred unmanaged guest accounts in Azure and I hate PowerShell. This is not production ready, but it can be converted quite easily to an Azure Function and moved into Azure Automation. Graph permissions are needed.</p>
 
 <p>Script can be run as part of a solution (Make sure to download the relevant NuGet packages for the relevant imports) and with dotnet run.</p>
 
@@ -440,7 +397,7 @@
 <span class="k">await</span> <span class="n">pageIterator</span><span class="p">.</span><span class="nf">IterateAsync</span><span class="p">();</span>
 
 <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Done."</span><span class="p">);</span>
-</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="Azure," /><category term="DotNet" /><summary type="html"><![CDATA[Scenario: Got several hundred unmanaged guest accounts in Azure and I hate PowerShell. This is not production ready, but it can be converted quite easily to an Azure Function and moved into Azure Automation. Graph permissions are needed.]]></summary></entry><entry><title type="html">Power Automate Parse Html Tables From Email Via Code</title><link href="https://zerodriven.github.io/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html" rel="alternate" type="text/html" title="Power Automate Parse Html Tables From Email Via Code" /><published>2026-05-21T00:00:00+01:00</published><updated>2026-05-21T00:00:00+01:00</updated><id>https://zerodriven.github.io/powerautomate/2026/05/21/power-automate---parse-html-tables-from-email-via-code</id><content type="html" xml:base="https://zerodriven.github.io/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html"><![CDATA[<p>Scenario:</p>
+</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="Azure," /><category term="DotNet" /><summary type="html"><![CDATA[Scenario: Got several hundred unmanaged guest accounts in Azure and I hate PowerShell. This is not production ready, but it can be converted quite easily to an Azure Function and moved into Azure Automation. Graph permissions are needed.]]></summary></entry><entry><title type="html">Power Automate Parse Html Tables From Email Via Code</title><link href="http://localhost:4000/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html" rel="alternate" type="text/html" title="Power Automate Parse Html Tables From Email Via Code" /><published>2026-05-21T00:00:00+01:00</published><updated>2026-05-21T00:00:00+01:00</updated><id>http://localhost:4000/powerautomate/2026/05/21/power-automate---parse-html-tables-from-email-via-code</id><content type="html" xml:base="http://localhost:4000/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html"><![CDATA[<p>Scenario:</p>
 
 <p>Frequently get an email with an embedded HTML table which requires parsing, however the email body technically contains two tables. One being a security banner (Which I didn’t realise was a table) and one being the actual table we want to parse.</p>
 
@@ -578,7 +535,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Then you continue to do stuff with it!</p>]]></content><author><name>Jason Benedetti</name></author><category term="PowerAutomate" /><summary type="html"><![CDATA[Scenario:]]></summary></entry><entry><title type="html">Git Remove Accidental File From Pr</title><link href="https://zerodriven.github.io/git/2026/05/19/Git-Remove-Accidental-File-From-PR.html" rel="alternate" type="text/html" title="Git Remove Accidental File From Pr" /><published>2026-05-19T08:34:00+01:00</published><updated>2026-05-19T08:34:00+01:00</updated><id>https://zerodriven.github.io/git/2026/05/19/Git-Remove-Accidental-File-From-PR</id><content type="html" xml:base="https://zerodriven.github.io/git/2026/05/19/Git-Remove-Accidental-File-From-PR.html"><![CDATA[<p>Scenario: Wrote code, did a PR, got comments and fixed them. Accidentally started work on a different piece of work but committed change to the same codebase as the previous PR</p>
+<p>Then you continue to do stuff with it!</p>]]></content><author><name>Jason Benedetti</name></author><category term="PowerAutomate" /><summary type="html"><![CDATA[Scenario:]]></summary></entry><entry><title type="html">Git Remove Accidental File From Pr</title><link href="http://localhost:4000/git/2026/05/19/Git-Remove-Accidental-File-From-PR.html" rel="alternate" type="text/html" title="Git Remove Accidental File From Pr" /><published>2026-05-19T08:34:00+01:00</published><updated>2026-05-19T08:34:00+01:00</updated><id>http://localhost:4000/git/2026/05/19/Git-Remove-Accidental-File-From-PR</id><content type="html" xml:base="http://localhost:4000/git/2026/05/19/Git-Remove-Accidental-File-From-PR.html"><![CDATA[<p>Scenario: Wrote code, did a PR, got comments and fixed them. Accidentally started work on a different piece of work but committed change to the same codebase as the previous PR</p>
 
 <p>Fix:</p>
 
@@ -593,7 +550,7 @@
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">git</span><span class="w"> </span><span class="nx">checkout</span><span class="w"> </span><span class="nx">HEAD~1</span><span class="w"> </span><span class="nx">\Path\To\File\File.cs</span><span class="w">
 </span></code></pre></div></div>
 
-<p>This reverts the file back to the last known copy before your changes were published.</p>]]></content><author><name>Jason Benedetti</name></author><category term="git" /><summary type="html"><![CDATA[Scenario: Wrote code, did a PR, got comments and fixed them. Accidentally started work on a different piece of work but committed change to the same codebase as the previous PR]]></summary></entry><entry><title type="html">Professional Experience</title><link href="https://zerodriven.github.io/cv/" rel="alternate" type="text/html" title="Professional Experience" /><published>2026-05-19T00:00:00+01:00</published><updated>2026-05-19T00:00:00+01:00</updated><id>https://zerodriven.github.io/CV</id><content type="html" xml:base="https://zerodriven.github.io/cv/"><![CDATA[<h2 id="executive-summary">Executive Summary</h2>
+<p>This reverts the file back to the last known copy before your changes were published.</p>]]></content><author><name>Jason Benedetti</name></author><category term="git" /><summary type="html"><![CDATA[Scenario: Wrote code, did a PR, got comments and fixed them. Accidentally started work on a different piece of work but committed change to the same codebase as the previous PR]]></summary></entry><entry><title type="html">Professional Experience</title><link href="http://localhost:4000/cv/" rel="alternate" type="text/html" title="Professional Experience" /><published>2026-05-19T00:00:00+01:00</published><updated>2026-05-19T00:00:00+01:00</updated><id>http://localhost:4000/CV</id><content type="html" xml:base="http://localhost:4000/cv/"><![CDATA[<h2 id="executive-summary">Executive Summary</h2>
 
 <p>I’m a senior engineering and technology leader with over 12 years of experience designing, delivering, and scaling digital platforms, business systems, and engineering teams across the charity, leisure, retail, and consultancy sectors. My background spans hands-on architecture, software engineering, cloud platforms, systems integration, and technical leadership, with a strong track record of modernising legacy estates, improving delivery performance, and aligning technology strategy with organisational goals.</p>
 
@@ -705,18 +662,18 @@
   <li>MB2-668 Microsoft Dynamics CRM 2011 Applications</li>
   <li>MB2-858 Managing Microsoft Dynamics Implementations</li>
   <li>70-667 TS: Microsoft SharePoint 2010, Configuration</li>
-</ul>]]></content><author><name>Jason Benedetti</name></author><summary type="html"><![CDATA[Executive Summary]]></summary></entry><entry><title type="html">Update</title><link href="https://zerodriven.github.io/jekyll/2026/05/18/Update.html" rel="alternate" type="text/html" title="Update" /><published>2026-05-18T09:00:00+01:00</published><updated>2026-05-18T09:00:00+01:00</updated><id>https://zerodriven.github.io/jekyll/2026/05/18/Update</id><content type="html" xml:base="https://zerodriven.github.io/jekyll/2026/05/18/Update.html"><![CDATA[<p>2026 update!</p>
+</ul>]]></content><author><name>Jason Benedetti</name></author><summary type="html"><![CDATA[Executive Summary]]></summary></entry><entry><title type="html">Update</title><link href="http://localhost:4000/jekyll/2026/05/18/Update.html" rel="alternate" type="text/html" title="Update" /><published>2026-05-18T09:00:00+01:00</published><updated>2026-05-18T09:00:00+01:00</updated><id>http://localhost:4000/jekyll/2026/05/18/Update</id><content type="html" xml:base="http://localhost:4000/jekyll/2026/05/18/Update.html"><![CDATA[<p>2026 update!</p>
 
 <ol>
   <li>New theme</li>
   <li>Added a sidebar with some of my socials</li>
   <li>Removed the annoying about content, to do.</li>
   <li>Pulled SOME old blogs from my old website (Internet Archive woohboo) - Dates are wrong, but who cares. Decade+ old</li>
-</ol>]]></content><author><name>Jason Benedetti</name></author><category term="jekyll" /><summary type="html"><![CDATA[2026 update!]]></summary></entry><entry><title type="html">Update</title><link href="https://zerodriven.github.io/testing/2024/04/29/Update.html" rel="alternate" type="text/html" title="Update" /><published>2024-04-29T10:00:00+01:00</published><updated>2024-04-29T10:00:00+01:00</updated><id>https://zerodriven.github.io/testing/2024/04/29/Update</id><content type="html" xml:base="https://zerodriven.github.io/testing/2024/04/29/Update.html"><![CDATA[<p>This should be fun as it has most certainly been a while.</p>
+</ol>]]></content><author><name>Jason Benedetti</name></author><category term="jekyll" /><summary type="html"><![CDATA[2026 update!]]></summary></entry><entry><title type="html">Update</title><link href="http://localhost:4000/testing/2024/04/29/Update.html" rel="alternate" type="text/html" title="Update" /><published>2024-04-29T10:00:00+01:00</published><updated>2024-04-29T10:00:00+01:00</updated><id>http://localhost:4000/testing/2024/04/29/Update</id><content type="html" xml:base="http://localhost:4000/testing/2024/04/29/Update.html"><![CDATA[<p>This should be fun as it has most certainly been a while.</p>
 
 <p>Lets see where I got up to and hopefully clear this site up.</p>
 
-<p>Am likely going to be purging everything due to not reading the ToS of the sites I learnt against, shouldn’t store passwords it seems..</p>]]></content><author><name>Jason Benedetti</name></author><category term="Testing" /><summary type="html"><![CDATA[This should be fun as it has most certainly been a while.]]></summary></entry><entry><title type="html">Overthewire Leviathan Level 7 To The End</title><link href="https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-7-to-The-End.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 7 To The End" /><published>2021-04-18T09:20:00+01:00</published><updated>2021-04-18T09:20:00+01:00</updated><id>https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-7-to-The-End</id><content type="html" xml:base="https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-7-to-The-End.html"><![CDATA[<h1 id="leviathan-7">Leviathan 7</h1>
+<p>Am likely going to be purging everything due to not reading the ToS of the sites I learnt against, shouldn’t store passwords it seems..</p>]]></content><author><name>Jason Benedetti</name></author><category term="Testing" /><summary type="html"><![CDATA[This should be fun as it has most certainly been a while.]]></summary></entry><entry><title type="html">Overthewire Leviathan Level 7 To The End</title><link href="http://localhost:4000/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-7-to-The-End.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 7 To The End" /><published>2021-04-18T09:20:00+01:00</published><updated>2021-04-18T09:20:00+01:00</updated><id>http://localhost:4000/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-7-to-The-End</id><content type="html" xml:base="http://localhost:4000/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-7-to-The-End.html"><![CDATA[<h1 id="leviathan-7">Leviathan 7</h1>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 Username: leviathan7
 Password: redacted
@@ -732,7 +689,7 @@ leviathan7@leviathan:~<span class="nv">$ </span><span class="nb">cat </span>CONG
 Well Done, you seem to have used a <span class="k">*</span>nix system before, now try something more serious.
 <span class="o">(</span>Please don<span class="s1">'t post writeups, solutions or spoilers about the games on the web. Thank you!)
 # Awkward
-</span></code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html"><![CDATA[Leviathan 7 ```]]></summary></entry><entry><title type="html">Overthewire Leviathan Level 6 To 7</title><link href="https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-6-to-7.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 6 To 7" /><published>2021-04-18T09:10:00+01:00</published><updated>2021-04-18T09:10:00+01:00</updated><id>https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-6-to-7</id><content type="html" xml:base="https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-6-to-7.html"><![CDATA[<h1 id="leviathan-6">Leviathan 6</h1>
+</span></code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html"><![CDATA[Leviathan 7 ```]]></summary></entry><entry><title type="html">Overthewire Leviathan Level 6 To 7</title><link href="http://localhost:4000/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-6-to-7.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 6 To 7" /><published>2021-04-18T09:10:00+01:00</published><updated>2021-04-18T09:10:00+01:00</updated><id>http://localhost:4000/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-6-to-7</id><content type="html" xml:base="http://localhost:4000/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-6-to-7.html"><![CDATA[<h1 id="leviathan-6">Leviathan 6</h1>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 Username: leviathan6
 Password: redacted
@@ -796,7 +753,7 @@ redacted
 <p>VICTORY.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>redacted 
-</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html"><![CDATA[Leviathan 6 ```]]></summary></entry><entry><title type="html">Overthewire Leviathan Level 5 To 6</title><link href="https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-5-to-6.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 5 To 6" /><published>2021-04-18T09:00:00+01:00</published><updated>2021-04-18T09:00:00+01:00</updated><id>https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-5-to-6</id><content type="html" xml:base="https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-5-to-6.html"><![CDATA[<h1 id="leviathan-5">Leviathan 5</h1>
+</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html"><![CDATA[Leviathan 6 ```]]></summary></entry><entry><title type="html">Overthewire Leviathan Level 5 To 6</title><link href="http://localhost:4000/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-5-to-6.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 5 To 6" /><published>2021-04-18T09:00:00+01:00</published><updated>2021-04-18T09:00:00+01:00</updated><id>http://localhost:4000/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-5-to-6</id><content type="html" xml:base="http://localhost:4000/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-5-to-6.html"><![CDATA[<h1 id="leviathan-5">Leviathan 5</h1>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 Username: leviathan5
 Password: redacted

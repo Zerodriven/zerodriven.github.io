@@ -17,9 +17,6 @@ It’s also fantastic at something else:  creating a mess of inconsistent, fragi
 This isn’t a tooling problem.  It’s a governance problem.
 
 It doesn't help that Microsoft doesn't make this easy and it doesn't help that there's no native default template for the product, so you have to do this every time, for every flow, for every environment and that drives me utterly insane.
-
----
-
 # The Goal (What “Good” Looks Like)
 
 A well-governed automation platform should produce flows that are:
@@ -32,13 +29,9 @@ A well-governed automation platform should produce flows that are:
 
 If your flows don’t meet those criteria, you’re building future operational debt.
 
----
-
 # The Single Most Important Rule
 
 Every flow should follow the same structure. Without that, nothing else matters.
-
----
 
 # 1. Standard Flow Architecture
 
@@ -61,18 +54,13 @@ Most Power Automate issues aren’t logic bugs, they’re:
 
 This structure solves all of that.
 
----
-
 ## What each part does
 
 ### Initialisation
 
 Set everything up centrally:
 
-- Correlation ID:
-  
-      guid()
-
+- Correlation ID
 - Flow metadata
 - Configuration references
 
@@ -86,9 +74,6 @@ Example:
       "environmentName": "workflow().tags.environmentName OR as a dedicated variable"
     }
 ```
-
----
-
 ### Main Logic (Try)
 
 This is your actual business logic:
@@ -103,9 +88,6 @@ Pattern:
         Scope - Data Retrieval
         Scope - Processing
         Scope - Output
-
----
-
 ### Error Handling (Catch)
 
 Runs when anything fails. Capture useful context:
@@ -125,8 +107,6 @@ Actions should include:
 
 No more silent failures.
 
----
-
 ### Finalisation (Finally)
 
 Always runs regardless of success or failure.
@@ -137,27 +117,22 @@ Track completion:
       "status": "@{workflow().status}",
       "endTime": "@{utcNow()}"
     }
-
----
-
 # 2. Drop Hardcoding (Configuration Discipline)
 
 Hardcoding is one of the biggest causes of pain. Instead:
 
 ## Use configuration layers
 
-| Data Type | Where it should live |
-| :--- | :--- |
-| **API URLs** | Environment variables |
-| **Email recipients** | Config list (SharePoint/Dataverse) |
-| **Site URLs** | Environment variables |
-| **Rule of thumb:** | If you need to change it in more than one place, it shouldn't be hardcoded. |
+| Data Type            | Where it should live                                                        |
+| :------------------- | :-------------------------------------------------------------------------- |
+| **API URLs**         | Environment variables                                                       |
+| **Email recipients** | Config list (SharePoint/Dataverse)                                          |
+| **Site URLs**        | Environment variables                                                       |
+| **Rule of thumb:**   | If you need to change it in more than one place, it shouldn't be hardcoded. |
 
 ## Rule of thumb
 
 > If you need to change it in more than one place, it should not be hardcoded.
-
----
 
 # 3. Naming Conventions
 
@@ -188,15 +163,11 @@ Example:
 
     Scope - <Purpose>
 
----
-
 # 4. Error Handling is Not Optional
 
 If your flow can fail (and it will), you need to handle it. At a minimum, every single flow must have a Try/Catch structure that captures the error message, timestamp, and Correlation ID, before notifying the team.
 
 Think of it as an execution mindset shift. Instead of a user telling you, _"It failed once last week,"_ your system tells you, _"Flow X failed at 14:32 with error X, correlation ID Y, environment name Z."_
-
----
 
 # 5. Logging = Observability
 
@@ -230,7 +201,6 @@ Scale later:
 - Dataverse  
 - Application Insights  
 
----
 
 # 6. Build for Reuse
 
@@ -250,8 +220,6 @@ Common reusable components:
 - Change once updates everywhere  
 - Keeps flows clean  
 - Avoids duplication  
-
----
 
 # 7. Templates Make This Stick
 
@@ -275,8 +243,6 @@ Then:
 
 Make the right way the easiest way.
 
----
-
 # 8. Lightweight Governance
 
 You don’t need heavy process.
@@ -291,8 +257,6 @@ You don’t need heavy process.
 
 That’s enough to massively improve quality.
 
----
-
 # What's the point?
 
 When applied correctly, you get:
@@ -304,8 +268,6 @@ When applied correctly, you get:
 - Confidence to scale  
 
 Most importantly: Your flows stop being scripts and become systems.
-
----
 
 # Final Thought
 
