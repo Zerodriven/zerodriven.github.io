@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2026-05-21-azure-guest-account-purging.md",
-                "mode": "source",
+                "file": "_posts/2026-05-22-power-platform---a-practical-governance-framework-part-one.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-05-21-azure-guest-account-purging"
+              "title": "2026-05-22-power-platform---a-practical-governance-framework-part-one"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/2026-05-21-azure-guest-account-purging.md",
+                "file": "_posts/2026-05-22-power-platform---a-practical-governance-framework-part-one.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 2026-05-21-azure-guest-account-purging"
+              "title": "Backlinks for 2026-05-22-power-platform---a-practical-governance-framework-part-one"
             }
           },
           {
@@ -155,7 +155,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 302.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -171,25 +171,27 @@
   },
   "active": "cbc0c895473f4759",
   "lastOpenFiles": [
-    "_posts/Me/2026-05-19-CV.md",
+    "_site/engineering,/automation,/powerautomate/2026/05/23/power-platform-a-practical-governance-framework-part-one.html",
+    "_site/engineering,/automation,/powerautomate/2026/05/23/power-platform-a-practical-governance-framework.html",
+    "_site/engineering,/automation,/powerautomate/2026/05/23",
+    "_site/engineering,/automation,/powerautomate/2026/05",
+    "_site/engineering,/automation,/powerautomate/2026",
+    "_site/engineering,/automation,/powerautomate",
+    "_site/engineering,/automation,",
+    "_site/engineering,",
     "_posts/2026-05-21-azure-guest-account-purging.md",
+    "_posts/2026-05-22-power-platform---a-practical-governance-framework-part-one.md",
+    "_posts/Me/2026-05-19-CV.md",
     "_posts/2026-05-21-power-automate---parse-html-tables-from-email-via-code.md",
     "Templates/Template.md",
     "_site/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html",
     "_site/powerautomate/2026/05/21",
     "_site/powerautomate/2026/05",
-    "_site/powerautomate/2026",
-    "_site/powerautomate",
-    "_site/git/2026/05/19/Git-Remove-Accidental-File-From-PR.html",
     "_posts/2026-05-19-Git-Remove-Accidental-File-From-PR.md",
     "_posts/2026-05-19-test.md",
     "_posts/2026-05-19-testr.md",
-    "_site/Templates/Template.html",
-    "_site/Templates",
     "Templates/2026-05-19-testing-this-new-thing.md",
-    "_site/Templates/2026-05-19-testing-this-new-thing.html",
     "_posts/2026-05-19-untitled.md",
-    "_site/2026/05/19/new-thing.html",
     "_posts/2026-05-19-new-thing.md",
     "_posts/2026-05-19-Hello.md",
     "Hello.md",
@@ -207,8 +209,6 @@
     "_posts/Dynamics/2013-11-19-sql-server-setup-has-encountered-the-following-error-invoke-or-begininvoke-cannot-be-called-on-a-control-until-the-window-handle-has-been-created.md",
     "_posts/Dynamics/2011-11-11sql-server-change-table-ownership 1.md",
     "_posts/Dynamics/2013-06-28-dynamics-crm-2011-delete-waiting-system-jobs.md",
-    "_posts/Dynamics/2014-07-01-error-registering-plugins-andor-workflows-plug-in-assembly-does-not-contain-the-required-types-or-assembly-content-cannot-be-updated.md",
-    "_posts/Dynamics/2014-10-22-dynamics-crm-2013-disablesslcheckforencryption.md",
     "_site/assets/minima-social-icons.svg",
     "_site/assets/9.png",
     "_site/assets/8.png",

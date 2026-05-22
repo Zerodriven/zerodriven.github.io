@@ -1,4 +1,375 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://zerodriven.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://zerodriven.github.io/" rel="alternate" type="text/html" /><updated>2026-05-22T08:02:17+01:00</updated><id>https://zerodriven.github.io/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><author><name>Jason Benedetti</name></author><entry><title type="html">Azure Guest Account Purging</title><link href="https://zerodriven.github.io/azure,/dotnet/2026/05/22/azure-guest-account-purging.html" rel="alternate" type="text/html" title="Azure Guest Account Purging" /><published>2026-05-22T00:00:00+01:00</published><updated>2026-05-22T00:00:00+01:00</updated><id>https://zerodriven.github.io/azure,/dotnet/2026/05/22/azure-guest-account-purging</id><content type="html" xml:base="https://zerodriven.github.io/azure,/dotnet/2026/05/22/azure-guest-account-purging.html"><![CDATA[<p>Scenario: Got several hundred unmanaged guest accounts in Azure and I hate PowerShell. This is not production ready, but it can be converted quite easily to an Azure Function and moved into Azure Automation. Graph permissions are needed.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://zerodriven.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://zerodriven.github.io/" rel="alternate" type="text/html" /><updated>2026-05-22T08:33:38+01:00</updated><id>https://zerodriven.github.io/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><author><name>Jason Benedetti</name></author><entry><title type="html">Power Platform A Practical Governance Framework Part One</title><link href="https://zerodriven.github.io/engineering,/automation,/powerautomate/2026/05/23/power-platform-a-practical-governance-framework-part-one.html" rel="alternate" type="text/html" title="Power Platform A Practical Governance Framework Part One" /><published>2026-05-23T00:00:00+01:00</published><updated>2026-05-23T00:00:00+01:00</updated><id>https://zerodriven.github.io/engineering,/automation,/powerautomate/2026/05/23/power-platform---a-practical-governance-framework-part-one</id><content type="html" xml:base="https://zerodriven.github.io/engineering,/automation,/powerautomate/2026/05/23/power-platform-a-practical-governance-framework-part-one.html"><![CDATA[<p>Power Automate is fantastic at one thing: making it incredibly easy to build automation quickly.</p>
+
+<p>It’s also fantastic at something else:  creating a mess of inconsistent, fragile, unmaintainable flows at scale. If you’ve been using Power Automate for a while, you’ve probably seen it:</p>
+
+<ul>
+  <li>Flows with no error handling</li>
+  <li>Hardcoded URLs and email addresses everywhere</li>
+  <li>No logging or visibility</li>
+  <li>Broken processes no one wants to touch</li>
+  <li>“That one flow” only one person understands</li>
+</ul>
+
+<p>This isn’t a tooling problem.  It’s a governance problem.</p>
+
+<p>It doesn’t help that Microsoft doesn’t make this easy and it doesn’t help that there’s no native default template for the product, so you have to do this every time, for every flow, for every environment and that drives me utterly insane.</p>
+
+<hr />
+
+<h1 id="the-goal-what-good-looks-like">The Goal (What “Good” Looks Like)</h1>
+
+<p>A well-governed automation platform should produce flows that are:</p>
+
+<ul>
+  <li>Consistent</li>
+  <li>Maintainable</li>
+  <li>Secure</li>
+  <li>Observable (you can debug them)</li>
+  <li>Reusable</li>
+</ul>
+
+<p>If your flows don’t meet those criteria, you’re building future operational debt.</p>
+
+<hr />
+
+<h1 id="the-single-most-important-rule">The Single Most Important Rule</h1>
+
+<p>Every flow should follow the same structure. Without that, nothing else matters.</p>
+
+<hr />
+
+<h1 id="1-standard-flow-architecture">1. Standard Flow Architecture</h1>
+
+<p>Every flow should follow this pattern:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Trigger
+│
+├── Scope: Initialisation
+├── Scope: Main Logic (Try)
+├── Scope: Error Handling (Catch)
+└── Scope: Finalisation (Finally)
+</code></pre></div></div>
+
+<h2 id="why-this-matters">Why this matters</h2>
+
+<p>Most Power Automate issues aren’t logic bugs, they’re:</p>
+
+<ul>
+  <li>Silent failures</li>
+  <li>Missing context</li>
+  <li>Lack of traceability</li>
+</ul>
+
+<p>This structure solves all of that.</p>
+
+<hr />
+
+<h2 id="what-each-part-does">What each part does</h2>
+
+<h3 id="initialisation">Initialisation</h3>
+
+<p>Set everything up centrally:</p>
+
+<ul>
+  <li>
+    <p>Correlation ID:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>guid()
+</code></pre></div>    </div>
+  </li>
+  <li>Flow metadata</li>
+  <li>Configuration references</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"flowName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Flow"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"correlationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@{guid()}"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@{utcNow()}"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"environmentName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflow().tags.environmentName OR as a dedicated variable"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<h3 id="main-logic-try">Main Logic (Try)</h3>
+
+<p>This is your actual business logic:</p>
+
+<ul>
+  <li>Keep it clean</li>
+  <li>Structure it into smaller scopes</li>
+  <li>Avoid deeply nested expressions</li>
+</ul>
+
+<p>Pattern:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Scope - Main Logic
+    Scope - Data Retrieval
+    Scope - Processing
+    Scope - Output
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="error-handling-catch">Error Handling (Catch)</h3>
+
+<p>Runs when anything fails. Capture useful context:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@{workflow().status}"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@{workflow().error}"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"correlationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@{guid()}"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Actions should include:</p>
+
+<ul>
+  <li>Logging the error</li>
+  <li>Sending notification (Teams / Email)</li>
+</ul>
+
+<p>No more silent failures.</p>
+
+<hr />
+
+<h3 id="finalisation-finally">Finalisation (Finally)</h3>
+
+<p>Always runs regardless of success or failure.</p>
+
+<p>Track completion:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "status": "@{workflow().status}",
+  "endTime": "@{utcNow()}"
+}
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="2-drop-hardcoding-configuration-discipline">2. Drop Hardcoding (Configuration Discipline)</h1>
+
+<p>Hardcoding is one of the biggest causes of pain. Instead:</p>
+
+<h2 id="use-configuration-layers">Use configuration layers</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Data Type</th>
+      <th style="text-align: left">Where it should live</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>API URLs</strong></td>
+      <td style="text-align: left">Environment variables</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Email recipients</strong></td>
+      <td style="text-align: left">Config list (SharePoint/Dataverse)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Site URLs</strong></td>
+      <td style="text-align: left">Environment variables</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Rule of thumb:</strong></td>
+      <td style="text-align: left">If you need to change it in more than one place, it shouldn’t be hardcoded.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="rule-of-thumb">Rule of thumb</h2>
+
+<blockquote>
+  <p>If you need to change it in more than one place, it should not be hardcoded.</p>
+</blockquote>
+
+<hr />
+
+<h1 id="3-naming-conventions">3. Naming Conventions</h1>
+
+<p>Naming isn’t just aesthetics. it’s operational clarity.</p>
+
+<h2 id="flows">Flows</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Domain&gt; - &lt;Purpose&gt;
+</code></pre></div></div>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HR - Leavers Processing
+</code></pre></div></div>
+
+<h2 id="variables">Variables</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>varCamelCase
+</code></pre></div></div>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>varCorrelationId
+</code></pre></div></div>
+
+<h2 id="actions">Actions</h2>
+
+<ul>
+  <li>Good: Get User Data  / GetUserData (To help with component lookups, removing underscores!)</li>
+  <li>Bad: Action 1</li>
+</ul>
+
+<h2 id="scopes">Scopes</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Scope - &lt;Purpose&gt;
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="4-error-handling-is-not-optional">4. Error Handling is Not Optional</h1>
+
+<p>If your flow can fail (and it will), you need to handle it. At a minimum, every single flow must have a Try/Catch structure that captures the error message, timestamp, and Correlation ID, before notifying the team.</p>
+
+<p>Think of it as an execution mindset shift. Instead of a user telling you, <em>“It failed once last week,”</em> your system tells you, <em>“Flow X failed at 14:32 with error X, correlation ID Y, environment name Z.”</em></p>
+
+<hr />
+
+<h1 id="5-logging--observability">5. Logging = Observability</h1>
+
+<p>If you can’t see what your flows are doing, you can’t support them.</p>
+
+<h2 id="minimum-logging-events">Minimum logging events</h2>
+
+<ul>
+  <li>Start</li>
+  <li>Success</li>
+  <li>Failure</li>
+</ul>
+
+<h2 id="minimum-fields">Minimum fields</h2>
+
+<ul>
+  <li>Flow name</li>
+  <li>Correlation ID</li>
+  <li>Status</li>
+  <li>Timestamp</li>
+  <li>Duration</li>
+  <li>Environment</li>
+</ul>
+
+<h2 id="where-to-log">Where to log</h2>
+
+<p>Start simple:</p>
+
+<ul>
+  <li>SharePoint list</li>
+  <li>Emails</li>
+  <li>Automatically push errors into a ticketing system like Azure DevOps</li>
+</ul>
+
+<p>Scale later:</p>
+
+<ul>
+  <li>Dataverse</li>
+  <li>Application Insights</li>
+</ul>
+
+<hr />
+
+<h1 id="6-build-for-reuse">6. Build for Reuse</h1>
+
+<p>Most teams rebuild the same logic repeatedly. Instead:</p>
+
+<h2 id="use-child-flows">Use child flows</h2>
+
+<p>Common reusable components:</p>
+
+<ul>
+  <li>Logging</li>
+  <li>Notifications</li>
+  <li>API calls</li>
+  <li>Data transformations</li>
+</ul>
+
+<h2 id="why-bother">Why bother?</h2>
+
+<ul>
+  <li>Change once updates everywhere</li>
+  <li>Keeps flows clean</li>
+  <li>Avoids duplication</li>
+</ul>
+
+<hr />
+
+<h1 id="7-templates-make-this-stick">7. Templates Make This Stick</h1>
+
+<p>You can define standards all day, they won’t stick unless they’re easy to follow.</p>
+
+<h2 id="create-a-standard-template">Create a standard template</h2>
+
+<p>It should already include:</p>
+
+<ul>
+  <li>Structured scopes</li>
+  <li>Error handling wired</li>
+  <li>Logging enabled</li>
+  <li>Naming conventions</li>
+</ul>
+
+<p>Then:</p>
+
+<ul>
+  <li>Share it with your team</li>
+  <li>Make it the starting point</li>
+</ul>
+
+<h2 id="reality-check">Reality check</h2>
+
+<p>Make the right way the easiest way.</p>
+
+<hr />
+
+<h1 id="8-lightweight-governance">8. Lightweight Governance</h1>
+
+<p>You don’t need heavy process.</p>
+
+<h2 id="pre-release-checklist">Pre-release checklist</h2>
+
+<ul>
+  <li>No hardcoded values</li>
+  <li>Error handling implemented</li>
+  <li>Logging enabled</li>
+  <li>Naming standards followed</li>
+  <li>Built inside a Solution</li>
+</ul>
+
+<p>That’s enough to massively improve quality.</p>
+
+<hr />
+
+<h1 id="whats-the-point">What’s the point?</h1>
+
+<p>When applied correctly, you get:</p>
+
+<ul>
+  <li>Fewer production issues</li>
+  <li>Faster debugging</li>
+  <li>Easier onboarding</li>
+  <li>Reusable patterns</li>
+  <li>Confidence to scale</li>
+</ul>
+
+<p>Most importantly: Your flows stop being scripts and become systems.</p>
+
+<hr />
+
+<h1 id="final-thought">Final Thought</h1>
+
+<p>Power Automate is powerful but without structure, it becomes chaos. Governance isn’t about slowing things down. It’s about ensuring what you build today is still understandable, fixable, and maintainable tomorrow. Also, why would we just not do this? Why does Microsoft not just make this the default for all user defined flows?</p>
+
+<p>At the top I said you have to do this for every flow for every environment, always. One of my next blogs will show you how to get around that. Not perfectly, but something is better than nothing</p>]]></content><author><name>Jason Benedetti</name></author><category term="Engineering," /><category term="Automation," /><category term="PowerAutomate" /><summary type="html"><![CDATA[Power Automate is fantastic at one thing: making it incredibly easy to build automation quickly.]]></summary></entry><entry><title type="html">Azure Guest Account Purging</title><link href="https://zerodriven.github.io/azure,/dotnet/2026/05/22/azure-guest-account-purging.html" rel="alternate" type="text/html" title="Azure Guest Account Purging" /><published>2026-05-22T00:00:00+01:00</published><updated>2026-05-22T00:00:00+01:00</updated><id>https://zerodriven.github.io/azure,/dotnet/2026/05/22/azure-guest-account-purging</id><content type="html" xml:base="https://zerodriven.github.io/azure,/dotnet/2026/05/22/azure-guest-account-purging.html"><![CDATA[<p>Scenario: Got several hundred unmanaged guest accounts in Azure and I hate PowerShell. This is not production ready, but it can be converted quite easily to an Azure Function and moved into Azure Automation. Graph permissions are needed.</p>
 
 <p>Script can be run as part of a solution (Make sure to download the relevant NuGet packages for the relevant imports) and with dotnet run.</p>
 
@@ -477,50 +848,4 @@ redacted
 <p>VICTORY.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>redacted 
-</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html"><![CDATA[Leviathan 5 ```]]></summary></entry><entry><title type="html">Overthewire Leviathan Level 4 To 5</title><link href="https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-4-to-5.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 4 To 5" /><published>2021-04-17T10:52:00+01:00</published><updated>2021-04-17T10:52:00+01:00</updated><id>https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-4-to-5</id><content type="html" xml:base="https://zerodriven.github.io/overthewire/leviathan/2021/04/17/OverTheWire-Leviathan-Level-4-to-5.html"><![CDATA[<h1 id="leviathan-4">Leviathan 4</h1>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-Username: leviathan4
-Password: redacted
-
-Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
-</code></pre></div></div>
-
-<h2 id="lets-take-a-look">Lets take a look.</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan4@leviathan:~<span class="nv">$ </span><span class="nb">ls
-</span>leviathan4@leviathan:~<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-la</span>
-total 24
-drwxr-xr-x  3 root root       4096 Aug 26  2019 <span class="nb">.</span>
-drwxr-xr-x 10 root root       4096 Aug 26  2019 ..
-<span class="nt">-rw-r--r--</span>  1 root root        220 May 15  2017 .bash_logout
-<span class="nt">-rw-r--r--</span>  1 root root       3526 May 15  2017 .bashrc
-<span class="nt">-rw-r--r--</span>  1 root root        675 May 15  2017 .profile
-dr-xr-x---  2 root leviathan4 4096 Aug 26  2019 .trash
-leviathan4@leviathan:~<span class="nv">$ </span><span class="nb">cd</span> .trash
-leviathan4@leviathan:~/.trash<span class="err">$</span>
-</code></pre></div></div>
-
-<h2 id="i-like-trash-whats-inside">I like trash. What’s inside?</h2>
-
-<pre><code class="language-bin">leviathan4@leviathan:~/.trash$ ls
-bin
-leviathan4@leviathan:~/.trash$ ./bin
-01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010
-</code></pre>
-
-<h2 id="im-not-going-to-find-a-command-for-that-so">I’m not going to find a command for that. So..</h2>
-
-<ol>
-  <li>https://www.rapidtables.com/convert/number/binary-to-string.html</li>
-  <li>Paste in the binary code</li>
-  <li>Victory</li>
-</ol>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010
-redacted
-</code></pre></div></div>
-
-<p>VICTORY.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>redacted 
-</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html"><![CDATA[Leviathan 4 ```]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html"><![CDATA[Leviathan 5 ```]]></summary></entry></feed>
