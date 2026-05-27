@@ -1,6 +1,6 @@
 ---
 layout: single
-date: 2026-05-23
+date: 2026-05-26
 categories: Engineering, Automation, PowerAutomate
 classes: wide
 ---
