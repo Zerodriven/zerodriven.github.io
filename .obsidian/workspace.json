@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2026-05-22-power-auomate---when-a-new-form-is-submitted---not-triggering.md",
+                "file": "_posts/2026-06-04-import-custom-model-into-lm-studio.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-05-22-power-auomate---when-a-new-form-is-submitted---not-triggering"
+              "title": "2026-06-04-import-custom-model-into-lm-studio"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/2026-05-22-power-auomate---when-a-new-form-is-submitted---not-triggering.md",
+                "file": "_posts/2026-06-04-import-custom-model-into-lm-studio.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 2026-05-22-power-auomate---when-a-new-form-is-submitted---not-triggering"
+              "title": "Backlinks for 2026-06-04-import-custom-model-into-lm-studio"
             }
           },
           {
@@ -142,16 +142,17 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/2026-05-21-azure-guest-account-purging.md",
+                "file": "_posts/2026-06-04-import-custom-model-into-lm-studio.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2026-05-21-azure-guest-account-purging"
+              "title": "Outline of 2026-06-04-import-custom-model-into-lm-studio"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -171,8 +172,12 @@
   },
   "active": "cbc0c895473f4759",
   "lastOpenFiles": [
-    "_posts/2026-05-26-power-platform---a-practical-governance-framework-part-one.md",
+    "_posts/Dynamics/2013-06-28-SQL-Server-Change-Table-Ownership.md",
+    "_posts/2026-06-04-import-custom-model-into-lm-studio.md",
+    "_posts/Dynamics/2016-01-16-Dynamics-CRM-2013-cannot-open-sql-encryption-symmetric-key-because-symmetric-key-password-does-not-exist-in-config-db.md",
+    "_posts/Dynamics/2013-06-28-dynamics-crm-2011-delete-waiting-system-jobs.md",
     "_posts/2026-05-22-power-auomate---when-a-new-form-is-submitted---not-triggering.md",
+    "_posts/2026-05-26-power-platform---a-practical-governance-framework-part-one.md",
     "_site/engineering,/automation,/powerautomate/2026/05/23/power-platform-a-practical-governance-framework-part-one.html",
     "_site/engineering,/automation,/powerautomate/2026/05/23/power-platform-a-practical-governance-framework.html",
     "_site/engineering,/automation,/powerautomate/2026/05/23",
@@ -199,16 +204,12 @@
     "_posts/OverTheWire/Jekyllrb/2021-04-01-Install-Jekyll-on-Windows-10-with-Ruby-DevKit-3.0.md",
     "_posts/OverTheWire/Jekyllrb/2021-04-01-List-of-supported-languages-in-Jekyll's-syntax-highlighting.md",
     "Git - Revert accidental pushed file from PR.md",
-    "_posts/Dynamics/2016-01-16-Dynamics-CRM-2013-cannot-open-sql-encryption-symmetric-key-because-symmetric-key-password-does-not-exist-in-config-db.md",
     "readme.md",
     "Untitled.canvas",
     "_site/Untitled.canvas",
     "_posts/Dynamics/2016-01-16-Dynamics-CRM-2013-cannot-open-sql-encryption-symmetric-key-because-symmetric-key-password-does-not-exist-in-config-db 1.md",
-    "_posts/Dynamics/2011-11-11-sql-server-change-table-ownership.md",
     "2026-05-18.md",
     "_posts/Dynamics/2013-11-19-sql-server-setup-has-encountered-the-following-error-invoke-or-begininvoke-cannot-be-called-on-a-control-until-the-window-handle-has-been-created.md",
-    "_posts/Dynamics/2011-11-11sql-server-change-table-ownership 1.md",
-    "_posts/Dynamics/2013-06-28-dynamics-crm-2011-delete-waiting-system-jobs.md",
     "_site/assets/minima-social-icons.svg",
     "_site/assets/9.png",
     "_site/assets/8.png",
