@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://zerodriven.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://zerodriven.github.io/" rel="alternate" type="text/html" /><updated>2026-05-27T07:39:33+01:00</updated><id>https://zerodriven.github.io/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><author><name>Jason Benedetti</name></author><entry><title type="html">Power Auomate When A New Form Is Submitted Not Triggering</title><link href="https://zerodriven.github.io/powerautomate/2026/05/27/power-auomate-when-a-new-form-is-submitted-not-triggering.html" rel="alternate" type="text/html" title="Power Auomate When A New Form Is Submitted Not Triggering" /><published>2026-05-27T00:00:00+01:00</published><updated>2026-05-27T00:00:00+01:00</updated><id>https://zerodriven.github.io/powerautomate/2026/05/27/power-auomate---when-a-new-form-is-submitted---not-triggering</id><content type="html" xml:base="https://zerodriven.github.io/powerautomate/2026/05/27/power-auomate-when-a-new-form-is-submitted-not-triggering.html"><![CDATA[<p>Scenario: User set up a Power Automate flow 100% correctly, standard:</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://zerodriven.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://zerodriven.github.io/" rel="alternate" type="text/html" /><updated>2026-06-04T08:33:38+01:00</updated><id>https://zerodriven.github.io/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><author><name>Jason Benedetti</name></author><entry><title type="html">Import Custom Model Into Lm Studio</title><link href="https://zerodriven.github.io/ai/2026/06/04/import-custom-model-into-lm-studio.html" rel="alternate" type="text/html" title="Import Custom Model Into Lm Studio" /><published>2026-06-04T00:00:00+01:00</published><updated>2026-06-04T00:00:00+01:00</updated><id>https://zerodriven.github.io/ai/2026/06/04/import-custom-model-into-lm-studio</id><content type="html" xml:base="https://zerodriven.github.io/ai/2026/06/04/import-custom-model-into-lm-studio.html"><![CDATA[<p>Within LM studio there’s obviously a way to download models natively, however in some instances several models from HuggingFace don’t appear.</p>
+
+<ol>
+  <li>Download model from HuggingFace (Other places exist)</li>
+  <li>Open command prompt</li>
+  <li>Run the following command:</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lms.exe</span><span class="w"> </span><span class="nx">import</span><span class="w"> </span><span class="nx">path</span><span class="w">
+</span><span class="p">(</span><span class="n">e.g.</span><span class="w"> </span><span class="s2">"lms import C:\Users\Jason\Downloads\model.gguf"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<ol>
+  <li>Follow the prompts.</li>
+  <li>Done.</li>
+</ol>]]></content><author><name>Jason Benedetti</name></author><category term="AI" /><summary type="html"><![CDATA[Within LM studio there’s obviously a way to download models natively, however in some instances several models from HuggingFace don’t appear.]]></summary></entry><entry><title type="html">Power Auomate When A New Form Is Submitted Not Triggering</title><link href="https://zerodriven.github.io/powerautomate/2026/05/27/power-auomate-when-a-new-form-is-submitted-not-triggering.html" rel="alternate" type="text/html" title="Power Auomate When A New Form Is Submitted Not Triggering" /><published>2026-05-27T00:00:00+01:00</published><updated>2026-05-27T00:00:00+01:00</updated><id>https://zerodriven.github.io/powerautomate/2026/05/27/power-auomate---when-a-new-form-is-submitted---not-triggering</id><content type="html" xml:base="https://zerodriven.github.io/powerautomate/2026/05/27/power-auomate-when-a-new-form-is-submitted-not-triggering.html"><![CDATA[<p>Scenario: User set up a Power Automate flow 100% correctly, standard:</p>
 
 <ul>
   <li>When a new form is submitted</li>
@@ -723,68 +738,4 @@ leviathan7@leviathan:~<span class="nv">$ </span><span class="nb">cat </span>CONG
 Well Done, you seem to have used a <span class="k">*</span>nix system before, now try something more serious.
 <span class="o">(</span>Please don<span class="s1">'t post writeups, solutions or spoilers about the games on the web. Thank you!)
 # Awkward
-</span></code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html"><![CDATA[Leviathan 7 ```]]></summary></entry><entry><title type="html">Overthewire Leviathan Level 6 To 7</title><link href="https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-6-to-7.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 6 To 7" /><published>2021-04-18T09:10:00+01:00</published><updated>2021-04-18T09:10:00+01:00</updated><id>https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-6-to-7</id><content type="html" xml:base="https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-6-to-7.html"><![CDATA[<h1 id="leviathan-6">Leviathan 6</h1>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-Username: leviathan6
-Password: redacted
-
-Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
-</code></pre></div></div>
-
-<h2 id="lets-take-a-look">Lets take a look.</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan6@leviathan:~<span class="nv">$ </span><span class="nb">ls
-</span>redacted
-</code></pre></div></div>
-
-<h2 id="ltrace-it-seems-the-norm-now">ltrace it, seems the norm now</h2>
-
-<pre><code class="language-bin">leviathan6@leviathan:~$ ltrace ./leviathan6
-__libc_start_main(0x804853b, 1, 0xffffd784, 0x80485e0 &lt;unfinished ...&gt;
-printf("usage: %s &lt;4 digit code&gt;\n", "./leviathan6"usage: ./leviathan6 &lt;4 digit code&gt;
-)                      = 35
-exit(-1 &lt;no return ...&gt;
-+++ exited (status 255) +++
-leviathan6@leviathan:~$ ltrace ./leviathan6 0000
-__libc_start_main(0x804853b, 2, 0xffffd784, 0x80485e0 &lt;unfinished ...&gt;
-atoi(0xffffd8b0, 0, 0xf7e40890, 0x804862b)                                = 0
-puts("Wrong"Wrong
-)                                                             = 6
-+++ exited (status 0) +++
-</code></pre>
-
-<h2 id="what-the-hell-is-atoi">What the hell is atoi?</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://man7.org/linux/man-pages/man3/atoi.3.html
-</code></pre></div></div>
-
-<h2 id="string-to-int-guess-were-going-to-have-to-write-a-scipt-to-loop-again">String to int? Guess we’re going to have to write a scipt to loop again.</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan6@leviathan:~<span class="nv">$ </span><span class="nb">mkdir</span> /tmp/zdl6
-leviathan5@leviathan:~<span class="nv">$ </span><span class="nb">cd</span> /tmp/zdl6
-leviathan6@leviathan:/tmp/zdl6<span class="nv">$ </span><span class="nb">touch </span>beep.sh
-leviathan6@leviathan:/tmp/zdl6<span class="nv">$ </span>nano beep.sh
-
-<span class="c">#!/bin/bash</span>
-<span class="k">for </span>i <span class="k">in</span> <span class="o">{</span>0000..9999<span class="o">}</span>
-<span class="k">do</span>
-~/leviathan6 <span class="nv">$i</span>
-<span class="k">done
-
-</span>leviathan6@leviathan:/tmp/zdl6<span class="nv">$ </span><span class="nb">chmod </span>777 beep.sh
-</code></pre></div></div>
-
-<h2 id="lets-run-this-and-see-what-happens">Lets run this and see what happens</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan6@leviathan:/tmp/zdl6<span class="nv">$ </span>./beep.sh
-...snip...
-<span class="nv">$ </span><span class="nb">whoami
-</span>leviathan7
-<span class="nv">$ </span><span class="nb">cat</span> /etc/leviathan_pass/leviathan7
-redacted
-</code></pre></div></div>
-
-<p>VICTORY.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>redacted 
-</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html"><![CDATA[Leviathan 6 ```]]></summary></entry></feed>
+</span></code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html"><![CDATA[Leviathan 7 ```]]></summary></entry></feed>

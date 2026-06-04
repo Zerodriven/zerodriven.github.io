@@ -1,6 +1,6 @@
 ---
 layout: single
-date:
+date: 2026-06-04
 categories: AI
 classes: wide
 ---
