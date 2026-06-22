@@ -1,4 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://zerodriven.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://zerodriven.github.io/" rel="alternate" type="text/html" /><updated>2026-06-04T08:33:38+01:00</updated><id>https://zerodriven.github.io/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><author><name>Jason Benedetti</name></author><entry><title type="html">Import Custom Model Into Lm Studio</title><link href="https://zerodriven.github.io/ai/2026/06/04/import-custom-model-into-lm-studio.html" rel="alternate" type="text/html" title="Import Custom Model Into Lm Studio" /><published>2026-06-04T00:00:00+01:00</published><updated>2026-06-04T00:00:00+01:00</updated><id>https://zerodriven.github.io/ai/2026/06/04/import-custom-model-into-lm-studio</id><content type="html" xml:base="https://zerodriven.github.io/ai/2026/06/04/import-custom-model-into-lm-studio.html"><![CDATA[<p>Within LM studio there’s obviously a way to download models natively, however in some instances several models from HuggingFace don’t appear.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://zerodriven.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://zerodriven.github.io/" rel="alternate" type="text/html" /><updated>2026-06-22T08:24:56+01:00</updated><id>https://zerodriven.github.io/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><author><name>Jason Benedetti</name></author><entry><title type="html">Git Delete All Local Branches Except Specific Branch</title><link href="https://zerodriven.github.io/git/2026/06/22/git-delete-all-local-branches-except-specific-branch.html" rel="alternate" type="text/html" title="Git Delete All Local Branches Except Specific Branch" /><published>2026-06-22T00:00:00+01:00</published><updated>2026-06-22T00:00:00+01:00</updated><id>https://zerodriven.github.io/git/2026/06/22/git---delete-all-local-branches-except-specific-branch</id><content type="html" xml:base="https://zerodriven.github.io/git/2026/06/22/git-delete-all-local-branches-except-specific-branch.html"><![CDATA[<p>Scenario:</p>
+
+<p>Unmanageable amount of local git branches and you want to delete all of the local copies. This is specifically for Windows. You can look at all your local git branches with the most basic of git commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch
+</code></pre></div></div>
+
+<p><img src="/assets/20260622075842.png" alt="" /></p>
+
+<p>As you can see, manageable list right? What happens when it becomes:</p>
+
+<p><img src="/assets/20260622080508.png" alt="" /></p>
+
+<p>Or gets even worse? Or longer? Of if you’ve got (Because of sheer laziness) hundreds of unmanaged local branches? Ez. Fix is ez. Assuming you do actually want to delete them all as part of a cleanup</p>
+
+<ol>
+  <li>Open Git Bash</li>
+  <li>CD to relevant directory
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch | <span class="nb">grep</span> <span class="nt">-v</span> BRANCHNAME | xargs git branch <span class="nt">-D</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Hit return (This will return a few more details</li>
+</ol>
+
+<p><img src="/assets/20260622080337.png" alt="" /></p>
+
+<p>Then ta-da, all gone:</p>
+
+<p><img src="/assets/P20260622080758.png" alt="" /></p>]]></content><author><name>Jason Benedetti</name></author><category term="Git" /><summary type="html"><![CDATA[Scenario:]]></summary></entry><entry><title type="html">Import Custom Model Into Lm Studio</title><link href="https://zerodriven.github.io/ai/2026/06/04/import-custom-model-into-lm-studio.html" rel="alternate" type="text/html" title="Import Custom Model Into Lm Studio" /><published>2026-06-04T00:00:00+01:00</published><updated>2026-06-04T00:00:00+01:00</updated><id>https://zerodriven.github.io/ai/2026/06/04/import-custom-model-into-lm-studio</id><content type="html" xml:base="https://zerodriven.github.io/ai/2026/06/04/import-custom-model-into-lm-studio.html"><![CDATA[<p>Within LM studio there’s obviously a way to download models natively, however in some instances several models from HuggingFace don’t appear.</p>
 
 <ol>
   <li>Download model from HuggingFace (Other places exist)</li>
@@ -722,20 +750,4 @@
 
 <p>Lets see where I got up to and hopefully clear this site up.</p>
 
-<p>Am likely going to be purging everything due to not reading the ToS of the sites I learnt against, shouldn’t store passwords it seems..</p>]]></content><author><name>Jason Benedetti</name></author><category term="Testing" /><summary type="html"><![CDATA[This should be fun as it has most certainly been a while.]]></summary></entry><entry><title type="html">Overthewire Leviathan Level 7 To The End</title><link href="https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-7-to-The-End.html" rel="alternate" type="text/html" title="Overthewire Leviathan Level 7 To The End" /><published>2021-04-18T09:20:00+01:00</published><updated>2021-04-18T09:20:00+01:00</updated><id>https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-7-to-The-End</id><content type="html" xml:base="https://zerodriven.github.io/overthewire/leviathan/2021/04/18/OverTheWire-Leviathan-Level-7-to-The-End.html"><![CDATA[<h1 id="leviathan-7">Leviathan 7</h1>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-Username: leviathan7
-Password: redacted
-
-Data for the levels can be found in **the homedirectories**. You can look at **/etc/leviathan\_pass** for the various level passwords.
-</code></pre></div></div>
-
-<h2 id="lets-take-a-look">Lets take a look.</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>leviathan7@leviathan:~<span class="nv">$ </span><span class="nb">ls
-</span>CONGRATULATIONS
-leviathan7@leviathan:~<span class="nv">$ </span><span class="nb">cat </span>CONGRATULATIONS
-Well Done, you seem to have used a <span class="k">*</span>nix system before, now try something more serious.
-<span class="o">(</span>Please don<span class="s1">'t post writeups, solutions or spoilers about the games on the web. Thank you!)
-# Awkward
-</span></code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="OverTheWire" /><category term="Leviathan" /><summary type="html"><![CDATA[Leviathan 7 ```]]></summary></entry></feed>
+<p>Am likely going to be purging everything due to not reading the ToS of the sites I learnt against, shouldn’t store passwords it seems..</p>]]></content><author><name>Jason Benedetti</name></author><category term="Testing" /><summary type="html"><![CDATA[This should be fun as it has most certainly been a while.]]></summary></entry></feed>

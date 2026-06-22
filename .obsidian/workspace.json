@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2026-06-04-import-custom-model-into-lm-studio.md",
-                "mode": "source",
-                "source": false
+                "file": "_posts/2026-06-22-git---delete-all-local-branches-except-specific-branch.md",
+                "mode": "preview",
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "2026-06-04-import-custom-model-into-lm-studio"
+              "title": "2026-06-22-git---delete-all-local-branches-except-specific-branch"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/2026-06-04-import-custom-model-into-lm-studio.md",
+                "file": "_posts/2026-06-22-git---delete-all-local-branches-except-specific-branch.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2026-06-04-import-custom-model-into-lm-studio"
+              "title": "Outline of 2026-06-22-git---delete-all-local-branches-except-specific-branch"
             }
           }
         ],
@@ -172,23 +172,38 @@
   },
   "active": "cbc0c895473f4759",
   "lastOpenFiles": [
+    "_posts/OverTheWire/Natas/2021-04-07-OverTheWire-Natas-Level-9-to-10.md",
+    "_posts/2026-06-22-git---delete-all-local-branches-except-specific-branch.md",
+    "_posts/OverTheWire/Natas/2021-04-07-OverTheWire-Natas-Level-10-to-11.md",
+    "assets/P20260622080758.png",
+    "assets/20260622080337.png",
+    "_site/git/2026/06/22/git-delete-all-local-branches-except-specific-branch.html",
+    "assets/20260622080508.png",
+    "assets/20260622075842.png",
+    "_site/assets/P20260622080758.png",
+    "_site/assets/20260622080508.png",
+    "_site/assets/20260622080337.png",
+    "_site/assets/20260622080124.png",
+    "_site/assets/20260622075842.png",
+    "assets/20260622080124.png",
+    "_posts/OverTheWire/Rabit/2021-04-07-OverTheWire-Bandit-Level-10-to-11.md",
+    "Untitled",
+    "_site/git/2026/06/22/git-delete-all-local-branches-except.html",
+    "_site/git/2026/06/22",
+    "_site/git/2026/06",
+    "2026-06-22.md",
+    "_posts/2026-06-04-trest.md",
+    "_posts/2026-06-04-import-custom-model-into-lm-studio.md",
     "_site/ai/2026/06/04/import-custom-model-into-lm-studio.html",
     "_site/ai/2026/06/04",
     "_site/ai/2026/06",
     "_site/ai/2026",
     "_site/ai",
-    "_site/page14/index.html",
-    "_site/page14",
     "_posts/Dynamics/2013-06-28-SQL-Server-Change-Table-Ownership.md",
-    "_posts/2026-06-04-import-custom-model-into-lm-studio.md",
     "_posts/Dynamics/2016-01-16-Dynamics-CRM-2013-cannot-open-sql-encryption-symmetric-key-because-symmetric-key-password-does-not-exist-in-config-db.md",
     "_posts/Dynamics/2013-06-28-dynamics-crm-2011-delete-waiting-system-jobs.md",
     "_posts/2026-05-22-power-auomate---when-a-new-form-is-submitted---not-triggering.md",
     "_posts/2026-05-26-power-platform---a-practical-governance-framework-part-one.md",
-    "_site/engineering,/automation,/powerautomate/2026/05/23/power-platform-a-practical-governance-framework-part-one.html",
-    "_site/engineering,/automation,/powerautomate/2026/05/23/power-platform-a-practical-governance-framework.html",
-    "_site/engineering,/automation,/powerautomate/2026/05/23",
-    "_site/engineering,/automation,/powerautomate/2026/05",
     "_posts/2026-05-21-azure-guest-account-purging.md",
     "_posts/Me/2026-05-19-CV.md",
     "_posts/2026-05-21-power-automate---parse-html-tables-from-email-via-code.md",
@@ -202,23 +217,7 @@
     "_posts/2026-05-19-Hello.md",
     "Hello.md",
     "_posts/New Thing.md",
-    "_posts/OverTheWire/Jekyllrb/2021-04-01-Install-Jekyll-on-Windows-10-with-Ruby-DevKit-3.0.md",
-    "_posts/OverTheWire/Jekyllrb/2021-04-01-List-of-supported-languages-in-Jekyll's-syntax-highlighting.md",
-    "Git - Revert accidental pushed file from PR.md",
-    "readme.md",
     "Untitled.canvas",
-    "_site/Untitled.canvas",
-    "_posts/Dynamics/2016-01-16-Dynamics-CRM-2013-cannot-open-sql-encryption-symmetric-key-because-symmetric-key-password-does-not-exist-in-config-db 1.md",
-    "2026-05-18.md",
-    "_site/assets/minima-social-icons.svg",
-    "_site/assets/9.png",
-    "_site/assets/8.png",
-    "_site/assets/7.png",
-    "_site/assets/6.png",
-    "_site/assets/5.png",
-    "_site/assets/47.png",
-    "_site/assets/46.png",
-    "_site/assets/45.png",
-    "_site/assets/44.png"
+    "_site/Untitled.canvas"
   ]
 }
