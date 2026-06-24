@@ -3,10 +3,11 @@ layout: single
 date:
 categories:
 classes: wide
-keywords: 
-    - 
-    -
-    -
+keywords:
+  - 
+  - 
+  - 
+title:
 ---
 <%*
 // Pops up an interactive box so you can type the title on creation 

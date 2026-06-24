@@ -1,4 +1,207 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://jasonbenedetti.co.uk/feed.xml" rel="self" type="application/atom+xml" /><link href="https://jasonbenedetti.co.uk/" rel="alternate" type="text/html" /><updated>2026-06-22T08:28:12+01:00</updated><id>https://jasonbenedetti.co.uk/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><author><name>Jason Benedetti</name></author><entry><title type="html">Git Delete All Local Branches Except Specific Branch</title><link href="https://jasonbenedetti.co.uk/git/2026/06/22/git-delete-all-local-branches-except-specific-branch.html" rel="alternate" type="text/html" title="Git Delete All Local Branches Except Specific Branch" /><published>2026-06-22T00:00:00+01:00</published><updated>2026-06-22T00:00:00+01:00</updated><id>https://jasonbenedetti.co.uk/git/2026/06/22/git---delete-all-local-branches-except-specific-branch</id><content type="html" xml:base="https://jasonbenedetti.co.uk/git/2026/06/22/git-delete-all-local-branches-except-specific-branch.html"><![CDATA[<p>Scenario:</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-06-24T08:55:19+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><author><name>Jason Benedetti</name></author><entry><title type="html">Installing Ubuntu, Docker and Portainer via WSL on WIndows 11</title><link href="http://localhost:4000/2026/06/24/installing-docker-and-portainer-through-wsl-via-windows-part-one.html" rel="alternate" type="text/html" title="Installing Ubuntu, Docker and Portainer via WSL on WIndows 11" /><published>2026-06-24T00:00:00+01:00</published><updated>2026-06-24T00:00:00+01:00</updated><id>http://localhost:4000/2026/06/24/installing-docker-and-portainer-through-wsl-via-windows-part-one</id><content type="html" xml:base="http://localhost:4000/2026/06/24/installing-docker-and-portainer-through-wsl-via-windows-part-one.html"><![CDATA[<p>Install WSL</p>
+
+<p>Upgrade to WSL2</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wsl</span><span class="w"> </span><span class="nt">--set-default-version</span><span class="w"> </span><span class="nx">2</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Install Ubuntu</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl <span class="nt">--install</span> <span class="nt">-d</span> Ubuntu
+</code></pre></div></div>
+
+<p>Go through the relevant prompts of setting up your root user, password, and disabling data collation</p>
+
+<p>When you’re at the terminal and everything stops moving, run the following commands to upgrade and update everything, you’ll need to enter your sudo password.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt upgrade
+</code></pre></div></div>
+
+<p>Update everything</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+</code></pre></div></div>
+
+<p>Pro tip: Merge them</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt upgrade <span class="nt">-y</span>
+</code></pre></div></div>
+
+<p>Now we’re onto following Docker’s documentation: <a href="https://docs.docker.com/engine/install/ubuntu/">Install Docker Engine on Ubuntu | Docker Docs</a>
+Set up Dockers’ APT repo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install </span>ca-certificates curl
+</code></pre></div></div>
+
+<p>You may get asked to do the following command at this point, do this after reading what it does.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt autoremove
+</code></pre></div></div>
+
+<p>Continue</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo install</span> <span class="nt">-m</span> 0755 <span class="nt">-d</span> /etc/apt/keyrings
+<span class="nb">sudo </span>curl <span class="nt">-fsSL</span> https://download.docker.com/linux/ubuntu/gpg <span class="nt">-o</span> /etc/apt/keyrings/docker.asc
+<span class="nb">sudo chmod </span>a+r /etc/apt/keyrings/docker.asc
+</code></pre></div></div>
+
+<p><strong>This is where I ran into an issue. THIS BIT IS REALLY IMPORTANT: DON’T DO THIS - IF YOU DO PLEASE READ A BIT FURTHER DOWN AS TO WHY IT BREAKS. THIS IS INTENTIONAL.</strong></p>
+
+<p>Instead of the following</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo tee</span> /etc/apt/sources.list.d/docker.sources <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh">
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: </span><span class="si">$(</span><span class="nb">.</span> /etc/os-release <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"</span><span class="k">${</span><span class="nv">UBUNTU_CODENAME</span><span class="k">:-</span><span class="nv">$VERSION_CODENAME</span><span class="k">}</span><span class="s2">"</span><span class="si">)</span><span class="sh">
+Components: stable
+Architectures: </span><span class="si">$(</span>dpkg <span class="nt">--print-architecture</span><span class="si">)</span><span class="sh">
+Signed-By: /etc/apt/keyrings/docker.asc
+</span><span class="no">EOF
+</span></code></pre></div></div>
+
+<p>I did:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nano /etc/apt/sources.list.d/docker.sources
+</code></pre></div></div>
+
+<p>I then <strong>pasted</strong> in the rest (There is something obviously wrong with doing this.. What could it be)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(. /etc/os-release &amp;&amp; echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+</code></pre></div></div>
+
+<p>Then run</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+</code></pre></div></div>
+
+<p>You will then see this problem:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ign:47 https://download.docker.com/linux/ubuntu <span class="s2">"</span><span class="k">${</span><span class="nv">UBUNTU_CODENAME</span><span class="k">:-</span><span class="nv">$VERSION_CODENAME</span><span class="k">}</span><span class="s2">"</span><span class="o">)</span>/stable <span class="si">$(</span>dpkg Packages
+Ign:48 https://download.docker.com/linux/ubuntu <span class="s2">"</span><span class="k">${</span><span class="nv">UBUNTU_CODENAME</span><span class="k">:-</span><span class="nv">$VERSION_CODENAME</span><span class="k">}</span><span class="s2">"</span><span class="si">)</span>/stable <span class="nt">--print-architecture</span><span class="o">)</span> Packages
+</code></pre></div></div>
+
+<p><strong>This is caused because when you manually copy and pasted the config, the codename and version were not dynamically applied.</strong></p>
+
+<p>To fix it:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo rm</span> /etc/apt/sources.list.d/docker.sources
+</code></pre></div></div>
+
+<p>Enter the following command properly, then hit return, the run the update:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo tee</span> /etc/apt/sources.list.d/docker.sources <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh">
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: </span><span class="si">$(</span><span class="nb">.</span> /etc/os-release <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"</span><span class="k">${</span><span class="nv">UBUNTU_CODENAME</span><span class="k">:-</span><span class="nv">$VERSION_CODENAME</span><span class="k">}</span><span class="s2">"</span><span class="si">)</span><span class="sh">
+Components: stable
+Architectures: </span><span class="si">$(</span>dpkg <span class="nt">--print-architecture</span><span class="si">)</span><span class="sh">
+Signed-By: /etc/apt/keyrings/docker.asc
+</span><span class="no">EOF
+</span></code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jason@Desktop:/etc/apt/sources.list.d<span class="nv">$ </span><span class="nb">sudo tee</span> /etc/apt/sources.list.d/docker.sources <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh">
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: </span><span class="si">$(</span><span class="nb">.</span> /etc/os-release <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"</span><span class="k">${</span><span class="nv">UBUNTU_CODENAME</span><span class="k">:-</span><span class="nv">$VERSION_CODENAME</span><span class="k">}</span><span class="s2">"</span><span class="si">)</span><span class="sh">
+Components: stable
+Architectures: </span><span class="si">$(</span>dpkg <span class="nt">--print-architecture</span><span class="si">)</span><span class="sh">
+Signed-By: /etc/apt/keyrings/docker.asc
+</span><span class="no">EOF
+</span>Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: noble
+Components: stable
+Architectures: amd64
+Signed-By: /etc/apt/keyrings/docker.asc
+jason@Desktop:/etc/apt/sources.list.d<span class="nv">$ </span><span class="nb">sudo </span>apt update
+Hit:1 http://security.ubuntu.com/ubuntu noble-security InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu noble InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu noble-updates InRelease
+Get:4 https://download.docker.com/linux/ubuntu noble InRelease <span class="o">[</span>48.5 kB]
+Hit:5 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+Get:6 https://download.docker.com/linux/ubuntu noble/stable amd64 Packages <span class="o">[</span>58.1 kB]
+Fetched 107 kB <span class="k">in </span>0s <span class="o">(</span>353 kB/s<span class="o">)</span>
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+All packages are up to date.
+</code></pre></div></div>
+
+<p><strong>Now we get to the fun bit of actually installing docker..</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+</code></pre></div></div>
+
+<p>Then verify it’s running:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>systemctl status docker
+ 
+  docker.service - Docker Application Container Engine
+     Loaded: loaded <span class="o">(</span>/usr/lib/systemd/system/docker.service<span class="p">;</span> enabled<span class="p">;</span> preset: enabled<span class="o">)</span>
+     Active: active <span class="o">(</span>running<span class="o">)</span> since Wed 2026-06-24 08:37:23 BST<span class="p">;</span> 3s ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 15964 <span class="o">(</span>dockerd<span class="o">)</span>
+      Tasks: 17
+     Memory: 33.9M <span class="o">(</span>peak: 34.2M<span class="o">)</span>
+        CPU: 445ms
+     CGroup: /system.slice/docker.service
+             └─15964 /usr/bin/dockerd <span class="nt">-H</span> fd:// <span class="nt">--containerd</span><span class="o">=</span>/run/containerd/containerd.sock
+
+Jun 24 08:37:22 Desktop dockerd[15964]: <span class="nb">time</span><span class="o">=</span><span class="s2">"2026-06-24T08:37:22.892439581+01:00"</span> <span class="nv">level</span><span class="o">=</span>info <span class="nv">msg</span><span class="o">=</span><span class="s2">"Restoring containers&gt;
+Jun 24 08:37:22 Desktop dockerd[15964]: time="</span>2026-06-24T08:37:22.927623820+01:00<span class="s2">" level=info msg="</span>Deleting nftables IP&gt;
+Jun 24 08:37:22 Desktop dockerd[15964]: <span class="nb">time</span><span class="o">=</span><span class="s2">"2026-06-24T08:37:22.951663889+01:00"</span> <span class="nv">level</span><span class="o">=</span>info <span class="nv">msg</span><span class="o">=</span><span class="s2">"Deleting nftables IP&gt;
+Jun 24 08:37:23 Desktop dockerd[15964]: time="</span>2026-06-24T08:37:23.181241494+01:00<span class="s2">" level=info msg="</span>Loading containers: <span class="o">&gt;</span>
+Jun 24 08:37:23 Desktop dockerd[15964]: <span class="nb">time</span><span class="o">=</span><span class="s2">"2026-06-24T08:37:23.187944871+01:00"</span> <span class="nv">level</span><span class="o">=</span>info <span class="nv">msg</span><span class="o">=</span><span class="s2">"Docker daemon"</span> commi&gt;
+Jun 24 08:37:23 Desktop dockerd[15964]: <span class="nb">time</span><span class="o">=</span><span class="s2">"2026-06-24T08:37:23.188515510+01:00"</span> <span class="nv">level</span><span class="o">=</span>info <span class="nv">msg</span><span class="o">=</span><span class="s2">"Initializing buildki&gt;
+Jun 24 08:37:23 Desktop dockerd[15964]: time="</span>2026-06-24T08:37:23.333221966+01:00<span class="s2">" level=info msg="</span>Completed buildkit i&gt;
+Jun 24 08:37:23 Desktop dockerd[15964]: <span class="nb">time</span><span class="o">=</span><span class="s2">"2026-06-24T08:37:23.338641637+01:00"</span> <span class="nv">level</span><span class="o">=</span>info <span class="nv">msg</span><span class="o">=</span><span class="s2">"Daemon has completed&gt;
+Jun 24 08:37:23 Desktop dockerd[15964]: time="</span>2026-06-24T08:37:23.338723408+01:00<span class="s2">" level=info msg="</span>API listen on /run/d&gt;
+Jun 24 08:37:23 Desktop systemd[1]: Started docker.service - Docker Application Container Engine.
+</code></pre></div></div>
+
+<p>Now run the hello-world image to make sure everything is running happily!</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jason@Desktop:/etc/apt/sources.list.d<span class="nv">$ </span> <span class="nb">sudo </span>docker run hello-world
+Unable to find image <span class="s1">'hello-world:latest'</span> locally
+latest: Pulling from library/hello-world
+4f55086f7dd0: Pull <span class="nb">complete
+</span>d5e71e642bf5: Download <span class="nb">complete
+</span>Digest: sha256:96498ffd522e70807ab6384a5c0485a79b9c7c08ca79ba08623edcad1054e62d
+Status: Downloaded newer image <span class="k">for </span>hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the <span class="s2">"hello-world"</span> image from the Docker Hub.
+    <span class="o">(</span>amd64<span class="o">)</span>
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ <span class="nv">$ </span>docker run <span class="nt">-it</span> ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+</code></pre></div></div>
+
+<p>There you go. Ubuntu installed via WSL2 on Windows 11, with Docker running.</p>
+
+<p>Next post will be getting portainer running!</p>]]></content><author><name>Jason Benedetti</name></author><summary type="html"><![CDATA[Install WSL]]></summary></entry><entry><title type="html">Git Delete All Local Branches Except Specific Branch</title><link href="http://localhost:4000/git/2026/06/22/git-delete-all-local-branches-except-specific-branch.html" rel="alternate" type="text/html" title="Git Delete All Local Branches Except Specific Branch" /><published>2026-06-22T00:00:00+01:00</published><updated>2026-06-22T00:00:00+01:00</updated><id>http://localhost:4000/git/2026/06/22/git---delete-all-local-branches-except-specific-branch</id><content type="html" xml:base="http://localhost:4000/git/2026/06/22/git-delete-all-local-branches-except-specific-branch.html"><![CDATA[<p>Scenario:</p>
 
 <p>Unmanageable amount of local git branches and you want to delete all of the local copies. This is specifically for Windows. You can look at all your local git branches with the most basic of git commands:</p>
 
@@ -26,7 +229,7 @@
 
 <p>Then ta-da, all gone:</p>
 
-<p><img src="/assets/P20260622080758.png" alt="" /></p>]]></content><author><name>Jason Benedetti</name></author><category term="Git" /><summary type="html"><![CDATA[Scenario:]]></summary></entry><entry><title type="html">Import Custom Model Into Lm Studio</title><link href="https://jasonbenedetti.co.uk/ai/2026/06/04/import-custom-model-into-lm-studio.html" rel="alternate" type="text/html" title="Import Custom Model Into Lm Studio" /><published>2026-06-04T00:00:00+01:00</published><updated>2026-06-04T00:00:00+01:00</updated><id>https://jasonbenedetti.co.uk/ai/2026/06/04/import-custom-model-into-lm-studio</id><content type="html" xml:base="https://jasonbenedetti.co.uk/ai/2026/06/04/import-custom-model-into-lm-studio.html"><![CDATA[<p>Within LM studio there’s obviously a way to download models natively, however in some instances several models from HuggingFace don’t appear.</p>
+<p><img src="/assets/P20260622080758.png" alt="" /></p>]]></content><author><name>Jason Benedetti</name></author><category term="Git" /><summary type="html"><![CDATA[Scenario:]]></summary></entry><entry><title type="html">Import Custom Model Into Lm Studio</title><link href="http://localhost:4000/ai/2026/06/04/import-custom-model-into-lm-studio.html" rel="alternate" type="text/html" title="Import Custom Model Into Lm Studio" /><published>2026-06-04T00:00:00+01:00</published><updated>2026-06-04T00:00:00+01:00</updated><id>http://localhost:4000/ai/2026/06/04/import-custom-model-into-lm-studio</id><content type="html" xml:base="http://localhost:4000/ai/2026/06/04/import-custom-model-into-lm-studio.html"><![CDATA[<p>Within LM studio there’s obviously a way to download models natively, however in some instances several models from HuggingFace don’t appear.</p>
 
 <ol>
   <li>Download model from HuggingFace (Other places exist)</li>
@@ -41,7 +244,7 @@
 <ol>
   <li>Follow the prompts.</li>
   <li>Done.</li>
-</ol>]]></content><author><name>Jason Benedetti</name></author><category term="AI" /><summary type="html"><![CDATA[Within LM studio there’s obviously a way to download models natively, however in some instances several models from HuggingFace don’t appear.]]></summary></entry><entry><title type="html">Power Auomate When A New Form Is Submitted Not Triggering</title><link href="https://jasonbenedetti.co.uk/powerautomate/2026/05/27/power-auomate-when-a-new-form-is-submitted-not-triggering.html" rel="alternate" type="text/html" title="Power Auomate When A New Form Is Submitted Not Triggering" /><published>2026-05-27T00:00:00+01:00</published><updated>2026-05-27T00:00:00+01:00</updated><id>https://jasonbenedetti.co.uk/powerautomate/2026/05/27/power-auomate---when-a-new-form-is-submitted---not-triggering</id><content type="html" xml:base="https://jasonbenedetti.co.uk/powerautomate/2026/05/27/power-auomate-when-a-new-form-is-submitted-not-triggering.html"><![CDATA[<p>Scenario: User set up a Power Automate flow 100% correctly, standard:</p>
+</ol>]]></content><author><name>Jason Benedetti</name></author><category term="AI" /><summary type="html"><![CDATA[Within LM studio there’s obviously a way to download models natively, however in some instances several models from HuggingFace don’t appear.]]></summary></entry><entry><title type="html">Power Auomate When A New Form Is Submitted Not Triggering</title><link href="http://localhost:4000/powerautomate/2026/05/27/power-auomate-when-a-new-form-is-submitted-not-triggering.html" rel="alternate" type="text/html" title="Power Auomate When A New Form Is Submitted Not Triggering" /><published>2026-05-27T00:00:00+01:00</published><updated>2026-05-27T00:00:00+01:00</updated><id>http://localhost:4000/powerautomate/2026/05/27/power-auomate---when-a-new-form-is-submitted---not-triggering</id><content type="html" xml:base="http://localhost:4000/powerautomate/2026/05/27/power-auomate-when-a-new-form-is-submitted-not-triggering.html"><![CDATA[<p>Scenario: User set up a Power Automate flow 100% correctly, standard:</p>
 
 <ul>
   <li>When a new form is submitted</li>
@@ -75,7 +278,7 @@
   <li>Test and save.</li>
 </ol>
 
-<p>Magic. Power Automate is weird sometimes.</p>]]></content><author><name>Jason Benedetti</name></author><category term="PowerAutomate" /><summary type="html"><![CDATA[Scenario: User set up a Power Automate flow 100% correctly, standard:]]></summary></entry><entry><title type="html">Power Platform A Practical Governance Framework Part One</title><link href="https://jasonbenedetti.co.uk/engineering,/automation,/powerautomate/2026/05/26/power-platform-a-practical-governance-framework-part-one.html" rel="alternate" type="text/html" title="Power Platform A Practical Governance Framework Part One" /><published>2026-05-26T00:00:00+01:00</published><updated>2026-05-26T00:00:00+01:00</updated><id>https://jasonbenedetti.co.uk/engineering,/automation,/powerautomate/2026/05/26/power-platform---a-practical-governance-framework-part-one</id><content type="html" xml:base="https://jasonbenedetti.co.uk/engineering,/automation,/powerautomate/2026/05/26/power-platform-a-practical-governance-framework-part-one.html"><![CDATA[<p>Power Automate is fantastic at one thing: making it incredibly easy to build automation quickly.</p>
+<p>Magic. Power Automate is weird sometimes.</p>]]></content><author><name>Jason Benedetti</name></author><category term="PowerAutomate" /><summary type="html"><![CDATA[Scenario: User set up a Power Automate flow 100% correctly, standard:]]></summary></entry><entry><title type="html">Power Platform A Practical Governance Framework Part One</title><link href="http://localhost:4000/engineering,/automation,/powerautomate/2026/05/26/power-platform-a-practical-governance-framework-part-one.html" rel="alternate" type="text/html" title="Power Platform A Practical Governance Framework Part One" /><published>2026-05-26T00:00:00+01:00</published><updated>2026-05-26T00:00:00+01:00</updated><id>http://localhost:4000/engineering,/automation,/powerautomate/2026/05/26/power-platform---a-practical-governance-framework-part-one</id><content type="html" xml:base="http://localhost:4000/engineering,/automation,/powerautomate/2026/05/26/power-platform-a-practical-governance-framework-part-one.html"><![CDATA[<p>Power Automate is fantastic at one thing: making it incredibly easy to build automation quickly.</p>
 
 <p>It’s also fantastic at something else:  creating a mess of inconsistent, fragile, unmaintainable flows at scale. If you’ve been using Power Automate for a while, you’ve probably seen it:</p>
 
@@ -403,7 +606,7 @@
 
 <p>Power Automate is powerful but without structure, it becomes chaos. Governance isn’t about slowing things down. It’s about ensuring what you build today is still understandable, fixable, and maintainable tomorrow. Also, why would we just not do this? Why does Microsoft not just make this the default for all user defined flows?</p>
 
-<p>At the top I said you have to do this for every flow for every environment, always. One of my next blogs will show you how to get around that. Not perfectly, but something is better than nothing</p>]]></content><author><name>Jason Benedetti</name></author><category term="Engineering," /><category term="Automation," /><category term="PowerAutomate" /><summary type="html"><![CDATA[Power Automate is fantastic at one thing: making it incredibly easy to build automation quickly.]]></summary></entry><entry><title type="html">Azure Guest Account Purging</title><link href="https://jasonbenedetti.co.uk/azure,/dotnet/2026/05/22/azure-guest-account-purging.html" rel="alternate" type="text/html" title="Azure Guest Account Purging" /><published>2026-05-22T00:00:00+01:00</published><updated>2026-05-22T00:00:00+01:00</updated><id>https://jasonbenedetti.co.uk/azure,/dotnet/2026/05/22/azure-guest-account-purging</id><content type="html" xml:base="https://jasonbenedetti.co.uk/azure,/dotnet/2026/05/22/azure-guest-account-purging.html"><![CDATA[<p>Scenario: Got several hundred unmanaged guest accounts in Azure and I hate PowerShell. This is not production ready, but it can be converted quite easily to an Azure Function and moved into Azure Automation. Graph permissions are needed.</p>
+<p>At the top I said you have to do this for every flow for every environment, always. One of my next blogs will show you how to get around that. Not perfectly, but something is better than nothing</p>]]></content><author><name>Jason Benedetti</name></author><category term="Engineering," /><category term="Automation," /><category term="PowerAutomate" /><summary type="html"><![CDATA[Power Automate is fantastic at one thing: making it incredibly easy to build automation quickly.]]></summary></entry><entry><title type="html">Azure Guest Account Purging</title><link href="http://localhost:4000/azure,/dotnet/2026/05/22/azure-guest-account-purging.html" rel="alternate" type="text/html" title="Azure Guest Account Purging" /><published>2026-05-22T00:00:00+01:00</published><updated>2026-05-22T00:00:00+01:00</updated><id>http://localhost:4000/azure,/dotnet/2026/05/22/azure-guest-account-purging</id><content type="html" xml:base="http://localhost:4000/azure,/dotnet/2026/05/22/azure-guest-account-purging.html"><![CDATA[<p>Scenario: Got several hundred unmanaged guest accounts in Azure and I hate PowerShell. This is not production ready, but it can be converted quite easily to an Azure Function and moved into Azure Automation. Graph permissions are needed.</p>
 
 <p>Script can be run as part of a solution (Make sure to download the relevant NuGet packages for the relevant imports) and with dotnet run.</p>
 
@@ -474,7 +677,7 @@
 <span class="k">await</span> <span class="n">pageIterator</span><span class="p">.</span><span class="nf">IterateAsync</span><span class="p">();</span>
 
 <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Done."</span><span class="p">);</span>
-</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="Azure," /><category term="DotNet" /><summary type="html"><![CDATA[Scenario: Got several hundred unmanaged guest accounts in Azure and I hate PowerShell. This is not production ready, but it can be converted quite easily to an Azure Function and moved into Azure Automation. Graph permissions are needed.]]></summary></entry><entry><title type="html">Power Automate Parse Html Tables From Email Via Code</title><link href="https://jasonbenedetti.co.uk/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html" rel="alternate" type="text/html" title="Power Automate Parse Html Tables From Email Via Code" /><published>2026-05-21T00:00:00+01:00</published><updated>2026-05-21T00:00:00+01:00</updated><id>https://jasonbenedetti.co.uk/powerautomate/2026/05/21/power-automate---parse-html-tables-from-email-via-code</id><content type="html" xml:base="https://jasonbenedetti.co.uk/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html"><![CDATA[<p>Scenario:</p>
+</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="Azure," /><category term="DotNet" /><summary type="html"><![CDATA[Scenario: Got several hundred unmanaged guest accounts in Azure and I hate PowerShell. This is not production ready, but it can be converted quite easily to an Azure Function and moved into Azure Automation. Graph permissions are needed.]]></summary></entry><entry><title type="html">Power Automate Parse Html Tables From Email Via Code</title><link href="http://localhost:4000/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html" rel="alternate" type="text/html" title="Power Automate Parse Html Tables From Email Via Code" /><published>2026-05-21T00:00:00+01:00</published><updated>2026-05-21T00:00:00+01:00</updated><id>http://localhost:4000/powerautomate/2026/05/21/power-automate---parse-html-tables-from-email-via-code</id><content type="html" xml:base="http://localhost:4000/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html"><![CDATA[<p>Scenario:</p>
 
 <p>Frequently get an email with an embedded HTML table which requires parsing, however the email body technically contains two tables. One being a security banner (Which I didn’t realise was a table) and one being the actual table we want to parse.</p>
 
@@ -612,7 +815,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Then you continue to do stuff with it!</p>]]></content><author><name>Jason Benedetti</name></author><category term="PowerAutomate" /><summary type="html"><![CDATA[Scenario:]]></summary></entry><entry><title type="html">Git Remove Accidental File From Pr</title><link href="https://jasonbenedetti.co.uk/git/2026/05/19/Git-Remove-Accidental-File-From-PR.html" rel="alternate" type="text/html" title="Git Remove Accidental File From Pr" /><published>2026-05-19T08:34:00+01:00</published><updated>2026-05-19T08:34:00+01:00</updated><id>https://jasonbenedetti.co.uk/git/2026/05/19/Git-Remove-Accidental-File-From-PR</id><content type="html" xml:base="https://jasonbenedetti.co.uk/git/2026/05/19/Git-Remove-Accidental-File-From-PR.html"><![CDATA[<p>Scenario: Wrote code, did a PR, got comments and fixed them. Accidentally started work on a different piece of work but committed change to the same codebase as the previous PR</p>
+<p>Then you continue to do stuff with it!</p>]]></content><author><name>Jason Benedetti</name></author><category term="PowerAutomate" /><summary type="html"><![CDATA[Scenario:]]></summary></entry><entry><title type="html">Git Remove Accidental File From Pr</title><link href="http://localhost:4000/git/2026/05/19/Git-Remove-Accidental-File-From-PR.html" rel="alternate" type="text/html" title="Git Remove Accidental File From Pr" /><published>2026-05-19T08:34:00+01:00</published><updated>2026-05-19T08:34:00+01:00</updated><id>http://localhost:4000/git/2026/05/19/Git-Remove-Accidental-File-From-PR</id><content type="html" xml:base="http://localhost:4000/git/2026/05/19/Git-Remove-Accidental-File-From-PR.html"><![CDATA[<p>Scenario: Wrote code, did a PR, got comments and fixed them. Accidentally started work on a different piece of work but committed change to the same codebase as the previous PR</p>
 
 <p>Fix:</p>
 
@@ -627,7 +830,7 @@
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">git</span><span class="w"> </span><span class="nx">checkout</span><span class="w"> </span><span class="nx">HEAD~1</span><span class="w"> </span><span class="nx">\Path\To\File\File.cs</span><span class="w">
 </span></code></pre></div></div>
 
-<p>This reverts the file back to the last known copy before your changes were published.</p>]]></content><author><name>Jason Benedetti</name></author><category term="git" /><summary type="html"><![CDATA[Scenario: Wrote code, did a PR, got comments and fixed them. Accidentally started work on a different piece of work but committed change to the same codebase as the previous PR]]></summary></entry><entry><title type="html">Professional Experience</title><link href="https://jasonbenedetti.co.uk/cv/" rel="alternate" type="text/html" title="Professional Experience" /><published>2026-05-19T00:00:00+01:00</published><updated>2026-05-19T00:00:00+01:00</updated><id>https://jasonbenedetti.co.uk/CV</id><content type="html" xml:base="https://jasonbenedetti.co.uk/cv/"><![CDATA[<h2 id="executive-summary">Executive Summary</h2>
+<p>This reverts the file back to the last known copy before your changes were published.</p>]]></content><author><name>Jason Benedetti</name></author><category term="git" /><summary type="html"><![CDATA[Scenario: Wrote code, did a PR, got comments and fixed them. Accidentally started work on a different piece of work but committed change to the same codebase as the previous PR]]></summary></entry><entry><title type="html">Professional Experience</title><link href="http://localhost:4000/cv/" rel="alternate" type="text/html" title="Professional Experience" /><published>2026-05-19T00:00:00+01:00</published><updated>2026-05-19T00:00:00+01:00</updated><id>http://localhost:4000/CV</id><content type="html" xml:base="http://localhost:4000/cv/"><![CDATA[<h2 id="executive-summary">Executive Summary</h2>
 
 <p>I’m a senior engineering and technology leader with over 12 years of experience designing, delivering, and scaling digital platforms, business systems, and engineering teams across the charity, leisure, retail, and consultancy sectors. My background spans hands-on architecture, software engineering, cloud platforms, systems integration, and technical leadership, with a strong track record of modernising legacy estates, improving delivery performance, and aligning technology strategy with organisational goals.</p>
 
@@ -739,15 +942,11 @@
   <li>MB2-668 Microsoft Dynamics CRM 2011 Applications</li>
   <li>MB2-858 Managing Microsoft Dynamics Implementations</li>
   <li>70-667 TS: Microsoft SharePoint 2010, Configuration</li>
-</ul>]]></content><author><name>Jason Benedetti</name></author><summary type="html"><![CDATA[Executive Summary]]></summary></entry><entry><title type="html">Update</title><link href="https://jasonbenedetti.co.uk/jekyll/2026/05/18/Update.html" rel="alternate" type="text/html" title="Update" /><published>2026-05-18T09:00:00+01:00</published><updated>2026-05-18T09:00:00+01:00</updated><id>https://jasonbenedetti.co.uk/jekyll/2026/05/18/Update</id><content type="html" xml:base="https://jasonbenedetti.co.uk/jekyll/2026/05/18/Update.html"><![CDATA[<p>2026 update!</p>
+</ul>]]></content><author><name>Jason Benedetti</name></author><summary type="html"><![CDATA[Executive Summary]]></summary></entry><entry><title type="html">Update</title><link href="http://localhost:4000/jekyll/2026/05/18/Update.html" rel="alternate" type="text/html" title="Update" /><published>2026-05-18T09:00:00+01:00</published><updated>2026-05-18T09:00:00+01:00</updated><id>http://localhost:4000/jekyll/2026/05/18/Update</id><content type="html" xml:base="http://localhost:4000/jekyll/2026/05/18/Update.html"><![CDATA[<p>2026 update!</p>
 
 <ol>
   <li>New theme</li>
   <li>Added a sidebar with some of my socials</li>
   <li>Removed the annoying about content, to do.</li>
   <li>Pulled SOME old blogs from my old website (Internet Archive woohboo) - Dates are wrong, but who cares. Decade+ old</li>
-</ol>]]></content><author><name>Jason Benedetti</name></author><category term="jekyll" /><summary type="html"><![CDATA[2026 update!]]></summary></entry><entry><title type="html">Update</title><link href="https://jasonbenedetti.co.uk/testing/2024/04/29/Update.html" rel="alternate" type="text/html" title="Update" /><published>2024-04-29T10:00:00+01:00</published><updated>2024-04-29T10:00:00+01:00</updated><id>https://jasonbenedetti.co.uk/testing/2024/04/29/Update</id><content type="html" xml:base="https://jasonbenedetti.co.uk/testing/2024/04/29/Update.html"><![CDATA[<p>This should be fun as it has most certainly been a while.</p>
-
-<p>Lets see where I got up to and hopefully clear this site up.</p>
-
-<p>Am likely going to be purging everything due to not reading the ToS of the sites I learnt against, shouldn’t store passwords it seems..</p>]]></content><author><name>Jason Benedetti</name></author><category term="Testing" /><summary type="html"><![CDATA[This should be fun as it has most certainly been a while.]]></summary></entry></feed>
+</ol>]]></content><author><name>Jason Benedetti</name></author><category term="jekyll" /><summary type="html"><![CDATA[2026 update!]]></summary></entry></feed>
