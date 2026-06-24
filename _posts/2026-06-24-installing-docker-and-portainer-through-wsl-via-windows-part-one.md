@@ -8,11 +8,31 @@ keywords:
   - Docker
   - Ubuntu
   - Windows11
-title: Installing Ubuntu, Docker and Portainer via WSL on WIndows 11
+title: Installing Ubuntu, Docker and Portainer via WSL on WIndows 11 (Part One)
 ---
-Install WSL
+In this series(?) of posts we're going to be running through the installation, setup, and configuration of all the things needed to do to get Portainer running within a container, within Ubuntu, via WSL, from within Windows 11.
 
-Upgrade to WSL2
+Why? Because I'm using Windows 11 and I'm okay with that.
+
+We will only be covering the WSL, Ubuntu, and Docker installation in this part.
+
+# What is Portainer though?
+
+**Portainer** is a lightweight, web-based container management platform used to easily deploy, configure, and troubleshoot containerized applications. It abstracts the complexity of command-line tools and configuration files (like YAML), allowing developers and IT teams to manage Docker, Docker Swarm, and Kubernetes environments through an intuitive Graphical User Interface (GUI). [[1](https://www.portainer.io/), [2](https://github.com/portainer/portainer), [3](https://www.youtube.com/watch?v=1vpsiVkZJ4E)]
+
+# Why Portainer?
+
+Honestly? I don't want to use Docker Desktop (Org is too big) and I've used Portainer for personal things before. There are probably hundreds of real reasons why, but I'm not going to go down that rabbit hole. 
+
+# Lets get started
+
+Install WSL by opening Power$hell as administrator and running:
+
+```powershell
+wsl --install
+```
+
+Upgrade to WSL2 because 2 is a bigger number than 1 and is better (Google it)
 
 ```powershell
 wsl --set-default-version 2

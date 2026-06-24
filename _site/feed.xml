@@ -1,6 +1,164 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-06-24T08:55:19+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><author><name>Jason Benedetti</name></author><entry><title type="html">Installing Ubuntu, Docker and Portainer via WSL on WIndows 11</title><link href="http://localhost:4000/2026/06/24/installing-docker-and-portainer-through-wsl-via-windows-part-one.html" rel="alternate" type="text/html" title="Installing Ubuntu, Docker and Portainer via WSL on WIndows 11" /><published>2026-06-24T00:00:00+01:00</published><updated>2026-06-24T00:00:00+01:00</updated><id>http://localhost:4000/2026/06/24/installing-docker-and-portainer-through-wsl-via-windows-part-one</id><content type="html" xml:base="http://localhost:4000/2026/06/24/installing-docker-and-portainer-through-wsl-via-windows-part-one.html"><![CDATA[<p>Install WSL</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://jasonbenedetti.co.uk/feed.xml" rel="self" type="application/atom+xml" /><link href="https://jasonbenedetti.co.uk/" rel="alternate" type="text/html" /><updated>2026-06-24T10:59:22+01:00</updated><id>https://jasonbenedetti.co.uk/feed.xml</id><title type="html">The world of Jason Benedetti</title><subtitle>Tech stuff</subtitle><author><name>Jason Benedetti</name></author><entry><title type="html">Installing Ubuntu, Docker and Portainer via WSL on WIndows 11 (Part Two)</title><link href="https://jasonbenedetti.co.uk/2026/06/25/installing-docker-and-portainer-through-wsl-via-windows-part-two.html" rel="alternate" type="text/html" title="Installing Ubuntu, Docker and Portainer via WSL on WIndows 11 (Part Two)" /><published>2026-06-25T00:00:00+01:00</published><updated>2026-06-25T00:00:00+01:00</updated><id>https://jasonbenedetti.co.uk/2026/06/25/installing-docker-and-portainer-through-wsl-via-windows-part-two</id><content type="html" xml:base="https://jasonbenedetti.co.uk/2026/06/25/installing-docker-and-portainer-through-wsl-via-windows-part-two.html"><![CDATA[<p>So in the previous post we installed WSL2, installed Ubuntu, and installed Docker. Now it’s time to get Portainer running.</p>
 
-<p>Upgrade to WSL2</p>
+<p>Here’s our reference: [
+<a href="https://docs.portainer.io/start/install-ce/server/docker/linux">Install Portainer CE with Docker on Linux | Portainer Documentation</a></p>
+
+<p>So we now have two options.</p>
+
+<ol>
+  <li>Docker Run (The easy version which is fire and forget)</li>
+  <li>Docker Compose (Which will allow us to store the yaml in code control and keep a history and do loads of fun other things)</li>
+</ol>
+
+<p><strong>We’re going to do both. Easy one first.</strong></p>
+
+<h1 id="easy-one"><strong>Easy one</strong></h1>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker volume create portainer_data
+
+jason@Desktop:/<span class="nv">$ </span>docker volume create portainer_data
+portainer_data
+</code></pre></div></div>
+
+<p>Run the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:lts
+
+Unable to find image 'portainer/portainer-ce:lts' locally
+lts: Pulling from portainer/portainer-ce
+62f9236e8b75: Pull complete
+f31c7ae835a2: Pull complete
+bdb478fcea5e: Pull complete
+1ffd82f0f9ca: Pull complete
+4f4fb700ef54: Pull complete
+359cf24061dd: Pull complete
+8c18fb05a80b: Pull complete
+078618dfa08e: Pull complete
+ca2b53202e73: Download complete
+64deb36925ab: Download complete
+Digest: sha256:d27f76194b719bfe2a34779d51798a7adf02510cfba69ebcb538267f75aa4f47
+Status: Downloaded newer image for portainer/portainer-ce:lts
+aeeb0e1ae445a28f411f21f2099b375c679334d66516704559eaf6856f9362d9
+</code></pre></div></div>
+
+<p>Then validate it installed with:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker ps
+
+jason@Desktop:/<span class="nv">$ </span>docker ps
+CONTAINER ID   IMAGE                        COMMAND        CREATED          STATUS          PORTS                                                                                                NAMES
+aeeb0e1ae445   portainer/portainer-ce:lts   <span class="s2">"/portainer"</span>   18 seconds ago   Up 17 seconds   0.0.0.0:8000-&gt;8000/tcp, <span class="o">[</span>::]:8000-&gt;8000/tcp, 0.0.0.0:9443-&gt;9443/tcp, <span class="o">[</span>::]:9443-&gt;9443/tcp, 9000/tcp   portainer
+</code></pre></div></div>
+
+<p>Awesome. Done.</p>
+
+<h1 id="the-less-easy-one">The less easy one</h1>
+
+<p>We have the option of downloading a pre-defined docker compose file or by manually creating one - We’re just going to create it here (For the content…).</p>
+
+<p>All compose.yaml does is define a set of instructions for docker to follow when you build it, it’s very picky regarding spacing and the details are important.</p>
+
+<p>(Note: I tried doing this in VIM but then I couldn’t figure out VIM.. So Nano it is…)</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jason@Desktop:/<span class="nv">$ </span><span class="nb">sudo </span>nano portainer-compose.yaml
+</code></pre></div></div>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">services</span><span class="pi">:</span>
+  <span class="na">portainer</span><span class="pi">:</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">portainer</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">portainer/portainer-ce:lts</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">always</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">/var/run/docker.sock:/var/run/docker.sock</span>
+      <span class="pi">-</span> <span class="s">portainer_data:/data</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">9443:9443</span>
+
+  <span class="na">volumes</span><span class="pi">:</span>
+    <span class="na">portainer_data</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">portainer_data</span>
+
+  <span class="na">networks</span><span class="pi">:</span>
+    <span class="na">defaults</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">portainer_network</span>
+</code></pre></div></div>
+
+<p>Save it. (Also feel free to use a YAML validator.. )</p>
+
+<p>Run the following:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker compose <span class="nt">-f</span> portainer-compose.yaml up <span class="nt">-d</span>
+</code></pre></div></div>
+
+<p>Then you see this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jason@Desktop:~# docker ps
+CONTAINER ID   IMAGE                        COMMAND        CREATED         STATUS         PORTS                                                                                                NAMES
+7963585688a9   portainer/portainer-ce:lts   "/portainer"   8 seconds ago   Up 8 seconds   0.0.0.0:8000-&gt;8000/tcp, [::]:8000-&gt;8000/tcp, 0.0.0.0:9443-&gt;9443/tcp, [::]:9443-&gt;9443/tcp, 9000/tcp   portainer
+</code></pre></div></div>
+
+<p>So, why do this? Simple: Github, Azure DevOps, Version Control, CI/CD pipelines. The lot.</p>
+<h1 id="the-interface-both-lead-here">The interface (Both lead here..)</h1>
+
+<p>Now lets log in. Open a browser and go to the following url: https://localhost:9443/</p>
+
+<p>(Note: The port can be changed to whatever you wish that’s not in use, look at the 2nd -p switch in the docker run command.)</p>
+
+<p><img src="/assets/p1.png" alt="" /></p>
+
+<p>Create a 12 character password, hit create user and bob is most certainly your uncle.</p>
+
+<p><img src="/assets/p2.png" alt="" /></p>
+
+<p>So… Now we’re installed, what does this mean? Well, we can now look at all containers running in our environment. Click the “Get Started” button and go from there:</p>
+
+<p><img src="/assets/p3.png" alt="" /></p>
+
+<p>Click into your local, the first and only one!) and now you can see, manage, tweak, generally break the following:</p>
+
+<ul>
+  <li>Stacks (Below)</li>
+  <li>Images</li>
+  <li>Networks</li>
+  <li>Containers</li>
+  <li>Volumes</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A stack is a collection of services, usually related to one application or usage. For example, a WordPress stack definition may include a web server container (such as nginx) and a database container (such as MySQL).
+</code></pre></div></div>
+<p><a href="https://docs.portainer.io/user/docker/stacks">Stacks | Portainer Documentation</a></p>
+
+<p><img src="/assets/p4.png" alt="" /></p>
+
+<p>So that’s that.</p>
+
+<p>WSL installed.
+Ubuntu installed.
+Docker installed.
+Portainer installed.</p>
+
+<p>What’s next? Probably a continuation of this where we install MySQL and SonarQube (Or maybe containerise an existing app.. Who knows how I’ll feel when I write the next one)</p>]]></content><author><name>Jason Benedetti</name></author><summary type="html"><![CDATA[So in the previous post we installed WSL2, installed Ubuntu, and installed Docker. Now it’s time to get Portainer running.]]></summary></entry><entry><title type="html">Installing Ubuntu, Docker and Portainer via WSL on WIndows 11 (Part One)</title><link href="https://jasonbenedetti.co.uk/2026/06/24/installing-docker-and-portainer-through-wsl-via-windows-part-one.html" rel="alternate" type="text/html" title="Installing Ubuntu, Docker and Portainer via WSL on WIndows 11 (Part One)" /><published>2026-06-24T00:00:00+01:00</published><updated>2026-06-24T00:00:00+01:00</updated><id>https://jasonbenedetti.co.uk/2026/06/24/installing-docker-and-portainer-through-wsl-via-windows-part-one</id><content type="html" xml:base="https://jasonbenedetti.co.uk/2026/06/24/installing-docker-and-portainer-through-wsl-via-windows-part-one.html"><![CDATA[<p>In this series(?) of posts we’re going to be running through the installation, setup, and configuration of all the things needed to do to get Portainer running within a container, within Ubuntu, via WSL, from within Windows 11.</p>
+
+<p>Why? Because I’m using Windows 11 and I’m okay with that.</p>
+
+<p>We will only be covering the WSL, Ubuntu, and Docker installation in this part.</p>
+
+<h1 id="what-is-portainer-though">What is Portainer though?</h1>
+
+<p><strong>Portainer</strong> is a lightweight, web-based container management platform used to easily deploy, configure, and troubleshoot containerized applications. It abstracts the complexity of command-line tools and configuration files (like YAML), allowing developers and IT teams to manage Docker, Docker Swarm, and Kubernetes environments through an intuitive Graphical User Interface (GUI). [<a href="https://www.portainer.io/">1</a>, <a href="https://github.com/portainer/portainer">2</a>, <a href="https://www.youtube.com/watch?v=1vpsiVkZJ4E">3</a>]</p>
+
+<h1 id="why-portainer">Why Portainer?</h1>
+
+<p>Honestly? I don’t want to use Docker Desktop (Org is too big) and I’ve used Portainer for personal things before. There are probably hundreds of real reasons why, but I’m not going to go down that rabbit hole.</p>
+
+<h1 id="lets-get-started">Lets get started</h1>
+
+<p>Install WSL by opening Power$hell as administrator and running:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wsl</span><span class="w"> </span><span class="nt">--install</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Upgrade to WSL2 because 2 is a bigger number than 1 and is better (Google it)</p>
 
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wsl</span><span class="w"> </span><span class="nt">--set-default-version</span><span class="w"> </span><span class="nx">2</span><span class="w">
 </span></code></pre></div></div>
@@ -201,7 +359,7 @@ For more examples and ideas, visit:
 
 <p>There you go. Ubuntu installed via WSL2 on Windows 11, with Docker running.</p>
 
-<p>Next post will be getting portainer running!</p>]]></content><author><name>Jason Benedetti</name></author><summary type="html"><![CDATA[Install WSL]]></summary></entry><entry><title type="html">Git Delete All Local Branches Except Specific Branch</title><link href="http://localhost:4000/git/2026/06/22/git-delete-all-local-branches-except-specific-branch.html" rel="alternate" type="text/html" title="Git Delete All Local Branches Except Specific Branch" /><published>2026-06-22T00:00:00+01:00</published><updated>2026-06-22T00:00:00+01:00</updated><id>http://localhost:4000/git/2026/06/22/git---delete-all-local-branches-except-specific-branch</id><content type="html" xml:base="http://localhost:4000/git/2026/06/22/git-delete-all-local-branches-except-specific-branch.html"><![CDATA[<p>Scenario:</p>
+<p>Next post will be getting portainer running!</p>]]></content><author><name>Jason Benedetti</name></author><summary type="html"><![CDATA[In this series(?) of posts we’re going to be running through the installation, setup, and configuration of all the things needed to do to get Portainer running within a container, within Ubuntu, via WSL, from within Windows 11.]]></summary></entry><entry><title type="html">Git Delete All Local Branches Except Specific Branch</title><link href="https://jasonbenedetti.co.uk/git/2026/06/22/git-delete-all-local-branches-except-specific-branch.html" rel="alternate" type="text/html" title="Git Delete All Local Branches Except Specific Branch" /><published>2026-06-22T00:00:00+01:00</published><updated>2026-06-22T00:00:00+01:00</updated><id>https://jasonbenedetti.co.uk/git/2026/06/22/git---delete-all-local-branches-except-specific-branch</id><content type="html" xml:base="https://jasonbenedetti.co.uk/git/2026/06/22/git-delete-all-local-branches-except-specific-branch.html"><![CDATA[<p>Scenario:</p>
 
 <p>Unmanageable amount of local git branches and you want to delete all of the local copies. This is specifically for Windows. You can look at all your local git branches with the most basic of git commands:</p>
 
@@ -229,7 +387,7 @@ For more examples and ideas, visit:
 
 <p>Then ta-da, all gone:</p>
 
-<p><img src="/assets/P20260622080758.png" alt="" /></p>]]></content><author><name>Jason Benedetti</name></author><category term="Git" /><summary type="html"><![CDATA[Scenario:]]></summary></entry><entry><title type="html">Import Custom Model Into Lm Studio</title><link href="http://localhost:4000/ai/2026/06/04/import-custom-model-into-lm-studio.html" rel="alternate" type="text/html" title="Import Custom Model Into Lm Studio" /><published>2026-06-04T00:00:00+01:00</published><updated>2026-06-04T00:00:00+01:00</updated><id>http://localhost:4000/ai/2026/06/04/import-custom-model-into-lm-studio</id><content type="html" xml:base="http://localhost:4000/ai/2026/06/04/import-custom-model-into-lm-studio.html"><![CDATA[<p>Within LM studio there’s obviously a way to download models natively, however in some instances several models from HuggingFace don’t appear.</p>
+<p><img src="/assets/P20260622080758.png" alt="" /></p>]]></content><author><name>Jason Benedetti</name></author><category term="Git" /><summary type="html"><![CDATA[Scenario:]]></summary></entry><entry><title type="html">Import Custom Model Into Lm Studio</title><link href="https://jasonbenedetti.co.uk/ai/2026/06/04/import-custom-model-into-lm-studio.html" rel="alternate" type="text/html" title="Import Custom Model Into Lm Studio" /><published>2026-06-04T00:00:00+01:00</published><updated>2026-06-04T00:00:00+01:00</updated><id>https://jasonbenedetti.co.uk/ai/2026/06/04/import-custom-model-into-lm-studio</id><content type="html" xml:base="https://jasonbenedetti.co.uk/ai/2026/06/04/import-custom-model-into-lm-studio.html"><![CDATA[<p>Within LM studio there’s obviously a way to download models natively, however in some instances several models from HuggingFace don’t appear.</p>
 
 <ol>
   <li>Download model from HuggingFace (Other places exist)</li>
@@ -244,7 +402,7 @@ For more examples and ideas, visit:
 <ol>
   <li>Follow the prompts.</li>
   <li>Done.</li>
-</ol>]]></content><author><name>Jason Benedetti</name></author><category term="AI" /><summary type="html"><![CDATA[Within LM studio there’s obviously a way to download models natively, however in some instances several models from HuggingFace don’t appear.]]></summary></entry><entry><title type="html">Power Auomate When A New Form Is Submitted Not Triggering</title><link href="http://localhost:4000/powerautomate/2026/05/27/power-auomate-when-a-new-form-is-submitted-not-triggering.html" rel="alternate" type="text/html" title="Power Auomate When A New Form Is Submitted Not Triggering" /><published>2026-05-27T00:00:00+01:00</published><updated>2026-05-27T00:00:00+01:00</updated><id>http://localhost:4000/powerautomate/2026/05/27/power-auomate---when-a-new-form-is-submitted---not-triggering</id><content type="html" xml:base="http://localhost:4000/powerautomate/2026/05/27/power-auomate-when-a-new-form-is-submitted-not-triggering.html"><![CDATA[<p>Scenario: User set up a Power Automate flow 100% correctly, standard:</p>
+</ol>]]></content><author><name>Jason Benedetti</name></author><category term="AI" /><summary type="html"><![CDATA[Within LM studio there’s obviously a way to download models natively, however in some instances several models from HuggingFace don’t appear.]]></summary></entry><entry><title type="html">Power Auomate When A New Form Is Submitted Not Triggering</title><link href="https://jasonbenedetti.co.uk/powerautomate/2026/05/27/power-auomate-when-a-new-form-is-submitted-not-triggering.html" rel="alternate" type="text/html" title="Power Auomate When A New Form Is Submitted Not Triggering" /><published>2026-05-27T00:00:00+01:00</published><updated>2026-05-27T00:00:00+01:00</updated><id>https://jasonbenedetti.co.uk/powerautomate/2026/05/27/power-auomate---when-a-new-form-is-submitted---not-triggering</id><content type="html" xml:base="https://jasonbenedetti.co.uk/powerautomate/2026/05/27/power-auomate-when-a-new-form-is-submitted-not-triggering.html"><![CDATA[<p>Scenario: User set up a Power Automate flow 100% correctly, standard:</p>
 
 <ul>
   <li>When a new form is submitted</li>
@@ -278,7 +436,7 @@ For more examples and ideas, visit:
   <li>Test and save.</li>
 </ol>
 
-<p>Magic. Power Automate is weird sometimes.</p>]]></content><author><name>Jason Benedetti</name></author><category term="PowerAutomate" /><summary type="html"><![CDATA[Scenario: User set up a Power Automate flow 100% correctly, standard:]]></summary></entry><entry><title type="html">Power Platform A Practical Governance Framework Part One</title><link href="http://localhost:4000/engineering,/automation,/powerautomate/2026/05/26/power-platform-a-practical-governance-framework-part-one.html" rel="alternate" type="text/html" title="Power Platform A Practical Governance Framework Part One" /><published>2026-05-26T00:00:00+01:00</published><updated>2026-05-26T00:00:00+01:00</updated><id>http://localhost:4000/engineering,/automation,/powerautomate/2026/05/26/power-platform---a-practical-governance-framework-part-one</id><content type="html" xml:base="http://localhost:4000/engineering,/automation,/powerautomate/2026/05/26/power-platform-a-practical-governance-framework-part-one.html"><![CDATA[<p>Power Automate is fantastic at one thing: making it incredibly easy to build automation quickly.</p>
+<p>Magic. Power Automate is weird sometimes.</p>]]></content><author><name>Jason Benedetti</name></author><category term="PowerAutomate" /><summary type="html"><![CDATA[Scenario: User set up a Power Automate flow 100% correctly, standard:]]></summary></entry><entry><title type="html">Power Platform A Practical Governance Framework Part One</title><link href="https://jasonbenedetti.co.uk/engineering,/automation,/powerautomate/2026/05/26/power-platform-a-practical-governance-framework-part-one.html" rel="alternate" type="text/html" title="Power Platform A Practical Governance Framework Part One" /><published>2026-05-26T00:00:00+01:00</published><updated>2026-05-26T00:00:00+01:00</updated><id>https://jasonbenedetti.co.uk/engineering,/automation,/powerautomate/2026/05/26/power-platform---a-practical-governance-framework-part-one</id><content type="html" xml:base="https://jasonbenedetti.co.uk/engineering,/automation,/powerautomate/2026/05/26/power-platform-a-practical-governance-framework-part-one.html"><![CDATA[<p>Power Automate is fantastic at one thing: making it incredibly easy to build automation quickly.</p>
 
 <p>It’s also fantastic at something else:  creating a mess of inconsistent, fragile, unmaintainable flows at scale. If you’ve been using Power Automate for a while, you’ve probably seen it:</p>
 
@@ -606,7 +764,7 @@ For more examples and ideas, visit:
 
 <p>Power Automate is powerful but without structure, it becomes chaos. Governance isn’t about slowing things down. It’s about ensuring what you build today is still understandable, fixable, and maintainable tomorrow. Also, why would we just not do this? Why does Microsoft not just make this the default for all user defined flows?</p>
 
-<p>At the top I said you have to do this for every flow for every environment, always. One of my next blogs will show you how to get around that. Not perfectly, but something is better than nothing</p>]]></content><author><name>Jason Benedetti</name></author><category term="Engineering," /><category term="Automation," /><category term="PowerAutomate" /><summary type="html"><![CDATA[Power Automate is fantastic at one thing: making it incredibly easy to build automation quickly.]]></summary></entry><entry><title type="html">Azure Guest Account Purging</title><link href="http://localhost:4000/azure,/dotnet/2026/05/22/azure-guest-account-purging.html" rel="alternate" type="text/html" title="Azure Guest Account Purging" /><published>2026-05-22T00:00:00+01:00</published><updated>2026-05-22T00:00:00+01:00</updated><id>http://localhost:4000/azure,/dotnet/2026/05/22/azure-guest-account-purging</id><content type="html" xml:base="http://localhost:4000/azure,/dotnet/2026/05/22/azure-guest-account-purging.html"><![CDATA[<p>Scenario: Got several hundred unmanaged guest accounts in Azure and I hate PowerShell. This is not production ready, but it can be converted quite easily to an Azure Function and moved into Azure Automation. Graph permissions are needed.</p>
+<p>At the top I said you have to do this for every flow for every environment, always. One of my next blogs will show you how to get around that. Not perfectly, but something is better than nothing</p>]]></content><author><name>Jason Benedetti</name></author><category term="Engineering," /><category term="Automation," /><category term="PowerAutomate" /><summary type="html"><![CDATA[Power Automate is fantastic at one thing: making it incredibly easy to build automation quickly.]]></summary></entry><entry><title type="html">Azure Guest Account Purging</title><link href="https://jasonbenedetti.co.uk/azure,/dotnet/2026/05/22/azure-guest-account-purging.html" rel="alternate" type="text/html" title="Azure Guest Account Purging" /><published>2026-05-22T00:00:00+01:00</published><updated>2026-05-22T00:00:00+01:00</updated><id>https://jasonbenedetti.co.uk/azure,/dotnet/2026/05/22/azure-guest-account-purging</id><content type="html" xml:base="https://jasonbenedetti.co.uk/azure,/dotnet/2026/05/22/azure-guest-account-purging.html"><![CDATA[<p>Scenario: Got several hundred unmanaged guest accounts in Azure and I hate PowerShell. This is not production ready, but it can be converted quite easily to an Azure Function and moved into Azure Automation. Graph permissions are needed.</p>
 
 <p>Script can be run as part of a solution (Make sure to download the relevant NuGet packages for the relevant imports) and with dotnet run.</p>
 
@@ -677,7 +835,7 @@ For more examples and ideas, visit:
 <span class="k">await</span> <span class="n">pageIterator</span><span class="p">.</span><span class="nf">IterateAsync</span><span class="p">();</span>
 
 <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Done."</span><span class="p">);</span>
-</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="Azure," /><category term="DotNet" /><summary type="html"><![CDATA[Scenario: Got several hundred unmanaged guest accounts in Azure and I hate PowerShell. This is not production ready, but it can be converted quite easily to an Azure Function and moved into Azure Automation. Graph permissions are needed.]]></summary></entry><entry><title type="html">Power Automate Parse Html Tables From Email Via Code</title><link href="http://localhost:4000/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html" rel="alternate" type="text/html" title="Power Automate Parse Html Tables From Email Via Code" /><published>2026-05-21T00:00:00+01:00</published><updated>2026-05-21T00:00:00+01:00</updated><id>http://localhost:4000/powerautomate/2026/05/21/power-automate---parse-html-tables-from-email-via-code</id><content type="html" xml:base="http://localhost:4000/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html"><![CDATA[<p>Scenario:</p>
+</code></pre></div></div>]]></content><author><name>Jason Benedetti</name></author><category term="Azure," /><category term="DotNet" /><summary type="html"><![CDATA[Scenario: Got several hundred unmanaged guest accounts in Azure and I hate PowerShell. This is not production ready, but it can be converted quite easily to an Azure Function and moved into Azure Automation. Graph permissions are needed.]]></summary></entry><entry><title type="html">Power Automate Parse Html Tables From Email Via Code</title><link href="https://jasonbenedetti.co.uk/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html" rel="alternate" type="text/html" title="Power Automate Parse Html Tables From Email Via Code" /><published>2026-05-21T00:00:00+01:00</published><updated>2026-05-21T00:00:00+01:00</updated><id>https://jasonbenedetti.co.uk/powerautomate/2026/05/21/power-automate---parse-html-tables-from-email-via-code</id><content type="html" xml:base="https://jasonbenedetti.co.uk/powerautomate/2026/05/21/power-automate-parse-html-tables-from-email-via-code.html"><![CDATA[<p>Scenario:</p>
 
 <p>Frequently get an email with an embedded HTML table which requires parsing, however the email body technically contains two tables. One being a security banner (Which I didn’t realise was a table) and one being the actual table we want to parse.</p>
 
@@ -815,7 +973,7 @@ For more examples and ideas, visit:
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Then you continue to do stuff with it!</p>]]></content><author><name>Jason Benedetti</name></author><category term="PowerAutomate" /><summary type="html"><![CDATA[Scenario:]]></summary></entry><entry><title type="html">Git Remove Accidental File From Pr</title><link href="http://localhost:4000/git/2026/05/19/Git-Remove-Accidental-File-From-PR.html" rel="alternate" type="text/html" title="Git Remove Accidental File From Pr" /><published>2026-05-19T08:34:00+01:00</published><updated>2026-05-19T08:34:00+01:00</updated><id>http://localhost:4000/git/2026/05/19/Git-Remove-Accidental-File-From-PR</id><content type="html" xml:base="http://localhost:4000/git/2026/05/19/Git-Remove-Accidental-File-From-PR.html"><![CDATA[<p>Scenario: Wrote code, did a PR, got comments and fixed them. Accidentally started work on a different piece of work but committed change to the same codebase as the previous PR</p>
+<p>Then you continue to do stuff with it!</p>]]></content><author><name>Jason Benedetti</name></author><category term="PowerAutomate" /><summary type="html"><![CDATA[Scenario:]]></summary></entry><entry><title type="html">Git Remove Accidental File From Pr</title><link href="https://jasonbenedetti.co.uk/git/2026/05/19/Git-Remove-Accidental-File-From-PR.html" rel="alternate" type="text/html" title="Git Remove Accidental File From Pr" /><published>2026-05-19T08:34:00+01:00</published><updated>2026-05-19T08:34:00+01:00</updated><id>https://jasonbenedetti.co.uk/git/2026/05/19/Git-Remove-Accidental-File-From-PR</id><content type="html" xml:base="https://jasonbenedetti.co.uk/git/2026/05/19/Git-Remove-Accidental-File-From-PR.html"><![CDATA[<p>Scenario: Wrote code, did a PR, got comments and fixed them. Accidentally started work on a different piece of work but committed change to the same codebase as the previous PR</p>
 
 <p>Fix:</p>
 
@@ -830,7 +988,7 @@ For more examples and ideas, visit:
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">git</span><span class="w"> </span><span class="nx">checkout</span><span class="w"> </span><span class="nx">HEAD~1</span><span class="w"> </span><span class="nx">\Path\To\File\File.cs</span><span class="w">
 </span></code></pre></div></div>
 
-<p>This reverts the file back to the last known copy before your changes were published.</p>]]></content><author><name>Jason Benedetti</name></author><category term="git" /><summary type="html"><![CDATA[Scenario: Wrote code, did a PR, got comments and fixed them. Accidentally started work on a different piece of work but committed change to the same codebase as the previous PR]]></summary></entry><entry><title type="html">Professional Experience</title><link href="http://localhost:4000/cv/" rel="alternate" type="text/html" title="Professional Experience" /><published>2026-05-19T00:00:00+01:00</published><updated>2026-05-19T00:00:00+01:00</updated><id>http://localhost:4000/CV</id><content type="html" xml:base="http://localhost:4000/cv/"><![CDATA[<h2 id="executive-summary">Executive Summary</h2>
+<p>This reverts the file back to the last known copy before your changes were published.</p>]]></content><author><name>Jason Benedetti</name></author><category term="git" /><summary type="html"><![CDATA[Scenario: Wrote code, did a PR, got comments and fixed them. Accidentally started work on a different piece of work but committed change to the same codebase as the previous PR]]></summary></entry><entry><title type="html">Professional Experience</title><link href="https://jasonbenedetti.co.uk/cv/" rel="alternate" type="text/html" title="Professional Experience" /><published>2026-05-19T00:00:00+01:00</published><updated>2026-05-19T00:00:00+01:00</updated><id>https://jasonbenedetti.co.uk/CV</id><content type="html" xml:base="https://jasonbenedetti.co.uk/cv/"><![CDATA[<h2 id="executive-summary">Executive Summary</h2>
 
 <p>I’m a senior engineering and technology leader with over 12 years of experience designing, delivering, and scaling digital platforms, business systems, and engineering teams across the charity, leisure, retail, and consultancy sectors. My background spans hands-on architecture, software engineering, cloud platforms, systems integration, and technical leadership, with a strong track record of modernising legacy estates, improving delivery performance, and aligning technology strategy with organisational goals.</p>
 
@@ -942,11 +1100,4 @@ For more examples and ideas, visit:
   <li>MB2-668 Microsoft Dynamics CRM 2011 Applications</li>
   <li>MB2-858 Managing Microsoft Dynamics Implementations</li>
   <li>70-667 TS: Microsoft SharePoint 2010, Configuration</li>
-</ul>]]></content><author><name>Jason Benedetti</name></author><summary type="html"><![CDATA[Executive Summary]]></summary></entry><entry><title type="html">Update</title><link href="http://localhost:4000/jekyll/2026/05/18/Update.html" rel="alternate" type="text/html" title="Update" /><published>2026-05-18T09:00:00+01:00</published><updated>2026-05-18T09:00:00+01:00</updated><id>http://localhost:4000/jekyll/2026/05/18/Update</id><content type="html" xml:base="http://localhost:4000/jekyll/2026/05/18/Update.html"><![CDATA[<p>2026 update!</p>
-
-<ol>
-  <li>New theme</li>
-  <li>Added a sidebar with some of my socials</li>
-  <li>Removed the annoying about content, to do.</li>
-  <li>Pulled SOME old blogs from my old website (Internet Archive woohboo) - Dates are wrong, but who cares. Decade+ old</li>
-</ol>]]></content><author><name>Jason Benedetti</name></author><category term="jekyll" /><summary type="html"><![CDATA[2026 update!]]></summary></entry></feed>
+</ul>]]></content><author><name>Jason Benedetti</name></author><summary type="html"><![CDATA[Executive Summary]]></summary></entry></feed>
