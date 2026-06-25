@@ -121,6 +121,32 @@ Now lets log in. Open a browser and go to the following url: https://localhost:9
 
 (Note: The port can be changed to whatever you wish that's not in use, look at the 2nd -p switch in the docker run command.)
 
+## UPDATE
+You may get asked for a setup key when you go to the interface the first time for setup
+
+```bash
+sudo docker logs portainer
+
+Jason@Desktop$: sudo docker logs portainer
+2026/06/25 01:15PM INF github.com/portainer/portainer/api/cmd/portainer/main.go:358 > encryption key file not present | filename=/run/secrets/portainer
+2026/06/25 01:15PM INF github.com/portainer/portainer/api/cmd/portainer/main.go:398 > proceeding without encryption key |
+2026/06/25 01:15PM INF github.com/portainer/portainer/api/database/boltdb/db.go:137 > loading PortainerDB | filename=portainer.db
+2026/06/25 01:15PM INF github.com/portainer/portainer/api/internal/ssl/ssl.go:79 > no cert files found, generating self signed SSL certificates |
+2026/06/25 01:15PM INF github.com/portainer/portainer/api/cmd/portainer/main.go:256 > no administrator account configured; admin initialization and backup restore require this setup token in the X-Setup-Token header. Start with --no-setup-token to disable. | setup_token=12345abvd
+2026/06/25 01:15PM INF github.com/portainer/portainer/api/chisel/service.go:226 > generated a new Chisel private key file | private-key=/data/chisel/private-key.pem
+2026/06/25 13:15:07 server: Reverse tunnelling enabled
+2026/06/25 13:15:07 server: Fingerprint [redacted]=
+2026/06/25 13:15:07 server: Listening on http://0.0.0.0:8000
+2026/06/25 01:15PM INF github.com/portainer/portainer/api/cmd/portainer/main.go:678 > starting Portainer | build_number=28 go_version=go1.25.11 image_tag=2.39.4-linux-amd64 nodejs_version=v22.22.3 pnpm_version=10.27.0 version=2.39.4 webpack_version=5.105.0
+2026/06/25 01:15PM INF github.com/portainer/portainer/api/http/server.go:371 > starting HTTPS server | bind_address=:9443
+2026/06/25 01:15PM INF github.com/portainer/portainer/api/http/server.go:355 > starting HTTP server | bind_address=:9000
+```
+
+You need to copy the key from the setup_token:
+
+```
+setup_token=12345abvd
+```
 
 
 ![](/assets/p1.png)
